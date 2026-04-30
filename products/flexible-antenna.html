@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexible Antenna — Avartanam Test Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/service-page.css">
+  <link rel="stylesheet" href="../atl-merged.css">
+  <link rel="stylesheet" href="../css/responsive-fix.css">
+  <script>
+    window.__PAGE_IMAGE_SLIDES = [
+      { src: "../images/products/flexible-case-study-2.png", alt: "Custom Antenna Design Expertise – Case Study" },
+      { src: "../images/products/flexible-pcb-layout.png",   alt: "Flexible Antenna – PCB Layout" }
+    ];
+    window.__PAGE_VIDEO_EMBED = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+  </script>
+<style>html,body{margin:0!important;}</style>
+<style>
+html,body{margin:0!important;}
+
+/* ── Profile Brochure Dropdown ── */
+.atl-brochure-dropdown { position: relative; }
+.atl-brochure-btn {
+  cursor: pointer; border: none; gap: .25rem;
+  display: inline-flex; align-items: center;
+  position: relative; overflow: hidden;
+  transition: background .25s cubic-bezier(.4,0,.2,1),
+              box-shadow .25s cubic-bezier(.4,0,.2,1),
+              transform .2s cubic-bezier(.34,1.56,.64,1),
+              letter-spacing .2s ease;
+}
+.atl-brochure-btn::before {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.28) 50%, transparent 80%);
+  transition: left .45s cubic-bezier(.4,0,.2,1); pointer-events: none;
+}
+.atl-brochure-btn:hover,
+.atl-brochure-dropdown.open .atl-brochure-btn {
+  background: #1a1a72 !important;
+  box-shadow: 0 6px 24px rgba(3,24,133,.38), 0 2px 8px rgba(3,24,133,.22);
+  transform: translateY(-2px); letter-spacing: .06em;
+}
+.atl-brochure-btn:hover::before,
+.atl-brochure-dropdown.open .atl-brochure-btn::before { left: 160%; }
+.atl-brochure-btn:active {
+  transform: translateY(0px) scale(.97) !important;
+  box-shadow: 0 2px 8px rgba(3,24,133,.2) !important;
+  transition-duration: .08s !important;
+}
+.atl-brochure-menu {
+  display: block; position: fixed; top: 100px; right: auto;
+  background: #fff; border-radius: 0 0 16px 16px;
+  box-shadow: 0 8px 32px -4px rgba(3,24,133,.18), 0 24px 64px -8px rgba(3,24,133,.14), 0 0 0 1px rgba(3,24,133,.06);
+  min-width: 260px; padding: .5rem 0; z-index: 2000;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(-110%); transform-origin: top right;
+  transition: transform 0.40s cubic-bezier(0.4,0,1,1), opacity 0.30s ease, visibility 0s linear 0.40s;
+}
+.atl-brochure-dropdown.open .atl-brochure-menu {
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
+  transition: transform 0.52s cubic-bezier(0.0,0.0,0.2,1), opacity 0.38s ease, visibility 0s linear 0s;
+}
+.atl-brochure-dropdown.open .atl-brochure-btn svg { transform: rotate(180deg); }
+.atl-brochure-btn svg { transition: transform .22s; }
+.atl-brochure-item {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .6rem 1.1rem; font-size: .82rem; font-weight: 600; color: #374151;
+  text-decoration: none; transition: background .15s, color .15s; position: relative;
+}
+.atl-brochure-item:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-dot { width: 7px; height: 7px; border-radius: 50%; background: #313185; flex-shrink: 0; }
+.atl-brochure-item--has-sub { justify-content: space-between; }
+.atl-brochure-item--has-sub .atl-sub-arrow { margin-left: auto; transition: transform .2s; color: #9CA3AF; }
+.atl-brochure-sub {
+  display: block; position: absolute; top: 0; right: calc(100% + 6px);
+  background: #fff; border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(3,24,133,.16), 0 0 0 1px rgba(3,24,133,.07);
+  min-width: 220px; padding: .5rem 0; z-index: 2100;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px) scaleX(.96); transform-origin: right top;
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1), transform .2s cubic-bezier(.34,1.4,.64,1), visibility 0s linear .2s;
+}
+.atl-brochure-item--has-sub:hover .atl-brochure-sub {
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0) scaleX(1);
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1), transform .2s cubic-bezier(.34,1.4,.64,1), visibility 0s linear 0s;
+}
+.atl-brochure-item--has-sub:hover .atl-sub-arrow { transform: rotate(-90deg); color: #313185; }
+.atl-brochure-subitem {
+  display: flex; align-items: center; gap: .5rem; padding: .55rem 1rem;
+  font-size: .8rem; font-weight: 600; color: #374151;
+  text-decoration: none; transition: background .15s, color .15s;
+}
+.atl-brochure-subitem:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-subdot { width: 6px; height: 6px; border-radius: 50%; background: #6366f1; flex-shrink: 0; }
+
+/* ── Back navigation button ── */
+.atl-back-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .78rem; font-weight: 700; color: #374151;
+  background: #f3f4f6; border: 1px solid #e5e7eb;
+  border-radius: 6px; padding: .38rem .85rem;
+  text-decoration: none; transition: background .15s, color .15s, border-color .15s;
+  white-space: nowrap; margin-right: .75rem;
+}
+.atl-back-btn:hover { background: #eff0ff; color: #313185; border-color: #c7d2fe; }
+.atl-back-btn svg { flex-shrink: 0; }
+html,body{margin:0!important;}
+</style>
+  <style id="chevron-speed-override">
+  .atl-nav .atl-nav__link--has-mega svg,
+  .atl-nav .atl-nav__chevron,
+  .atl-nav .atl-nav__item--mega .atl-nav__chevron,
+  .atl-nav .atl-nav__item--mega .atl-nav__link--has-mega svg {
+    transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  </style>
+  <style id="v27-sliding-animation">
+    .atl-nav__link::after { transition: width .9s cubic-bezier(.22,1,.36,1), left .9s cubic-bezier(.22,1,.36,1) !important; }
+    .atl-mega__list li::before { transition: transform 0.6s ease !important; }
+    .atl-mega__prod-card::before { transition: transform 0.6s ease !important; }
+    .atl-mega__list a { position:relative !important; overflow:visible !important; padding-left:0 !important; transition:color .5s ease, transform .5s ease !important; }
+    .atl-mega__list a::after { content:none !important; display:none !important; }
+    .atl-mega__list a:hover { color:var(--navy,#0d2147) !important; transform:none !important; padding-left:0 !important; }
+    .atl-mega__list a:hover .atl-mega__dot { opacity:1 !important; }
+  </style>
+</head>
+<style>
+body { padding-top: 100px !important; }
+@media (max-width: 767.98px) { body { padding-top: 64px !important; } }
+</style>
+<body>
+
+<div class="atl-header-sticky-wrap">
+<div class="atl-sticky-header">
+<div class="atl-util-bar">
+  <div class="atl-util-bar__inner">
+    <div class="atl-util-bar__left">
+      <span class="atl-util-link">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        India · NABL Accredited
+      </span>
+    </div>
+    <div class="atl-util-bar__right">
+      <a href="tel:+917486031238" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 74860 31238
+      </a>
+      <a href="tel:+917567552981" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 75675 52981
+      </a>
+      <a href="mailto:sales@avartanamlabs.com" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        sales@avartanamlabs.com
+      </a>
+    </div>
+  </div>
+</div>
+
+<nav class="atl-nav" id="atlNav">
+  <div class="atl-nav__inner">
+    <a href="../index.html" class="atl-nav__logo">
+      <img src="../images/avartanam-logo.png" alt="Avartanam Test Labs" class="atl-nav__logo-img">
+    </a>
+    <ul class="atl-nav__links" id="navLinks">
+
+      <!-- SERVICES -->
+      <li class="atl-nav__item atl-nav__item--mega" id="megaServices">
+        <button class="atl-nav__link atl-nav__link--has-mega" onclick="toggleMega('megaServices')">
+          Services
+          <svg class="atl-nav__chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="atl-mega" id="mega-megaServices">
+          <div class="atl-mega__panel"><div class="atl-mega__inner">
+            <div class="atl-mega__col">
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--blue"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M10.54 17a6 6 0 012.92 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg></div>
+                <div><p class="atl-mega__col-title">Radio Frequency</p><p class="atl-mega__col-desc">OTA · VSWR · TRP/TIS · Pre-compliance</p></div>
+              </div>
+              <ul class="atl-mega__list" style="margin-top:.5rem;">
+                <!-- WPC Certification — First & highlighted -->
+                <li class="atl-mega__list-wpc-item"><a href="../wpc-certification-service.html"><span class="atl-mega__dot atl-mega__dot--wpc"></span>WPC Certification Service<span class="atl-mega__nabl-badge">NABL ACCREDITED</span></a></li>
+                <li><a href="../antenna-radiation-pattern.html"><span class="atl-mega__dot"></span>Antenna Radiation Pattern Measurement Services</a></li>
+                <li><a href="../antenna-tuning.html"><span class="atl-mega__dot"></span>Antenna Tuning Optimization Services</a></li>
+                <li><a href="../vswr-return-loss.html"><span class="atl-mega__dot"></span>Antenna VSWR Return Loss Measurement Services</a></li>
+                <li><a href="../trp-measurement.html"><span class="atl-mega__dot"></span>Product TRP Measurement Service</a></li>
+                <li><a href="../tis-measurement.html"><span class="atl-mega__dot"></span>Product TIS - Total Isotropic Sensitivity Testing Services</a></li>
+                <li><a href="../basic-rf-testing.html"><span class="atl-mega__dot"></span>Product Basic Testing Service</a></li>
+                <li><a href="../pre-compliance-testing.html"><span class="atl-mega__dot"></span>Product Pre Compliance Testing Service</a></li>
+                <li><a href="../outdoor-range-testing.html"><span class="atl-mega__dot"></span>Product Outdoor Range Testing Service</a></li>
+                <li><a href="../spurious-optimization.html"><span class="atl-mega__dot"></span>Product Radio Spurious Optimization Services</a></li>
+                <li><a href="../wpc-type-approval.html"><span class="atl-mega__dot"></span>Product RF Site Survey Services</a></li>
+                <li><a href="../bis-crs-certification.html"><span class="atl-mega__dot"></span>Product EIRP Measurement Service</a></li>
+              </ul>
+            </div>
+            <div class="atl-mega__col">
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--red"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <div><p class="atl-mega__col-title">EMI EMC Testing Service</p><p class="atl-mega__col-desc">CISPR · IEC 61000 · EN Standards</p></div>
+              </div>
+              <ul class="atl-mega__list">
+                <li><a href="../conducted-emission-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Conducted Emission Testing Service</a></li>
+                <li><a href="../esd-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Electronic Discharge Testing Service</a></li>
+                <li><a href="../surge-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Surge Testing Service</a></li>
+              </ul>
+              <div class="atl-mega__col-divider"></div>
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--teal"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
+                <div><p class="atl-mega__col-title">Environmental Testing Service</p><p class="atl-mega__col-desc">IEC 60068 · −20°C to +100°C</p></div>
+              </div>
+              <ul class="atl-mega__list">
+                <li><a href="../environmental-testing.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Environmental Testing Service</a></li>
+              </ul>
+            </div>
+            <div class="atl-mega__col">
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--purple"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                <div><p class="atl-mega__col-title">Consultancy Service</p><p class="atl-mega__col-desc">WPC · BIS · CE · TEC · Certification</p></div>
+              </div>
+              <ul class="atl-mega__list">
+                <li><a href="../consultancy.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for Product's Certification</a></li>
+                <li><a href="../consultancy-product-board-design-review.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Expert RF Board Design Review</a></li>
+                <li><a href="../consultancy-qc-jig-rf-calibration.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>RF QC Jig Calibration Service</a></li>
+                <li><a href="../consultancy-customize-antenna-design.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for Customize Antenna Design</a></li>
+              </ul>
+            </div>
+            <div class="atl-mega__col atl-mega__col--feature">
+              <div class="atl-mega__feature-card">
+                <span class="atl-mega__new-tag">NABL ACCREDITED</span>
+                <p class="atl-mega__feature-name">NABL Accredited Lab</p>
+                <p class="atl-mega__feature-desc">ISO/IEC 17025:2017 accredited. BIS &amp; WPC recognised. Plot#32, GIDC Estate, Anand, Gujarat.</p>
+                <a href="../services-page.html" class="atl-mega__feature-link">View All Services →</a>
+                <div class="atl-mega__cert-badges">
+                  <span class="atl-mega__cert">NABL</span><span class="atl-mega__cert">BIS</span><span class="atl-mega__cert">WPC</span><span class="atl-mega__cert">ISO</span>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </li>
+
+      <!-- PRODUCTS -->
+      <li class="atl-nav__item atl-nav__item--mega" id="megaProducts">
+        <button class="atl-nav__link atl-nav__link--has-mega" onclick="toggleMega('megaProducts')">
+          Products
+          <svg class="atl-nav__chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="atl-mega" id="mega-megaProducts">
+          <div class="atl-mega__panel"><div class="atl-mega__inner atl-mega__inner--3col">
+            <div class="atl-mega__col">
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--blue"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <div><p class="atl-mega__col-title">RF Filters</p><p class="atl-mega__col-desc">Low-pass &amp; Band-pass filters</p></div>
+              </div>
+              <ul class="atl-mega__list">
+                <li><a href="afl001.html?ref=megamenu"><span class="atl-mega__dot"></span>RF Filter – AFL-0001</a></li>
+                <li><a href="afl003.html?ref=megamenu"><span class="atl-mega__dot"></span>RF Filter – AFL-0003</a></li>
+              </ul>
+            </div>
+            <div class="atl-mega__col">
+              <div class="atl-mega__col-head">
+                <div class="atl-mega__col-icon atl-mega__col-icon--teal"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.5 8.5a5 5 0 0 0 7 7"/><path d="M5 5a9 9 0 0 0 13 13"/><path d="M2 2a13 13 0 0 0 19 19"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+                <div><p class="atl-mega__col-title">Customised RF Antennas</p><p class="atl-mega__col-desc">Sub-GHz &amp; 2.4 GHz custom antenna solutions</p></div>
+              </div>
+              <ul class="atl-mega__list">
+                <li><a href="coil-antenna.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Coil Antenna</a></li>
+                <li><a href="flexible-antenna.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Flexible Antenna</a></li>
+              </ul>
+            </div>
+            <div class="atl-mega__col atl-mega__col--feature">
+              <div class="atl-mega__feature-card">
+                <span class="atl-mega__new-tag">IN-HOUSE TESTED</span>
+                <p class="atl-mega__feature-name">NABL-Tested Products</p>
+                <p class="atl-mega__feature-desc">All products tested in-house at our NABL-accredited lab. Plot#32, GIDC Estate, Anand, Gujarat.</p>
+                <a href="../products.html" class="atl-mega__feature-link">View All Products →</a>
+                <div class="atl-mega__cert-badges">
+                  <span class="atl-mega__cert">NABL</span><span class="atl-mega__cert">BIS</span><span class="atl-mega__cert">SMA</span><span class="atl-mega__cert">RF</span>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </li>
+
+      <li class="atl-nav__item"><a class="atl-nav__link" href="../about.html">About Us</a></li>
+      <li class="atl-nav__item"><a class="atl-nav__link" href="../contact.html">Contact Us</a></li>
+    </ul>
+
+    <div class="atl-nav__right">
+      <div class="atl-brochure-dropdown" id="brochureDropdown">
+        <button class="atl-nav__cta atl-brochure-btn" id="brochureBtn" aria-expanded="false">
+          Profile Brochure <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:4px;transition:transform .25s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="atl-brochure-menu" id="brochureMenu">
+          <a href="../contact.html" class="atl-brochure-item"><span class="atl-brochure-dot"></span>Company Profile Brochure</a>
+          <a href="../contact.html" class="atl-brochure-item"><span class="atl-brochure-dot"></span>RF Testing Service Brochure</a>
+          <a href="../contact.html" class="atl-brochure-item"><span class="atl-brochure-dot"></span>EMI-EMC Services Brochure</a>
+          <a href="../contact.html" class="atl-brochure-item"><span class="atl-brochure-dot"></span>Product Catalog (AFL Series)</a>
+          <span class="atl-brochure-item atl-brochure-item--has-sub">
+            <span style="display:flex;align-items:center;gap:.55rem;"><span class="atl-brochure-dot"></span>List of Certificates</span>
+            <svg class="atl-sub-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+            <div class="atl-brochure-sub">
+              <a href="../contact.html" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>NABL Accreditation Certificate</a>
+              <a href="../contact.html" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>BIS Recognition Certificate</a>
+              <a href="../contact.html" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>WPC Recognition Certificate</a>
+              <a href="../contact.html" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>ISO 17025 Certificate</a>
+              <a href="../contact.html" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>Scope of Accreditation</a>
+            </div>
+          </span>
+        </div>
+      </div>
+      <button class="atl-nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="atl-nav__mobile" id="navMobile">
+    <div class="atl-nav__mobile-header">
+      <span class="atl-nav__mobile-title">Menu</span>
+      <button class="atl-nav__mobile-close" id="navMobileClose" aria-label="Close menu" onclick="(function(){var m=document.getElementById('navMobile'),b=document.getElementById('navBurger');if(m)m.classList.remove('open');if(b){b.classList.remove('open');b.setAttribute('aria-expanded','false');}})()">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <a class="atl-nav__mlink" href="../index.html">Home</a>
+    <div class="atl-nav__macc">
+      <button class="atl-nav__mlink atl-nav__macc-btn" onclick="toggleMobileAcc(this)">Services<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="atl-nav__macc-body">
+        <div class="atl-nav__macc-section">RF Testing</div>
+        <a class="atl-nav__msublink" href="../antenna-radiation-pattern.html">Antenna Radiation Pattern Measurement Services</a>
+        <a class="atl-nav__msublink" href="../antenna-tuning.html">Antenna Tuning Optimization Services</a>
+        <a class="atl-nav__msublink" href="../vswr-return-loss.html">VSWR &amp; Return Loss</a>
+        <a class="atl-nav__msublink" href="../trp-measurement.html">Product TRP Measurement Service</a>
+        <a class="atl-nav__msublink" href="../tis-measurement.html">Product TIS - Total Isotropic Sensitivity Testing Services</a>
+        <a class="atl-nav__msublink" href="../basic-rf-testing.html">Basic RF Testing</a>
+        <a class="atl-nav__msublink" href="../pre-compliance-testing.html">Product Pre Compliance Testing Service</a>
+        <a class="atl-nav__msublink" href="../outdoor-range-testing.html">Product Outdoor Range Testing Service</a>
+        <a class="atl-nav__msublink" href="../spurious-optimization.html">Product Radio Spurious Optimization Services</a>
+        <a class="atl-nav__msublink" href="../wpc-type-approval.html">Product RF Site Survey Services</a>
+        <a class="atl-nav__msublink" href="../bis-crs-certification.html">Product EIRP Measurement Service</a>
+        <a class="atl-nav__msublink" href="../wpc-certification-service.html">WPC Certification Service</a>
+        <div class="atl-nav__macc-section">EMI / EMC</div>
+        <a class="atl-nav__msublink" href="../conducted-emission-testing.html">Conducted Emission Testing</a>
+        <a class="atl-nav__msublink" href="../esd-testing.html">Electronic Discharge Testing Service</a>
+        <a class="atl-nav__msublink" href="../surge-testing.html">Surge Testing Service</a>
+        <div class="atl-nav__macc-section">Environmental &amp; Consultancy</div>
+        <a class="atl-nav__msublink" href="../environmental-testing.html">Environmental Testing Service</a>
+        <a class="atl-nav__msublink" href="../consultancy.html">Consultancy Service for Product's Certification</a>
+        <a class="atl-nav__msublink" href="../consultancy-product-board-design-review.html">Expert RF Board Design Review</a>
+        <a class="atl-nav__msublink" href="../consultancy-qc-jig-rf-calibration.html">RF QC Jig Calibration Service</a>
+        <a class="atl-nav__msublink" href="../consultancy-customize-antenna-design.html">Consultancy Service for Customize Antenna Design</a>
+      </div>
+    </div>
+    <div class="atl-nav__macc">
+      <button class="atl-nav__mlink atl-nav__macc-btn" onclick="toggleMobileAcc(this)">Products<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="atl-nav__macc-body">
+        <a class="atl-nav__msublink" href="afl001.html">RF Filter – AFL0001</a>
+        <a class="atl-nav__msublink" href="afl003.html">RF Filter – AFL0003</a>
+        <a class="atl-nav__msublink" href="coil-antenna.html">Coil Antenna</a>
+        <a class="atl-nav__msublink" href="flexible-antenna.html">Flexible Antenna</a>
+      </div>
+    </div>
+    <a class="atl-nav__mlink" href="../about.html">About</a>
+    <a class="atl-nav__mlink" href="../contact.html">Contact</a>
+  </div>
+</nav>
+</div>
+</div>
+
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<div class="sd-hero">
+  <div class="sd-hero__inner">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-7">
+        <nav class="sd-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>&#8250;</span>
+          <span aria-current="page">Flexible Antenna</span>
+        </nav>
+        <h1 class="sd-hero__title">Flexible Antenna</h1>
+        <p class="sd-hero__desc">Ultra-thin, bendable RF antenna engineered for space-constrained IoT and wearable designs. The Avartanam Flexible Antenna delivers reliable wireless performance across 433&nbsp;MHz, 868&nbsp;MHz, 915&nbsp;MHz, and 2.4&nbsp;GHz bands with a peel-and-stick adhesive backing and an IPEX/U.FL connector. Tested and validated at Avartanam Test Labs NABL-accredited anechoic chamber, Anand, Gujarat.</p>
+        <div class="sd-hero__meta">
+          <div class="sd-hero__meta-item">
+            <span class="sd-meta-lbl">Part Number</span>
+            <span class="sd-meta-val" style="font-weight:800;">ATL-FXA-01</span>
+          </div>
+          <div class="sd-hero__meta-item">
+            <span class="sd-meta-lbl">Category</span>
+            <span class="sd-meta-val">Flexible Antenna</span>
+          </div>
+          <div class="sd-hero__meta-item">
+            <span class="sd-meta-lbl">Accreditation</span>
+            <span class="sd-meta-val">NABL In-house Tested</span>
+          </div>
+          <div class="sd-hero__meta-item">
+            <span class="sd-meta-lbl">Lead Time</span>
+            <span class="sd-meta-val">1–2 Weeks</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="gallery-wrap">
+          <div class="gallery-strip">
+            <div class="gallery-thumbs" id="galleryThumbs">
+              <div class="gallery-thumb active" title="Custom Antenna Design – Case Study">
+                <img src="../images/products/flexible-case-study-2.png" alt="Custom Antenna Design Expertise – Case Study" loading="eager">
+              </div>
+              <div class="gallery-thumb" title="Flexible Antenna – PCB Layout">
+                <img src="../images/products/flexible-pcb-layout.png" alt="Flexible Antenna – PCB Layout" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="gallery-main">
+            <div class="gallery-main__display" id="galleryDisplay">
+              <div class="gallery-scroll-track" id="galleryScrollTrack">
+                <img class="gallery-scroll-slide" src="../images/products/flexible-case-study-2.png" alt="Custom Antenna Design Expertise – Case Study" loading="eager">
+                <img class="gallery-scroll-slide" src="../images/products/flexible-pcb-layout.png" alt="Flexible Antenna – PCB Layout" loading="lazy">
+              </div>
+              <div class="gallery-main__video-wrap" id="galleryVideoWrap">
+                <iframe id="galleryIframe" src="" title="Avartanam Test Labs"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="moq-row moq-row--white">Minimum Order Quantity: <strong>10 Pieces</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TABS ──────────────────────────────────────────── -->
+<div class="sd-tab-rail" role="tablist">
+  <ul class="sd-tabs">
+    <li><button class="sd-tab active" data-panel="overview"  role="tab" aria-selected="true">Overview</button></li>
+    <li><button class="sd-tab"        data-panel="scope"     role="tab" aria-selected="false">Scope &amp; Standards</button></li>
+    <li><button class="sd-tab"        data-panel="equipment" role="tab" aria-selected="false">Equipment</button></li>
+    <li><button class="sd-tab"        data-panel="casestudy" role="tab" aria-selected="false">Case Study</button></li>
+    <li><button class="sd-tab"        data-panel="refdocs"   role="tab" aria-selected="false">Reference Documents</button></li>
+    <li><button class="sd-tab"        data-panel="support"   role="tab" aria-selected="false">Contact Us</button></li>
+  </ul>
+</div>
+
+<div class="sd-body">
+  <div class="sd-body__inner">
+
+    <!-- OVERVIEW -->
+    <div class="sd-panel active" id="panel-overview" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Key Specifications</p>
+          <p class="sd-card__sub">Full technical details for Flexible Antenna – ATL-FXA-01</p>
+          <a href="https://LINK_BROCHURE_PRODUCT_FLEXIBLE_ANTENNA.pdf" target="_blank" rel="noopener noreferrer" class="sd-card-brochure" title="Download Brochure" style="display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .85rem;border-radius:6px;background:#fff1f2;color:#991b1b;font-size:.78rem;font-weight:700;text-decoration:none;border:1.5px solid #fca5a5;transition:background .18s,border-color .18s;margin-left:auto;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="15" y2="11"/></svg>Brochure</a>
+        </div>
+        <div class="sd-specs-grid">
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Type</div><div class="sd-spec-cell__val">Flexible / FPC Patch Antenna</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Frequency Band</div><div class="sd-spec-cell__val">865–868 MHz</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Gain</div><div class="sd-spec-cell__val">2.0 dBi (Sub-GHz) · 2.5 dBi (2.4 GHz)</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">VSWR</div><div class="sd-spec-cell__val">&lt; 2:1 across operating band</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Impedance</div><div class="sd-spec-cell__val">50 &Omega;</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Connector</div><div class="sd-spec-cell__val">IPEX / U.FL (MHF4 optional)</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Cable Length</div><div class="sd-spec-cell__val">100 mm (customisable up to 300 mm)</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Dimensions</div><div class="sd-spec-cell__val">85 × 10 × 0.2 mm (Sub-GHz) · 42 × 6 × 0.2 mm (2.4 GHz)</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Substrate</div><div class="sd-spec-cell__val">FPC (Flexible Printed Circuit) · PI Base</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Mounting</div><div class="sd-spec-cell__val">3M Adhesive Backing · Peel &amp; Stick</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Operating Temp.</div><div class="sd-spec-cell__val">−40°C to +85°C</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Application</div><div class="sd-spec-cell__val">LoRa, BLE, Zigbee, Wi-Fi, NB-IoT, Wearables</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">Radiation Pattern</div><div class="sd-spec-cell__val">Omnidirectional (H-plane)</div></div>
+          <div class="sd-spec-cell"><div class="sd-spec-cell__key">MOQ</div><div class="sd-spec-cell__val">10 Pieces</div></div>
+        </div>
+        <div class="sd-actions">
+          <button class="sd-btn sd-btn--red" onclick="openQuoteModal()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Request Quote
+          </button>
+          <a href="tel:+917486031238" class="sd-btn sd-btn--primary">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.77 2.38 2 2 0 012.76.2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.28-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCOPE & STANDARDS -->
+    <div class="sd-panel" id="panel-scope" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Scope &amp; Standards</p>
+          <p class="sd-card__sub">Test scope and applicable international standards</p>
+        </div>
+        <div class="sd-card__body">
+          <p style="color:var(--inkm);line-height:1.75;">The ATL-FXA-01 Flexible Antenna is designed and validated for use in LoRa (433/868/915 MHz), BLE/Wi-Fi (2.4 GHz), and NB-IoT products. Its ultra-thin FPC construction allows bending around curved enclosures, routing inside plastic housings, and integration into wearable devices without compromising RF performance. All units are tested at our NABL-accredited anechoic chamber using a calibrated VNA and OTA measurement system.</p>
+          <table class="sd-scope-table">
+            <thead><tr><th>PARAMETER</th><th>DETAIL</th></tr></thead>
+            <tbody>
+              <tr><td>Standard</td><td>ETSI EN 300 220 / IEEE 802.15.4 / IEEE 802.11b/g/n</td></tr>
+              <tr><td>VSWR Measurement</td><td>NABL-calibrated VNA · 50 Ω reference plane</td></tr>
+              <tr><td>Radiation Pattern</td><td>NABL Anechoic Chamber · 2D Cut</td></tr>
+              <tr><td>Environment</td><td>Flat &amp; Bent (90° &amp; 180° bending test)</td></tr>
+              <tr><td>Report</td><td>Product Test Report · PDF · NABL format</td></tr>
+            </tbody>
+          </table>
+          <div class="sd-chip-group">
+            <span class="sd-chip sd-chip--navy">SUB-GHz &amp; 2.4 GHz</span>
+            <span class="sd-chip sd-chip--teal">FPC FLEXIBLE</span>
+            <span class="sd-chip sd-chip--green">NABL TESTED</span>
+            <span class="sd-chip sd-chip--purple">WEARABLE READY</span>
+          </div>
+        </div>
+        <div class="sd-actions">
+          <button class="sd-btn sd-btn--red" onclick="openQuoteModal()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Request Quote
+          </button>
+          <a href="tel:+917486031238" class="sd-btn sd-btn--primary">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.77 2.38 2 2 0 012.76.2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.28-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUIPMENT -->
+    <div class="sd-panel" id="panel-equipment" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Equipment &amp; Instruments</p>
+          <p class="sd-card__sub">Key instruments used at our NABL-accredited lab</p>
+        </div>
+        <div class="sd-card__body">
+          <table class="sd-scope-table">
+            <thead><tr><th>INSTRUMENT</th><th>MODEL / SPEC</th><th>USE</th></tr></thead>
+            <tbody>
+              <tr><td>Vector Network Analyser (VNA)</td><td>9 GHz, NABL Calibrated</td><td>VSWR &amp; Return Loss</td></tr>
+              <tr><td>Anechoic Chamber</td><td>NABL Accredited · 400 MHz–6 GHz</td><td>Radiation Pattern, Gain</td></tr>
+              <tr><td>RF Signal Generator</td><td>6 GHz, NABL Calibrated</td><td>OTA Stimulus</td></tr>
+              <tr><td>Spectrum Analyser</td><td>6.5 GHz, NABL Calibrated</td><td>Frequency Verification</td></tr>
+              <tr><td>Bending Fixture</td><td>ATL Custom · 90° / 180°</td><td>Bent-state VSWR test</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sd-actions">
+          <a href="../index.html#about" class="sd-btn sd-btn--primary">About the Lab</a>
+          <a href="../index.html#contact" class="sd-btn sd-btn--outline">Schedule Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY -->
+    <div class="sd-panel" id="panel-casestudy" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Case Study</p>
+          <p class="sd-card__sub">Real-world application scenarios</p>
+        </div>
+        <div class="sd-card__body">
+          <p style="color:var(--inkm);line-height:1.75;font-weight:600;">Wearable Health Monitor — LoRa 868 MHz Integration</p>
+          <p style="color:var(--inkm);line-height:1.75;">A medical wearable manufacturer required an antenna solution that could be routed inside a curved wristband enclosure without degrading LoRa link budget. The ATL-FXA-01 was bent to a 35 mm radius and integrated flush against the inner wall of the ABS housing. Post-integration VSWR measured &lt; 1.8:1 at 868 MHz and TRP was within 0.5 dB of the flat-state reference measurement — confirming minimal performance loss in the bent configuration.</p>
+          <p style="color:var(--inkm);line-height:1.75;margin-top:.75rem;">Please <a href="#" onclick="document.querySelector('[data-panel=support]').click();return false;" style="color:var(--navy);font-weight:600;">contact us</a> to request additional case studies for your specific product category.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCE DOCS -->
+    <div class="sd-panel" id="panel-refdocs" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Reference Documents</p>
+          <p class="sd-card__sub">Standards, datasheets and technical references</p>
+        </div>
+        <div class="sd-card__body">
+          <table class="sd-scope-table">
+            <thead><tr><th>DOCUMENT</th><th>TYPE</th><th>STANDARD</th></tr></thead>
+            <tbody>
+              <tr><td>ATL-FXA-01 Product Datasheet</td><td>Datasheet</td><td>ATL Internal</td></tr>
+              <tr><td>VSWR &amp; Radiation Pattern Test Report</td><td>Test Report</td><td>NABL Format</td></tr>
+              <tr><td>ETSI EN 300 220 — Short Range Devices</td><td>Standard Reference</td><td>ETSI</td></tr>
+              <tr><td>IEEE 802.15.4 — Low-Rate WPAN</td><td>Standard Reference</td><td>IEEE</td></tr>
+              <tr><td>Antenna Integration Guide (FPC)</td><td>Application Note</td><td>ATL Internal</td></tr>
+            </tbody>
+          </table>
+          <p style="color:var(--inkm);line-height:1.75;margin-top:1rem;">Please <a href="#" onclick="document.querySelector('[data-panel=support]').click();return false;" style="color:var(--navy);font-weight:600;">contact us</a> to request any of the above documents.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sd-panel" id="panel-support" role="tabpanel">
+      <div class="sd-card">
+        <div class="sd-card__head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <p class="sd-card__title">Contact Us</p>
+          <p class="sd-card__sub">Reach our engineering team</p>
+        </div>
+        <div class="container-fluid px-0">
+          <div class="row g-3 p-3">
+            <div class="col-12 col-md-4">
+              <div class="sd-support-card h-100">
+                <div class="sd-support-card__icon" style="background:#dbeafe;">
+                  <svg width="18" height="18" fill="none" stroke="#1e40af" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.77 2.38 2 2 0 012.76.2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.28-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div class="sd-support-card__title">Technical Support</div>
+                <div class="sd-support-card__val">+91 74860 31238 / +91 75675 52981<br>Mon&ndash;Fri, 9:30 AM&ndash;6:30 PM IST</div>
+                <a href="tel:+917486031238" class="sd-tbl-btn sd-tbl-btn--navy">Call Now</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="sd-support-card h-100">
+                <div class="sd-support-card__icon" style="background:#dcfce7;">
+                  <svg width="18" height="18" fill="none" stroke="#166534" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="sd-support-card__title">Email Support</div>
+                <div class="sd-support-card__val">
+                  <a href="mailto:sales@avartanamlabs.com" style="color:inherit;display:block;">sales@avartanamlabs.com</a>
+                  <a href="mailto:support-rf@avartanamlabs.com" style="color:inherit;display:block;">support-rf@avartanamlabs.com</a>
+                </div>
+                <a href="mailto:sales@avartanamlabs.com" class="sd-tbl-btn sd-tbl-btn--navy">Send Email</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="sd-support-card h-100">
+                <div class="sd-support-card__icon" style="background:#e0e7ff;">
+                  <svg width="18" height="18" fill="none" stroke="#3730a3" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="sd-support-card__title">Visit Lab</div>
+                <div class="sd-support-card__val">Plot#32, Zone-D/4, Phase-1 GIDC Estate,<br>V.U.Nagar, Anand, 388 121, Gujarat, India.</div>
+                <a href="https://maps.google.com/?q=GIDC+Anand+Gujarat+India" target="_blank" class="sd-tbl-btn sd-tbl-btn--navy">Get Directions</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="atl-footer">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-md-4">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <img src="../images/avartanam-logo.png" alt="Avartanam Test Labs" class="atl-footer__logo-img atl-footer__logo-color">
+        </div>
+        <p class="atl-footer__desc">NABL-accredited RF, EMI-EMC, Electrical Safety and Environmental testing laboratory in Anand, Gujarat, India.</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 class="atl-footer__heading">Navigate</h6>
+        <ul class="atl-footer__list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#about">About Us</a></li>
+          <li><a href="../services-page.html">Services</a></li>
+          <li><a href="../products.html">Products</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3">
+        <h6 class="atl-footer__heading">Services</h6>
+        <ul class="atl-footer__list">
+          <li><a href="../antenna-radiation-pattern.html">Radio Frequency Testing</a></li>
+          <li><a href="../conducted-emission-testing.html">EMI / EMC Testing</a></li>
+          <li><a href="../environmental-testing.html">Environmental Testing</a></li>
+          <li><a href="../consultancy.html">Consultancy</a></li>
+        </ul>
+        <h6 class="atl-footer__heading mt-3">Products</h6>
+        <ul class="atl-footer__list">
+          <li><a href="../products/afl001.html">RF Filter AFL0001</a></li>
+          <li><a href="../products/afl003.html">RF Filter AFL0003</a></li>
+          <li><a href="../products/coil-antenna.html">Coil Antenna - SYS0176</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-3">
+        <h6 class="atl-footer__heading">Contact</h6>
+        <ul class="atl-footer__list">
+          <li><a href="tel:+917486031238">+91 74860 31238</a> / <a href="tel:+917567552981">+91 75675 52981</a></li>
+          <li><a href="mailto:sales@avartanamlabs.com">sales@avartanamlabs.com</a></li>
+          <li><a href="mailto:support-rf@avartanamlabs.com">support-rf@avartanamlabs.com</a></li>
+          <li><a href="mailto:support-emc@avartanamlabs.com">support-emc@avartanamlabs.com</a></li>
+          <li>Plot#32, Zone-D/4, Phase-1 GIDC Estate, V.U.Nagar, Anand, 388 121, Gujarat, India.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="atl-footer__bottom">
+      <span>&copy; 2026 Avartanam Test Labs. All rights reserved.</span>
+      <span>NABL Accredited &middot; ISO 17025</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Quote Modal -->
+<div class="quote-overlay" id="quoteOverlay" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+  <div class="quote-modal" id="quoteModal">
+    <div class="quote-modal__head">
+      <h2 class="quote-modal__title" id="quoteModalTitle">Request a Quote</h2>
+      <div class="quote-modal__service-pill"><span>&#9679;</span> Flexible Antenna – ATL-FXA-01</div>
+      <button class="quote-close" onclick="closeQuoteModal()" aria-label="Close">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="quote-modal__body">
+      <div class="quote-success" id="quoteSuccess" role="alert">
+        <div class="quote-success__icon"><svg width="28" height="28" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="quote-success__title">Thank You!</div>
+        <div class="quote-success__sub">Our engineering team will connect you soon.</div>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div class="qf-row">
+          <div class="qf-group"><input class="qf-input" id="qfFirst" type="text" placeholder="First Name *" required autocomplete="given-name"><span class="qf-err" id="errFirst">Please enter your first name.</span></div>
+          <div class="qf-group"><input class="qf-input" id="qfLast" type="text" placeholder="Last Name *" required autocomplete="family-name"><span class="qf-err" id="errLast">Please enter your last name.</span></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group"><input class="qf-input" id="qfEmail" type="email" placeholder="Email *" required autocomplete="email"><span class="qf-err" id="errEmail">Please enter a valid email address.</span></div>
+          <div class="qf-group"><input class="qf-input" id="qfPhone" type="tel" placeholder="Phone * e.g. +91 98765 43210" autocomplete="tel" required><span class="qf-err" id="errPhone">Please enter a valid 10-digit phone number.</span></div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group"><input class="qf-input" id="qfCompany" type="text" placeholder="Company / Organisation *" required autocomplete="organization"><span class="qf-err" id="errCompany">Please enter your company name.</span></div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group">
+            <select class="qf-select" id="qfType">
+              <option value="" disabled selected>Request Type</option>
+              <option value="quote">Request Quote</option>
+              <option value="sample">Sample Order</option>
+              <option value="custom">Custom Specification</option>
+              <option value="schedule">Schedule Lab Visit</option>
+            </select>
+          </div>
+          <div class="qf-group"><input class="qf-input" id="qfQty" type="text" placeholder="Quantity e.g. 10 pcs"></div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group"><textarea class="qf-textarea" id="qfDetails" placeholder="Describe your frequency band, connector preference, cable length, and enclosure constraints..."></textarea></div>
+        </div>
+        <button type="submit" class="quote-submit" id="quoteSubmit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../atl-merged.js"></script>
+<script src="../js/service-page.js"></script>
+<script>
+(function(){
+  var fromMega = new URLSearchParams(window.location.search).get('ref') === 'megamenu';
+  if (fromMega) {
+    var crumbSep = document.getElementById('sd-crumb-sep');
+    var crumbParent = document.getElementById('sd-crumb-parent');
+    if (crumbSep) crumbSep.style.display = 'none';
+    if (crumbParent) crumbParent.style.display = 'none';
+  }
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('brochureBtn');
+  var dd  = document.getElementById('brochureDropdown');
+  var menu = document.getElementById('brochureMenu');
+  var nav  = document.getElementById('atlNav');
+  if (!btn || !dd || !menu) return;
+  var closeTimer = null; var GRACE = 180;
+  function positionMenu() {
+    if (!nav) return;
+    var navRect = nav.getBoundingClientRect();
+    var btnRect = btn.getBoundingClientRect();
+    menu.style.top = navRect.bottom + 'px';
+    menu.style.right = (window.innerWidth - btnRect.right) + 'px';
+    menu.style.left = 'auto';
+  }
+  function openMenu() { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } positionMenu(); dd.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  function scheduleClose() { if (closeTimer) clearTimeout(closeTimer); closeTimer = setTimeout(function(){ dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); closeTimer = null; }, GRACE); }
+  btn.addEventListener('mouseenter', openMenu);
+  btn.addEventListener('mouseleave', scheduleClose);
+  menu.addEventListener('mouseenter', function(){ if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } });
+  menu.addEventListener('mouseleave', scheduleClose);
+  window.addEventListener('scroll', function(){ if (dd.classList.contains('open')) positionMenu(); }, { passive: true });
+  window.addEventListener('resize', function(){ if (dd.classList.contains('open')) positionMenu(); });
+  document.addEventListener('click', function(e){ if (!dd.contains(e.target)){ dd.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+})();
+</script>
+<script src="../js/atl-docs.js"></script>
+
+
+<!-- ══ Brochure Request Modal ══ -->
+<div class="bro-overlay" id="broOverlay" role="dialog" aria-modal="true" aria-labelledby="broModalTitle">
+  <div class="bro-modal" id="broModal">
+    <div class="bro-modal__head">
+      <div class="bro-modal__badge">FREE DOWNLOAD</div>
+      <h2 class="bro-modal__title" id="broModalTitle">Download Document</h2>
+      <p class="bro-modal__sub">Fill in your details and we’ll send the document instantly.</p>
+      <button class="bro-close" id="broClose" aria-label="Close modal">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="bro-modal__body">
+      <div class="bro-success" id="broSuccess" role="alert">
+        <div class="bro-success__icon">
+          <svg width="32" height="32" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="bro-success__title">Thank You!</div>
+        <div class="bro-success__sub">Your brochure is on its way. Our team will contact you shortly.</div>
+      </div>
+      <form id="broForm" novalidate autocomplete="on">
+        <!-- Row 1: First + Last name -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broFirst" type="text" placeholder="First Name *" required autocomplete="given-name">
+            <span class="qf-err" id="broErrFirst">Please enter your first name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broLast" type="text" placeholder="Last Name *" required autocomplete="family-name">
+            <span class="qf-err" id="broErrLast">Please enter your last name.</span>
+          </div>
+        </div>
+        <!-- Row 2: Business email + Phone -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broEmail" type="email" placeholder="Business Email *" required autocomplete="email">
+            <span class="qf-err" id="broErrEmail">Please enter a valid business email.</span>
+          </div>
+          <div class="qf-group">
+            <div class="bro-phone-wrap">
+              <select class="bro-dial-select" id="broDialCode" aria-label="Country dial code">
+                <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
+                <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
+                <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
+                <option value="+971" data-flag="🇦🇪">🇦🇪 +971</option>
+                <option value="+65" data-flag="🇸🇬">🇸🇬 +65</option>
+                <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
+                <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
+                <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
+                <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
+                <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
+                <option value="+82" data-flag="🇰🇷">🇰🇷 +82</option>
+                <option value="+39" data-flag="🇮🇹">🇮🇹 +39</option>
+                <option value="+34" data-flag="🇪🇸">🇪🇸 +34</option>
+                <option value="+31" data-flag="🇳🇱">🇳🇱 +31</option>
+                <option value="+46" data-flag="🇸🇪">🇸🇪 +46</option>
+                <option value="+47" data-flag="🇳🇴">🇳🇴 +47</option>
+                <option value="+45" data-flag="🇩🇰">🇩🇰 +45</option>
+                <option value="+358" data-flag="🇫🇮">🇫🇮 +358</option>
+                <option value="+48" data-flag="🇵🇱">🇵🇱 +48</option>
+                <option value="+7" data-flag="🇷🇺">🇷🇺 +7</option>
+                <option value="+55" data-flag="🇧🇷">🇧🇷 +55</option>
+                <option value="+52" data-flag="🇲🇽">🇲🇽 +52</option>
+                <option value="+27" data-flag="🇿🇦">🇿🇦 +27</option>
+                <option value="+20" data-flag="🇪🇬">🇪🇬 +20</option>
+                <option value="+966" data-flag="🇸🇦">🇸🇦 +966</option>
+                <option value="+60" data-flag="🇲🇾">🇲🇾 +60</option>
+                <option value="+66" data-flag="🇹🇭">🇹🇭 +66</option>
+                <option value="+84" data-flag="🇻🇳">🇻🇳 +84</option>
+                <option value="+62" data-flag="🇮🇩">🇮🇩 +62</option>
+                <option value="+63" data-flag="🇵🇭">🇵🇭 +63</option>
+                <option value="+880" data-flag="🇧🇩">🇧🇩 +880</option>
+                <option value="+92" data-flag="🇵🇰">🇵🇰 +92</option>
+                <option value="+94" data-flag="🇱🇰">🇱🇰 +94</option>
+                <option value="+977" data-flag="🇳🇵">🇳🇵 +977</option>
+                <option value="+64" data-flag="🇳🇿">🇳🇿 +64</option>
+                <option value="+41" data-flag="🇨🇭">🇨🇭 +41</option>
+                <option value="+32" data-flag="🇧🇪">🇧🇪 +32</option>
+                <option value="+43" data-flag="🇦🇹">🇦🇹 +43</option>
+                <option value="+351" data-flag="🇵🇹">🇵🇹 +351</option>
+                <option value="+30" data-flag="🇬🇷">🇬🇷 +30</option>
+                <option value="+90" data-flag="🇹🇷">🇹🇷 +90</option>
+                <option value="+972" data-flag="🇮🇱">🇮🇱 +972</option>
+                <option value="+98" data-flag="🇮🇷">🇮🇷 +98</option>
+              </select>
+              <input class="bro-phone-input qf-input" id="broPhone" type="tel" placeholder="Phone Number *" required autocomplete="tel" maxlength="15" oninput="this.value=this.value.replace(/[^0-9\s\-\(\)]/g,'')">
+            </div>
+            <span class="qf-err" id="broErrPhone">Please enter a valid 10-digit phone number.</span>
+          </div>
+        </div>
+        <!-- Row 3: Country -->
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broCountry" required>
+              <option value="" disabled selected>🌐 Select Country *</option>
+              <option value="IN">🇮🇳 India</option>
+              <option value="US">🇺🇸 United States</option>
+              <option value="GB">🇬🇧 United Kingdom</option>
+              <option value="AE">🇦🇪 UAE</option>
+              <option value="SG">🇸🇬 Singapore</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="FR">🇫🇷 France</option>
+              <option value="JP">🇯🇵 Japan</option>
+              <option value="CN">🇨🇳 China</option>
+              <option value="AU">🇦🇺 Australia</option>
+              <option value="KR">🇰🇷 South Korea</option>
+              <option value="IT">🇮🇹 Italy</option>
+              <option value="ES">🇪🇸 Spain</option>
+              <option value="NL">🇳🇱 Netherlands</option>
+              <option value="SE">🇸🇪 Sweden</option>
+              <option value="NO">🇳🇴 Norway</option>
+              <option value="DK">🇩🇰 Denmark</option>
+              <option value="FI">🇫🇮 Finland</option>
+              <option value="PL">🇵🇱 Poland</option>
+              <option value="RU">🇷🇺 Russia</option>
+              <option value="BR">🇧🇷 Brazil</option>
+              <option value="MX">🇲🇽 Mexico</option>
+              <option value="ZA">🇿🇦 South Africa</option>
+              <option value="EG">🇪🇬 Egypt</option>
+              <option value="SA">🇸🇦 Saudi Arabia</option>
+              <option value="MY">🇲🇾 Malaysia</option>
+              <option value="TH">🇹🇭 Thailand</option>
+              <option value="VN">🇻🇳 Vietnam</option>
+              <option value="ID">🇮🇩 Indonesia</option>
+              <option value="PH">🇵🇭 Philippines</option>
+              <option value="BD">🇧🇩 Bangladesh</option>
+              <option value="PK">🇵🇰 Pakistan</option>
+              <option value="LK">🇱🇰 Sri Lanka</option>
+              <option value="NP">🇳🇵 Nepal</option>
+              <option value="NZ">🇳🇿 New Zealand</option>
+              <option value="CH">🇨🇭 Switzerland</option>
+              <option value="BE">🇧🇪 Belgium</option>
+              <option value="AT">🇦🇹 Austria</option>
+              <option value="PT">🇵🇹 Portugal</option>
+              <option value="GR">🇬🇷 Greece</option>
+              <option value="TR">🇹🇷 Turkey</option>
+              <option value="IL">🇮🇱 Israel</option>
+              <option value="OTHER">🌐 Other</option>
+            </select>
+            <span class="qf-err" id="broErrCountry">Please select your country.</span>
+          </div>
+        </div>
+        <!-- Row 4: Company + State -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broCompany" type="text" placeholder="Company / Organisation *" required autocomplete="organization">
+            <span class="qf-err" id="broErrCompany">Please enter your company name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broState" type="text" placeholder="State / Province *" required autocomplete="address-level1">
+            <span class="qf-err" id="broErrState">Please enter your state.</span>
+          </div>
+        </div>
+        <!-- Row 5: Industry -->
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broIndustry" required>
+              <option value="" disabled selected>Select Industry *</option>
+              <option value="iot">IoT &amp; Smart Devices</option>
+              <option value="medical">Medical Devices &amp; Healthcare</option>
+              <option value="automotive">Automotive &amp; Telematics</option>
+              <option value="industrial">Industrial &amp; IIoT</option>
+              <option value="telecom">Telecom &amp; Networking OEM</option>
+              <option value="consumer">Consumer Electronics</option>
+              <option value="smart-metering">Smart Metering &amp; Energy</option>
+              <option value="defense">Defence &amp; Aerospace</option>
+              <option value="agriculture">Agriculture &amp; Rural IoT</option>
+              <option value="wearable">Wearables &amp; Hearables</option>
+              <option value="semiconductor">Semiconductor &amp; Chipset</option>
+              <option value="contract-mfg">Contract Manufacturing</option>
+              <option value="research">R&amp;D / Research Institution</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="qf-err" id="broErrIndustry">Please select your industry.</span>
+          </div>
+        </div>
+        <button type="submit" class="quote-submit bro-submit" id="broSubmit">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg>
+          Get My Brochure
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ══ End Brochure Modal ══ -->
+<script>
+/* ── Brochure Request Modal (unified download gate) v29 ── */
+(function () {
+  function openBroModal(docLabel) {
+    var overlay = document.getElementById('broOverlay');
+    var title = document.getElementById('broModalTitle');
+    var form = document.getElementById('broForm');
+    var success = document.getElementById('broSuccess');
+    var btn = document.getElementById('broSubmit');
+    if (!overlay) return;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (form) form.style.display = '';
+    if (success) success.classList.remove('show');
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg> Get My Document';
+    }
+    if (title) title.textContent = docLabel ? 'Download \u2014 ' + docLabel : 'Download Document';
+  }
+  function closeBroModal() {
+    var overlay = document.getElementById('broOverlay');
+    if (overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  window.openBroModal = openBroModal;
+  window.closeBroModal = closeBroModal;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Nav dropdown brochure items
+    document.querySelectorAll('.atl-brochure-item:not(.atl-brochure-item--has-sub)').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = document.getElementById('brochureDropdown');
+        if (dd) dd.classList.remove('open');
+        openBroModal(el.textContent.trim());
+      });
+    });
+
+    // 2. Certificate sub-menu items
+    document.querySelectorAll('.atl-brochure-subitem').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = document.getElementById('brochureDropdown');
+        if (dd) dd.classList.remove('open');
+        openBroModal(el.textContent.trim());
+      });
+    });
+
+    // 3. Mobile nav download sub-links pointing to PDFs
+    document.querySelectorAll('.atl-nav__msublink').forEach(function(el) {
+      var href = el.getAttribute('href') || '';
+      if (/\.pdf|REPLACE_LINK/i.test(href)) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          var navMobile = document.getElementById('navMobile');
+          if (navMobile) navMobile.classList.remove('open');
+          openBroModal(el.textContent.trim());
+        });
+      }
+    });
+
+    // 4. Spec-card brochure/download button
+    document.querySelectorAll('.sd-card-brochure').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBroModal(el.getAttribute('title') || el.textContent.trim());
+      });
+    });
+
+    // 5. Any element with [data-download-modal]
+    document.querySelectorAll('[data-download-modal]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBroModal(el.getAttribute('data-download-modal') || el.textContent.trim());
+      });
+    });
+
+    // 6. Catch-all: any link with REPLACE_LINK placeholder href
+    document.querySelectorAll('a[href*="REPLACE_LINK"]').forEach(function(el) {
+      if (!el._broHooked) {
+        el._broHooked = true;
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          openBroModal(el.textContent.trim());
+        });
+      }
+    });
+
+    // Close button
+    var closeBtn = document.getElementById('broClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeBroModal);
+
+    // Backdrop click
+    var overlay = document.getElementById('broOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeBroModal();
+      });
+    }
+
+    // ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeBroModal();
+    });
+
+    // Form submit
+    var form = document.getElementById('broForm');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateBroForm()) return;
+      var btn = document.getElementById('broSubmit');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+      setTimeout(function() {
+        form.style.display = 'none';
+        document.getElementById('broSuccess').classList.add('show');
+        setTimeout(closeBroModal, 3200);
+      }, 900);
+    });
+  });
+
+  function validateBroForm() {
+    var ok = true;
+    function chk(id, errId, testFn) {
+      var el = document.getElementById(id);
+      var err = document.getElementById(errId);
+      if (!el || !err) return;
+      var valid = testFn(el.value.trim());
+      el.classList.toggle('err', !valid);
+      err.classList.toggle('show', !valid);
+      if (!valid) ok = false;
+    }
+    chk('broFirst',    'broErrFirst',    function(v){ return v.length >= 2; });
+    chk('broLast',     'broErrLast',     function(v){ return v.length >= 2; });
+    chk('broEmail',    'broErrEmail',    function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
+    chk('broPhone',    'broErrPhone',    function(v){
+      var digits = v.replace(/[\s\-\(\)]/g, '');
+      if (!/^\d+$/.test(digits)) return false;
+      var dialEl = document.getElementById('broDialCode');
+      var dial = dialEl ? dialEl.value : '+91';
+      if (dial === '+91') return digits.length === 10;
+      return digits.length >= 6 && digits.length <= 15;
+    });
+    chk('broCountry',  'broErrCountry',  function(v){ return v !== ''; });
+    chk('broCompany',  'broErrCompany',  function(v){ return v.length >= 2; });
+    chk('broState',    'broErrState',    function(v){ return v.length >= 2; });
+    chk('broIndustry', 'broErrIndustry', function(v){ return v !== ''; });
+    return ok;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,4161 @@
+/* =====================================================
+   atl-merged.css  —  Avartanam Test Labs
+   Single unified stylesheet: Navbar + Home + About +
+   Services/Products + Contact + Footer
+   Bootstrap Studio: Design > CSS > + New File
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ── Tokens ──────────────────────────────────────── */
+:root {
+  --navy:    #313185;
+  --navy2:   #252268;
+  --navy3:   #3d3d9a;
+  --red:     #B00000;
+  --red2:    #8a0000;
+  --green:   #0a7c45;
+  --blue:    #313185;
+  --purple:  #5E3DB8;
+  --teal:    #0C6E6E;
+  --orange:  #B00000;
+  --ink:     #111827;
+  --inkm:    #374151;
+  --inks:    #6B7280;
+  --border:  #E5E7EB;
+  --surf:    #F5F7FA;
+  --surf2:   #EEF2F8;
+  --white:   #FFFFFF;
+  --font:    'Poppins', sans-serif;
+  --fcond:   'Outfit', sans-serif;
+  --fmono:   'IBM Plex Mono', monospace;
+  --r:       10px;
+  --sh:      0 4px 24px rgba(0,0,0,.07);
+}
+*,*::before,*::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; margin:0; padding:0; }
+body { font-family:var(--font); color:var(--ink); background:var(--white); -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+/* ── No whitespace above header ── */
+html, body { margin-top:0 !important; }
+.atl-sticky-header { margin-top:0 !important; padding-top:0 !important; }
+a { text-decoration:none; }
+button { font-family:var(--font); cursor:pointer; }
+img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box; }
+
+/* ── Shared helpers ─────────────────────────────── */
+.atl-eyebrow { display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--red); }
+.atl-section-h3 { font-family:var(--fcond); font-size:clamp(1.5rem,2.8vw,2.1rem); font-weight:800; color:var(--ink); letter-spacing:-.01em; line-height:1.15; }
+.atl-body-text { font-size:.92rem; color:var(--inkm); line-height:1.8; margin-bottom:1rem; }
+.atl-section { background:var(--white); }
+.atl-section--surf { background:var(--surf); }
+.atl-section-body { padding:4rem 1.5rem; }
+
+/* ═══════════════════════════════════════════════════
+   UTILITY BAR
+═══════════════════════════════════════════════════ */
+/* ── Sticky header wrapper — both util-bar + nav stick together ── */
+.atl-sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+}
+.atl-util-bar {
+  background:#111;
+  padding:0;
+  position: relative;
+  z-index: 1101;
+}
+.atl-util-bar__inner {
+  max-width:1320px; margin:0 auto; padding:0 1.25rem;
+  display:flex; align-items:center; justify-content:space-between;
+  height:36px;
+}
+.atl-util-bar__left, .atl-util-bar__right { display:flex; align-items:center; gap:1.25rem; }
+.atl-util-link {
+  font-size:.72rem; color:rgba(255,255,255,.7); cursor:pointer;
+  display:flex; align-items:center; gap:.3rem; transition:color .2s;
+  text-decoration:none;
+}
+.atl-util-link:hover { color:#fff; }
+
+/* ═══════════════════════════════════════════════════
+   MAIN NAVBAR
+═══════════════════════════════════════════════════ */
+.atl-nav {
+  position: relative;
+  top: 0;
+  z-index: 1050; /* above mega overlay (900) so all nav links stay interactive */
+  background:#fff;
+  border-bottom:3px solid #313185;
+  box-shadow:none;
+  transition:box-shadow .3s;
+}
+.atl-nav.scrolled { box-shadow:0 2px 16px rgba(0,0,0,.1); }
+.atl-nav__inner {
+  max-width:1320px; margin:0 auto; padding:0 1.25rem;
+  display:flex; align-items:center; gap:0;
+  height:82px;
+}
+
+/* Logo — matches screenshot blue square + "Electronics" text */
+.atl-nav__logo {
+  display:flex; align-items:center; gap:.7rem; text-decoration:none;
+  flex-shrink:0;
+}
+.atl-nav__logo-mark {
+  width:40px; height:40px; background:var(--navy); border-radius:6px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--fcond); font-size:.78rem; font-weight:800;
+  color:#fff; letter-spacing:.04em; flex-shrink:0;
+}
+.atl-nav__logo-name {
+  font-size:1.05rem; font-weight:700; color:var(--ink);
+  letter-spacing:-.01em;
+}
+
+/* Desktop nav links */
+.atl-nav__links {
+  list-style:none; margin:0; padding:0;
+  display:flex; align-items:stretch; height:100%; flex:1;
+  justify-content: center;
+}
+.atl-nav__item { position:relative; display:flex; align-items:stretch; }
+.atl-nav__link {
+  display:flex; align-items:center; gap:.3rem;
+  padding:0 1rem; font-size:.88rem; font-weight:600; color:#1e1e3c;
+  background:none; border:none; cursor:pointer;
+  border-bottom:none;
+  position:relative;
+  transition:color .25s ease;
+  white-space:nowrap; height:100%;
+  text-decoration:none;
+}
+/* Aaensa-style: sliding underline left→right */
+.atl-nav__link::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:50%;
+  width:0; height:3px;
+  background:#313185;
+  border-radius:2px 2px 0 0;
+  transition:width .45s cubic-bezier(.22,1,.36,1), left .45s cubic-bezier(.22,1,.36,1); /* v27: 50% slower than original .3s */
+}
+.atl-nav__link:hover::after,
+.atl-nav__link--active::after {
+  width:100%; left:0;
+}
+.atl-nav__link:hover { color:#313185; }
+.atl-nav__link--active { color:#313185; }
+.atl-nav__link--has-mega svg { transition:transform 1.65s ease; }
+.atl-nav__item--mega.mega-open .atl-nav__link--has-mega svg { transform:rotate(180deg); }
+
+/* Right controls */
+.atl-nav__right { display:flex; align-items:center; gap:.75rem; flex-shrink:0; }
+.atl-nav__search-btn {
+  background:none; border:none; color:#555; cursor:pointer; padding:6px;
+  border-radius:6px; transition:background .2s,color .2s;
+}
+.atl-nav__search-btn:hover { background:rgba(49,49,133,.08); color:#313185; }
+.atl-nav__cta {
+  display:inline-flex; align-items:center; padding:.55rem 1.35rem;
+  background:#313185; color:#fff; border-radius:8px;
+  font-size:.82rem; font-weight:700; font-family:var(--fcond);
+  letter-spacing:.04em;
+  transition:background .25s ease, transform .25s ease, box-shadow .25s ease;
+  white-space:nowrap; text-decoration:none; border:2px solid #313185;
+}
+.atl-nav__cta:hover { background:#252570; border-color:#252570; color:#fff; transform:translateY(-2px); box-shadow:0 6px 18px rgba(49,49,133,.28); }
+
+/* Burger */
+.atl-nav__burger {
+  display:none; flex-direction:column; gap:4px;
+  background:none; border:none; padding:4px; cursor:pointer;
+}
+.atl-nav__burger span { display:block; width:22px; height:2px; background:#1e1e3c; border-radius:2px; transition:all .3s; }
+.atl-nav__burger.open span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
+.atl-nav__burger.open span:nth-child(2) { opacity:0; }
+.atl-nav__burger.open span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
+
+/* ── LOGO sub-text ──────────────────────────────── */
+.atl-nav__logo-text { display:flex; flex-direction:column; line-height:1.1; }
+.atl-nav__logo-name { font-family:var(--fcond); font-size:.98rem; font-weight:700; color:var(--ink); letter-spacing:-.01em; }
+.atl-nav__logo-sub  { font-family:var(--font); font-size:.62rem; font-weight:500; color:var(--inks); letter-spacing:.02em; }
+/* Logo images — header & footer */
+.atl-nav__logo-img   { height:58px; width:auto; max-width:200px; display:block; object-fit:contain; padding:0; }
+.atl-footer__logo-img { height:40px; width:auto; max-width:160px; display:block; object-fit:contain; filter:none; margin-bottom:.75rem; padding:0; }
+.atl-nav__logo-mark { font-family:var(--fcond); font-size:.78rem; font-weight:800; letter-spacing:.04em; }
+
+/* ── CHEVRON ──────────────────────────────────── */
+.atl-nav__chevron { transition:transform 1.65s ease; flex-shrink:0; }
+.atl-nav__item--mega.mega-open .atl-nav__chevron { transform:rotate(180deg); }
+
+/* ═══════════════════════════════════════════════════
+   MEGA MENU — Aaensa.com style
+   Architecture: .atl-mega is the fixed full-width
+   wrapper; .atl-mega__panel is the white card.
+   The wrapper itself provides the dark backdrop.
+   Opened via .mega-open on the parent nav item.
+═══════════════════════════════════════════════════ */
+
+/* Full-screen fixed wrapper — backdrop + panel host */
+/* Mega overlay — starts at header bottom so header is never covered */
+.atl-mega {
+  position: fixed;
+  top: 100px; /* JS overrides this to exact header height */
+  left: 0; right: 0; bottom: 0;
+  z-index: 900;
+  pointer-events: none;
+  background: rgba(38, 38, 115, 0);
+  transition: background 0.22s ease;
+  /* No clip-path needed — div starts below header already */
+}
+
+/* When open: dark navy backdrop fades in */
+.atl-nav__item--mega.mega-open .atl-mega {
+  pointer-events: all;
+  background: rgba(38, 38, 115, 0.48);
+}
+
+/* ════════════════════════════════════════════
+   SLIDE-DOWN PANEL ANIMATION
+   Panel starts above viewport (translateY(-100%))
+   and slides smoothly down into position.
+   Matches the video: clean downward slide.
+════════════════════════════════════════════ */
+.atl-mega__panel {
+  position: absolute;
+  top: 0; /* overlay already starts at header bottom — panel sits at its top */
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px); /* starts just above final position */
+  width: min(1280px, 96vw);
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 8px 32px -4px rgba(3, 24, 133, .18),
+    0 24px 64px -8px rgba(3, 24, 133, .14),
+    0 0 0 1px rgba(3, 24, 133, .06);
+  opacity: 0;
+  visibility: hidden;
+  /* Close: smooth fade-up */
+  transition:
+    transform 0.40s cubic-bezier(0.4, 0, 1, 1),
+    opacity   0.30s ease,
+    visibility 0s linear 0.40s;
+}
+
+/* Panel open: fades+slides in from exactly below header */
+.atl-nav__item--mega.mega-open .atl-mega__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  /* Open: smooth spring slide down */
+  transition:
+    transform 0.52s cubic-bezier(0.0, 0.0, 0.2, 1),
+    opacity   0.38s ease,
+    visibility 0s linear 0s;
+}
+
+/* Thin navy→red accent stripe at top of panel */
+.atl-mega__panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy) 0%, #1B50A0 40%, var(--red) 100%);
+  border-radius: 0;
+  z-index: 2;
+}
+
+/* ── Inner grid ──────────────────────────────────── */
+.atl-mega__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 240px;
+  gap: 0;
+  padding: 2rem 0 1.75rem;
+}
+.atl-mega__inner--3col    { grid-template-columns: 1fr 1fr 1fr; }
+.atl-mega__inner--products {
+  grid-template-columns: 1fr;
+  display: flex; flex-direction: column;
+  padding: 1.25rem 1.5rem; gap: .4rem;
+}
+
+/* ── Columns ─────────────────────────────────────── */
+.atl-mega__col {
+  padding: 0 1.75rem;
+  border-right: 1px solid rgba(13,33,71,.07);
+}
+.atl-mega__col:last-child { border-right: none; }
+
+/* Column header */
+.atl-mega__col-head {
+  display: flex; align-items: flex-start; gap: .85rem;
+  margin-bottom: 1.1rem;
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.32, 1, 0.36, 1);
+}
+.atl-nav__item--mega.mega-open .atl-mega__col-head {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* Column icon */
+.atl-mega__col-icon {
+  width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.atl-mega__col-icon--blue   { background: rgba(3,24,133,.1);  color: var(--blue); }
+.atl-mega__col-icon--red    { background: rgba(176,0,0,.1);  color: var(--red); }
+.atl-mega__col-icon--teal   { background: rgba(12,110,110,.1); color: var(--teal); }
+.atl-mega__col-icon--purple { background: rgba(94,61,184,.1);  color: var(--purple); }
+.atl-mega__col-icon--navy   { background: rgba(3,24,133,.08);  color: var(--navy); }
+.atl-mega__col-icon--orange { background: rgba(176,0,0,.1);  color: var(--orange); }
+.atl-mega__col-icon--green  { background: rgba(10,124,69,.1);  color: var(--green); }
+
+.atl-mega__col-title {
+  font-family: var(--fcond); font-size: .88rem; font-weight: 700;
+  color: var(--ink); margin: 0 0 .15rem; line-height: 1.2;
+}
+.atl-mega__col-desc {
+  font-size: .71rem; color: var(--inks); margin: 0; line-height: 1.4;
+}
+
+/* Divider (EMI → Environmental) */
+.atl-mega__col-divider { height: 1px; background: rgba(13,33,71,.07); margin: 1rem 0; }
+
+/* ── List items ──────────────────────────────────── */
+.atl-mega__list { list-style: none; margin: 0; padding: 0; }
+.atl-mega__list li {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.32, 1, 0.36, 1);
+}
+.atl-mega__list a {
+  display: flex; align-items: center; gap: .55rem;
+  font-size: .82rem; color: var(--inkm);
+  padding: .32rem 0; border-radius: 5px;
+  /* 50% slower than original .12s → .18s; translateX slide added */
+  transition: color .18s ease, transform .18s ease;
+  text-decoration: none; font-weight: 400;
+  position: relative;
+  transform: translateX(0);
+  overflow: visible;
+}
+/* ── Sliding left-to-right animation on hover ──────────────── */
+/* Chevron arrow that slides in from left on hover */
+.atl-mega__list a::after {
+  content: none;
+  display: none;
+}
+.atl-mega__list a:hover {
+  color: var(--navy);
+  transform: translateX(6px);
+}
+.atl-mega__view-all {
+  font-size: .78rem !important; font-weight: 700 !important;
+  color: var(--navy) !important; margin-top: .4rem !important;
+  display: inline-flex !important; align-items: center; gap: .25rem;
+}
+
+/* List item reveal — both .mega-open (JS) and :hover (CSS fallback) */
+.atl-nav__item--mega.mega-open .atl-mega__list li { opacity: 1; transform: translateY(0); transition-delay: 0s; }
+
+/* ── Dot bullets ─────────────────────────────────── */
+.atl-mega__dot {
+  width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+  background: var(--blue); opacity: .45; transition: opacity .2s;
+}
+.atl-mega__dot--red    { background: var(--red); }
+.atl-mega__dot--teal   { background: var(--teal); }
+.atl-mega__dot--purple { background: var(--purple); }
+.atl-mega__dot--wpc    { background: #031885; opacity: 1; }
+.atl-mega__list a:hover .atl-mega__dot { opacity: 1; }
+
+/* WPC highlighted list item */
+.atl-mega__list-wpc-item > a {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 600 !important;
+  color: #031885 !important;
+  background: linear-gradient(90deg, rgba(3,24,133,.07) 0%, rgba(176,0,0,.04) 100%);
+  border-radius: 6px;
+  padding: .32rem .5rem .32rem .4rem !important;
+  border-left: 2.5px solid #031885;
+  margin-bottom: .15rem;
+}
+.atl-mega__list-wpc-item > a:hover {
+  background: linear-gradient(90deg, rgba(3,24,133,.13) 0%, rgba(176,0,0,.07) 100%) !important;
+  color: #031885 !important;
+}
+
+/* NABL Accredited badge pill on WPC item */
+.atl-mega__nabl-badge {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: .12rem .45rem;
+  font-size: .55rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #031885 0%, #B00000 100%);
+  color: #fff !important;
+  border-radius: 99px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  line-height: 1.5;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(3,24,133,.18);
+}
+
+/* ── Feature column (4th col) ────────────────────── */
+.atl-mega__col--feature { background: var(--surf); border-radius: 0 0 14px 0; }
+.atl-mega__feature-card { padding: .25rem .5rem; }
+.atl-mega__new-tag {
+  display: inline-flex; align-items: center;
+  background: var(--red); color: #fff;
+  font-family: var(--font); font-size: .58rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px; margin-bottom: 1rem;
+}
+.atl-mega__feature-visual {
+  width: 72px; height: 72px; background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: .9rem; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+.atl-mega__feature-name { font-family:var(--fcond); font-size:.95rem; font-weight:700; color:var(--ink); margin:0 0 .35rem; }
+.atl-mega__feature-desc { font-size:.74rem; color:var(--inks); line-height:1.6; margin:0 0 .9rem; }
+.atl-mega__feature-link {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .78rem; font-weight: 700; color: var(--navy);
+  text-decoration: none; transition: gap .15s;
+}
+.atl-mega__feature-link:hover { gap: .5rem; text-decoration: underline; }
+.atl-mega__cert-badges { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.atl-mega__cert {
+  display: inline-block; background: #fff; border: 1px solid var(--border);
+  color: var(--navy); font-size: .6rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+/* ── Products mega (smaller panel) ──────────────── */
+.atl-mega--sm .atl-mega__panel { width: min(680px, 94vw); }
+.atl-mega__prod-card {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .85rem 1.1rem; border-radius: 10px;
+  border: 1px solid transparent; text-decoration: none;
+  transition: background .2s, border-color .2s, transform .2s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background .2s, border-color .2s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__prod-card       { opacity: 1; transform: translateY(0); }
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(1) { transition-delay: 0.12s; }
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(2) { transition-delay: 0.12s; }
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(3) { transition-delay: 0.26s; }
+.atl-mega__prod-card:hover {
+  background: var(--surf); border-color: rgba(3,24,133,.08);
+  transform: translateX(4px);
+}
+.atl-mega__prod-icon {
+  width: 46px; height: 46px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.atl-mega__prod-icon--blue  { background: rgba(3,24,133,.1);  color: var(--blue); }
+.atl-mega__prod-icon--navy  { background: rgba(3,24,133,.08);  color: var(--navy); }
+.atl-mega__prod-icon--green { background: rgba(10,124,69,.1);  color: var(--green); }
+.atl-mega__prod-info { flex: 1; min-width: 0; }
+.atl-mega__prod-badge {
+  font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--inks); margin-bottom: .15rem; display: block;
+}
+.atl-mega__prod-name { font-family:var(--fcond); font-size:.92rem; font-weight:700; color:var(--ink); margin:0; }
+.atl-mega__prod-spec { font-size: .73rem; color: var(--inks); margin: 0; }
+.atl-mega__prod-stock {
+  font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
+}
+.atl-mega__prod-stock--green { background: rgba(10,124,69,.1); color: var(--green); }
+.atl-mega__prod-cta {
+  margin-top: .75rem; padding-top: .85rem;
+  border-top: 1px solid rgba(13,33,71,.07);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.atl-mega__prod-cta-btn {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .82rem; font-weight: 700; color: var(--navy);
+  text-decoration: none; transition: gap .15s;
+}
+.atl-mega__prod-cta-btn:hover { gap: .5rem; text-decoration: underline; }
+.atl-mega__prod-cta-note { font-size: .72rem; color: var(--inks); margin: 0; }
+
+/* Mobile drawer */
+.atl-nav__mobile { display:none; padding:.5rem 1.25rem 1rem; border-top:1px solid #d1d5db; background:#fff; }
+.atl-nav__mobile.open { display:block; }
+.atl-nav__mlink { display:block; padding:.65rem 0; font-size:.92rem; font-weight:600; color:#374151; border-bottom:1px solid #f3f4f6; transition:color .2s; text-decoration:none; }
+.atl-nav__mlink:last-child { border-bottom:none; }
+.atl-nav__mlink:hover { color:var(--navy); }
+
+/* ═══════════════════════════════════════════════════
+   HOME HERO  (dark electronics style — screenshot 1)
+═══════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════
+   HERO — Light theme with floating blob background
+══════════════════════════════════════════════ */
+.atl-home-hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 4rem;
+  background: #eef1f8;
+}
+
+/* Base gradient layer */
+.atl-hero-bg-gradient {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(135deg, #dde3f5 0%, #eef1f8 40%, #f0e8f0 70%, #e8eef8 100%);
+  background-size: 400% 400%;
+  animation: heroGradShift 30s ease infinite;
+}
+@keyframes heroGradShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating blob orbs */
+.atl-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  z-index: 0;
+  pointer-events: none;
+}
+.atl-hero-blob--1 {
+  width: 560px; height: 560px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle, rgba(49,49,133,0.18) 0%, rgba(49,49,133,0.05) 60%, transparent 100%);
+  animation: blobDrift1 38s ease-in-out infinite;
+}
+.atl-hero-blob--2 {
+  width: 480px; height: 480px;
+  top: 60px; right: -80px;
+  background: radial-gradient(circle, rgba(176,0,0,0.12) 0%, rgba(176,0,0,0.04) 60%, transparent 100%);
+  animation: blobDrift2 46s ease-in-out infinite;
+}
+.atl-hero-blob--3 {
+  width: 400px; height: 400px;
+  bottom: -80px; left: 35%;
+  background: radial-gradient(circle, rgba(49,49,133,0.10) 0%, rgba(100,120,220,0.04) 60%, transparent 100%);
+  animation: blobDrift3 42s ease-in-out infinite;
+}
+.atl-hero-blob--4 {
+  width: 300px; height: 300px;
+  bottom: 30px; right: 15%;
+  background: radial-gradient(circle, rgba(176,0,0,0.07) 0%, transparent 70%);
+  animation: blobDrift4 52s ease-in-out infinite;
+}
+@keyframes blobDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(60px, 40px) scale(1.08); }
+  66%       { transform: translate(-30px, 70px) scale(0.94); }
+}
+@keyframes blobDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-70px, 50px) scale(1.10); }
+  70%       { transform: translate(40px, -30px) scale(0.92); }
+}
+@keyframes blobDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(50px, -60px) scale(1.12); }
+}
+@keyframes blobDrift4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  30%       { transform: translate(-40px, -50px) scale(1.15); }
+  70%       { transform: translate(60px, 20px) scale(0.88); }
+}
+
+/* SVG dot grid — hidden */
+.atl-hero-bg { display:none; }
+.atl-hero-content { position:relative; z-index:3; }
+
+/* Eyebrow pill badge */
+.atl-hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: #374151; background: rgba(255,255,255,.75);
+  border: 1px solid rgba(3,24,133,.12); border-radius: 20px;
+  padding: .32rem .9rem; margin-bottom: 1.2rem;
+}
+.atl-hero-eyebrow__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #B00000; flex-shrink: 0;
+}
+
+/* Headline */
+.atl-home-hero__title {
+  font-family: var(--fcond, 'Outfit', sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 800; color: #0d1944;
+  letter-spacing: -.025em; line-height: 1.06; margin: 0 0 1.2rem;
+}
+.atl-home-hero__title em {
+  color: #B00000; font-style: normal; display: block;
+}
+.atl-home-hero__title em::after {
+  content: ''; display: block; width: 0; height: 4px;
+  background: linear-gradient(90deg, #B00000 0%, #E02020 45%, #ff6b6b 75%, transparent 100%);
+  margin-top: .5rem; border-radius: 3px;
+  animation: underlineGrow 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+@keyframes underlineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+
+/* Description */
+.atl-home-hero__desc { font-size:1rem; color:#4b5563; line-height:1.75; max-width:500px; margin-bottom:2rem; }
+
+/* CTA buttons */
+.atl-home-hero__btns { display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:2.75rem; }
+/* ── GLOBAL BUTTON SYSTEM — consistent across all pages ── */
+.atl-btn-primary {
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.82rem 1.9rem; background:#B00000; color:#fff;
+  border:2px solid #B00000; border-radius:8px;
+  font-family:var(--fcond,'Outfit',sans-serif); font-size:.95rem; font-weight:800;
+  letter-spacing:.04em; text-decoration:none;
+  cursor:pointer; white-space:nowrap;
+  transition:background .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-btn-primary:hover {
+  background:#021266; border-color:#021266; color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(3,24,133,.32);
+}
+.atl-btn-primary:active { transform:translateY(-1px); box-shadow:0 4px 12px rgba(3,24,133,.25); }
+.atl-btn-outline {
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.82rem 1.9rem; background:transparent; color:#031885;
+  border:2px solid #031885; border-radius:8px;
+  font-family:var(--fcond,'Outfit',sans-serif); font-size:.95rem; font-weight:800;
+  letter-spacing:.04em; text-decoration:none;
+  cursor:pointer; white-space:nowrap;
+  transition:background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-btn-outline:hover {
+  background:#031885; color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(3,24,133,.22);
+}
+.atl-btn-outline:active { transform:translateY(-1px); box-shadow:0 4px 12px rgba(3,24,133,.18); }
+
+/* Stats row */
+.atl-home-hero__stats-card {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 16px rgba(3,24,133,.07);
+}
+.atl-home-hero__stats { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; }
+.atl-home-stat { text-align:left; }
+.atl-home-stat__num {
+  display:block; font-family:var(--fcond,'Outfit',sans-serif); font-size:1.9rem; font-weight:800; line-height:1;
+  background: linear-gradient(90deg, #031885 0%, #B00000 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; color: transparent;
+}
+.atl-home-stat__lbl { display:block; font-size:.6rem; font-weight:700; color:#9ca3af; text-transform:uppercase; letter-spacing:.1em; margin-top:2px; }
+.atl-home-stat__div { width:1px; height:36px; background:#d1d5db; }
+
+/* Clickable stat */
+.atl-home-stat--clickable { cursor:pointer; position:relative; transition:opacity .18s; }
+.atl-home-stat--clickable:hover { opacity:.78; }
+.atl-home-stat--clickable:hover .atl-home-stat__lbl { color:#031885; }
+.atl-stat-info-icon { font-size:.75rem; color:#031885; vertical-align:middle; margin-left:2px; }
+
+/* Products breakdown popup */
+.atl-products-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:9998; }
+.atl-products-popup {
+  position:fixed; z-index:9999;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  background:#fff; border-radius:18px; padding:2rem 2rem 1.75rem;
+  width:min(460px,92vw); box-shadow:0 8px 48px rgba(3,24,133,.18);
+  animation:atl-popup-in .22s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes atl-popup-in { from{opacity:0;transform:translate(-50%,-54%)} to{opacity:1;transform:translate(-50%,-50%)} }
+.atl-products-popup__close {
+  position:absolute; top:1rem; right:1rem;
+  background:none; border:none; font-size:1.4rem; line-height:1;
+  color:#9ca3af; cursor:pointer; padding:.2rem .5rem; border-radius:6px;
+  transition:background .15s, color .15s;
+}
+.atl-products-popup__close:hover { background:#f3f4f6; color:#031885; }
+.atl-products-popup__title {
+  font-size:1.25rem; font-weight:800; margin:0 0 .2rem;
+  background:linear-gradient(90deg,#031885 0%,#B00000 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.atl-products-popup__sub { font-size:.78rem; color:#9ca3af; margin:0 0 1.25rem; font-weight:500; text-transform:uppercase; letter-spacing:.07em; }
+.atl-products-popup__bars { display:flex; flex-direction:column; gap:.9rem; }
+.atl-pbar__header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:.3rem; }
+.atl-pbar__label { font-size:.82rem; font-weight:600; color:#374151; }
+.atl-pbar__pct { font-size:.82rem; font-weight:800; color:#031885; }
+.atl-pbar__track { height:8px; background:#f0f1f5; border-radius:99px; overflow:hidden; }
+.atl-pbar__fill { height:100%; border-radius:99px; width:0%; transition:width .7s cubic-bezier(.4,0,.2,1); }
+.atl-pbar__count { font-size:.7rem; color:#9ca3af; font-weight:500; margin-top:.15rem; display:block; }
+
+/* WPC Featured highlight in megamenu */
+.atl-mega__wpc-feature {
+  display: block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #fffaf5 0%, #fff5ee 100%);
+  border: 2px solid #e8c8a0;
+  border-radius: 12px;
+  padding: .6rem .85rem .7rem;
+  margin-bottom: .5rem;
+  transition: background .18s, border-color .18s, box-shadow .18s, transform .15s;
+  position: relative;
+  overflow: hidden;
+}
+.atl-mega__wpc-feature::before {
+  content: '';
+  position: absolute; left:0; top:0; bottom:0; width:4px;
+  background: linear-gradient(180deg, #031885 0%, #B00000 100%);
+  border-radius: 12px 0 0 12px;
+}
+.atl-mega__wpc-feature::after {
+  content: '';
+  position: absolute; inset:0;
+  background: linear-gradient(135deg, rgba(3,24,133,.03) 0%, rgba(176,0,0,.04) 100%);
+  pointer-events: none;
+}
+.atl-mega__wpc-feature:hover {
+  background: linear-gradient(135deg, #fff0e8 0%, #ffe8d8 100%);
+  border-color: #B00000;
+  box-shadow: 0 6px 24px rgba(176,0,0,.16), 0 2px 8px rgba(3,24,133,.08);
+  transform: translateY(-2px);
+}
+/* Badge row */
+.atl-mega__wpc-badge-row {
+  display: flex; align-items: center; gap: .4rem; margin-bottom: .35rem;
+}
+.atl-mega__wpc-badge-tag {
+  font-size: .58rem; font-weight: 800; letter-spacing: .1em;
+  color: #fff; background: linear-gradient(90deg, #031885 0%, #B00000 100%);
+  padding: 2px 7px; border-radius: 99px; text-transform: uppercase;
+}
+/* Logo box */
+.atl-mega__wpc-logo-wrap {
+  display: flex; align-items: center; gap: .75rem;
+}
+.atl-mega__wpc-nabl-logo-box {
+  flex-shrink: 0;
+  width: 54px; height: 54px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1.5px solid rgba(176,0,0,.15);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(176,0,0,.12);
+  overflow: hidden;
+  padding: 3px;
+}
+.atl-mega__wpc-nabl-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.atl-mega__wpc-text {
+  flex: 1; min-width: 0;
+}
+.atl-mega__wpc-title {
+  display: block; font-size: .84rem; font-weight: 800;
+  color: #031885; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.atl-mega__wpc-sub {
+  display: block; font-size: .67rem; color: #6b7280; font-weight: 500;
+  margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.atl-mega__wpc-nabl-tag {
+  display: inline-block; font-size: .6rem; font-weight: 700;
+  color: #B00000; border: 1px solid rgba(176,0,0,.3);
+  border-radius: 4px; padding: 1px 5px; margin-top: 4px;
+  background: rgba(176,0,0,.05); letter-spacing: .04em;
+}
+.atl-mega__wpc-arrow {
+  flex-shrink: 0; color: #031885; opacity: .45; transition: opacity .15s, transform .15s;
+}
+.atl-mega__wpc-feature:hover .atl-mega__wpc-arrow {
+  opacity: 1; transform: translateX(3px);
+}
+
+
+.atl-hero-cards { display:flex; flex-direction:column; gap:1rem; }
+.atl-hero-cards__grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.atl-hero-card--featured {
+  background:#fff; border-radius:16px;
+  padding:1.5rem; display:flex; gap:1rem; align-items:flex-start;
+  box-shadow:0 4px 24px rgba(3,24,133,.10); transition:box-shadow .25s,transform .25s;
+  position: relative; overflow: hidden;
+  /* Gradient border using outline+background trick */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  background-image: linear-gradient(#fff, #fff);
+  /* Use pseudo for the gradient border */
+}
+.atl-hero-card--featured::before {
+  content: '';
+  position: absolute; inset: -2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #031885 0%, #6b7ff7 35%, #B00000 70%, #ff6b6b 100%);
+  z-index: 0;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+/* Ensure card content sits above the pseudo border */
+.atl-hero-card--featured > * { position: relative; z-index: 1; }
+.atl-hero-card--featured:hover { box-shadow:0 10px 36px rgba(3,24,133,.16); transform:translateY(-2px); }
+.atl-hero-card--small {
+  background:#fff; border:1px solid #e5e7eb; border-radius:14px;
+  padding:1.25rem 1rem; display:flex; flex-direction:column;
+  align-items:center; text-align:center; gap:.5rem; text-decoration:none;
+  box-shadow:0 2px 12px rgba(3,24,133,.06); transition:box-shadow .25s,transform .25s;
+}
+.atl-hero-card--small:hover { box-shadow:0 6px 24px rgba(3,24,133,.14); transform:translateY(-2px); }
+.atl-hero-card__icon-wrap {
+  width:44px; height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  background: rgba(0,0,0,.06);
+}
+.atl-hero-card__icon-wrap--blue   { color:#fff; background:#031885; }
+.atl-hero-card__icon-wrap--red    { color:#B00000; background:rgba(176,0,0,.10); }
+.atl-hero-card__icon-wrap--teal   { color:#0c6e6e; background:rgba(12,110,110,.10); }
+.atl-hero-card__icon-wrap--orange { color:#d97706; background:rgba(217,119,6,.10); }
+.atl-hero-card__icon-wrap--purple { color:#5e3db8; background:rgba(94,61,184,.10); }
+.atl-hero-card__body { flex:1; min-width:0; }
+.atl-hero-card__badge { display:inline-block; font-size:.6rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#B00000; margin-bottom:.35rem; }
+.atl-hero-card__name { font-family:var(--fcond,'Outfit',sans-serif); font-size:1.15rem; font-weight:800; color:#0d1944; margin:0 0 .3rem; }
+.atl-hero-card__desc { font-size:.78rem; color:#6b7280; line-height:1.55; margin:0 0 .85rem; }
+.atl-hero-card__meta { display:flex; gap:1.5rem; margin-bottom:.85rem; }
+.atl-hero-card__meta > div { display:flex; flex-direction:column; gap:2px; }
+.atl-hero-card__meta-val { font-family:var(--fcond,'Outfit',sans-serif); font-size:.9rem; font-weight:800; color:#031885; }
+.atl-hero-card__meta-lbl { font-size:.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#9ca3af; }
+.atl-hero-card__link { font-size:.8rem; font-weight:700; color:#031885; text-decoration:none; transition:color .18s; }
+.atl-hero-card__link:hover { color:#B00000; text-decoration:underline; }
+.atl-hero-card__small-name { font-family:var(--fcond,'Outfit',sans-serif); font-size:.88rem; font-weight:800; color:#0d1944; }
+.atl-hero-card__small-sub { font-size:.72rem; color:#9ca3af; font-weight:600; }
+
+/* Hero slider — hidden (not used in new design) */
+.atl-hero-slider { display:none; }
+.atl-hero-dots { display:none; }
+
+/* Responsive */
+@media (max-width:991px) { .atl-home-hero { min-height:auto; padding:3.5rem 0 3rem; } .atl-hero-cards { max-width:540px; margin:0 auto; } }
+@media (max-width:576px) { .atl-home-hero__title { font-size:2.2rem; } .atl-home-hero__btns { flex-direction:column; } }
+
+/* ═══════════════════════════════════════════════════
+   RELIABLE & CERTIFIED  SECTION  (screenshot style)
+═══════════════════════════════════════════════════ */
+/* reliable section styles moved below */
+.atl-rel-caption__hl {
+  color:var(--red);
+  font-weight:800;
+}
+
+/* Right: text */
+.atl-rel-content { padding-left:3rem; }
+.atl-rel-eyebrow {
+  display:block;
+  font-size:.72rem; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--inks);
+  margin-bottom:.6rem;
+}
+.atl-rel-title {
+  font-family:var(--fcond);
+  font-size:clamp(2rem,3.8vw,3rem);
+  font-weight:800; color:var(--navy);
+  letter-spacing:-.02em; line-height:1.12;
+  margin:0 0 1.5rem;
+}
+
+/* Orange left-border highlight paragraph — matching screenshot */
+.atl-rel-highlight {
+  border-left:4px solid var(--orange);
+  padding-left:1.1rem;
+  font-size:1rem; font-weight:700;
+  color:var(--ink); line-height:1.65;
+  margin:0 0 1.1rem;
+}
+
+.atl-rel-body {
+  font-size:.9rem; color:var(--blue);
+  line-height:1.75; margin:0 0 2rem;
+}
+
+/* CTA button */
+.atl-rel-cta {
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.82rem 1.9rem; background:#B00000; color:#fff;
+  border:2px solid #B00000; border-radius:8px;
+  font-family:var(--fcond,'Outfit',sans-serif); font-size:.95rem; font-weight:800;
+  letter-spacing:.04em; text-decoration:none;
+  cursor:pointer; white-space:nowrap;
+  transition:background .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-rel-cta:hover {
+  background:#8a0000; border-color:#8a0000; color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(176,0,0,.32);
+}
+.atl-rel-cta:active { transform:translateY(-1px); box-shadow:0 4px 12px rgba(176,0,0,.25); }
+
+/* Responsive */
+@media (max-width:991.98px) {
+  .atl-rel-content { padding-left:0; padding-top:2.5rem; }
+  .atl-rel-num-wrap { justify-content:center; }
+  .atl-rel-caption { text-align:center; }
+}
+@media (max-width:767.98px) {
+  .atl-reliable { padding:3.5rem 0; }
+  .atl-rel-num { font-size:8rem; }
+  .atl-rel-plus { font-size:4rem; }
+}
+
+/* ═══════════════════════════════════════════════════
+   RELIABLE & CERTIFIED SECTION
+═══════════════════════════════════════════════════ */
+.atl-reliable {
+  background: #fff;
+  padding: 5.5rem 0 5rem;
+  overflow: hidden;
+}
+
+/* ── Left: image-textured 10+ number ─────────────────────────── */
+.atl-rel-stat-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* The row holding "10" and "+" */
+.atl-rel-bignum {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+  /* soft glow halo behind the entire number group */
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.55))
+          drop-shadow(0 4px 12px rgba(0, 0, 0, 0.40));
+}
+
+/* "10" — photo texture clipped inside the text */
+.atl-rel-bignum__num {
+  font-family: var(--fcond);
+  font-size: clamp(9rem, 20vw, 16rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+
+  /* Photo texture fills the letterforms */
+  background-image: url("images/10plus-instruments.png");
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Extra depth: darken the photo slightly via a blended gradient overlay */
+  /* We layer a semi-transparent navy gradient over the photo via a pseudo overlay */
+  position: relative;
+}
+
+/* "+" sign — different image zone, slightly muted */
+.atl-rel-bignum__plus {
+  font-family: var(--fcond);
+  font-size: clamp(5rem, 11vw, 9rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-top: 0.32em;
+
+  background-image: url("images/10plus-instruments.png");
+  background-size: cover;
+  background-position: right center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* Slightly more opacity so "+" reads as secondary */
+  opacity: 0.85;
+}
+
+/* Decorative cross/plus shape floating behind the number */
+.atl-rel-plus {
+  position: absolute;
+  right: -8%;
+  top: 8%;
+  width: clamp(70px, 13vw, 130px);
+  height: clamp(70px, 13vw, 130px);
+  z-index: 1;
+  opacity: 0.12;
+}
+.atl-rel-plus__v {
+  position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  width: 28%; height: 100%;
+  background: #031885;
+  border-radius: 4px;
+}
+.atl-rel-plus__h {
+  position: absolute; top: 50%; left: 0; transform: translateY(-50%);
+  width: 100%; height: 28%;
+  background: #031885;
+  border-radius: 4px;
+}
+
+/* Caption below the number */
+.atl-rel-caption {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: #031885;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.atl-rel-caption__bold { color: #031885; font-weight: 800; }
+
+/* Right: text block */
+.atl-rel-eyebrow {
+  display:block; font-size:.72rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--inks); margin-bottom:.75rem;
+}
+.atl-rel-title {
+  font-family:var(--fcond);
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800; color:var(--navy);
+  letter-spacing:-.02em; line-height:1.1;
+  margin:0 0 1.5rem;
+}
+.atl-rel-quote {
+  border-left:4px solid var(--orange);
+  padding-left:1.1rem; margin:0 0 1.2rem;
+  font-size:1rem; font-weight:700;
+  color:var(--ink); line-height:1.65;
+}
+.atl-rel-desc {
+  font-size:.9rem; color:var(--inks); line-height:1.8;
+  margin-bottom:2rem; max-width:480px;
+}
+/* atl-rel-cta — matched to atl-btn-primary above */
+
+@media (max-width:991.98px) {
+  .atl-rel-stat-wrap { max-width:280px; }
+  .atl-reliable { padding:4rem 0; }
+}
+@media (max-width:767.98px) {
+  .atl-reliable { padding:3rem 0; }
+  .atl-rel-bignum__num { font-size:clamp(5rem,22vw,8rem); }
+  .atl-rel-bignum__plus { font-size:clamp(3rem,12vw,5rem); }
+  .atl-rel-plus { display:none; }
+  .atl-rel-title { font-size:2rem; }
+}
+
+/* ═══════════════════════════════════════════════════
+   SHARED PAGE HERO STRIP
+═══════════════════════════════════════════════════ */
+.atl-page-hero {
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+  padding:3.5rem 0 3rem; border-bottom:3px solid var(--red);
+}
+.atl-page-hero__title { font-family:var(--fcond); font-size:clamp(2rem,4vw,3rem); font-weight:800; color:#fff; letter-spacing:-.01em; margin-bottom:.5rem; }
+.atl-page-hero__sub { font-size:.95rem; color:rgba(255,255,255,.62); max-width:560px; margin:0; line-height:1.65; }
+
+/* ═══════════════════════════════════════════════════
+   ABOUT — STAT CARDS
+═══════════════════════════════════════════════════ */
+.au-stat-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:1.75rem 1.25rem; text-align:center; transition:box-shadow .25s,transform .25s; }
+.au-stat-card:hover { box-shadow:0 8px 28px rgba(0,0,0,.09); transform:translateY(-3px); }
+.au-stat-card--red { background:var(--red); border-color:var(--red); }
+.au-stat-card--red .au-stat-card__num, .au-stat-card--red .au-stat-card__label { color:#fff; }
+.au-stat-card__num { display:block; font-family:var(--fcond); font-size:2.4rem; font-weight:800; color:var(--red); line-height:1; margin-bottom:.3rem; }
+.au-stat-card__label { display:block; font-size:.8rem; font-weight:500; color:var(--inks); line-height:1.3; }
+
+/* ═══════════════════════════════════════════════════
+   ABOUT — VISION & MISSION
+═══════════════════════════════════════════════════ */
+.au-vm-card { border-radius:var(--r); padding:2rem; transition:transform .25s,box-shadow .25s; }
+.au-vm-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.12); }
+.au-vm-card--dark  { background:var(--navy); }
+.au-vm-card--light { background:var(--white); border:1px solid var(--border); }
+.au-vm-icon { width:44px; height:44px; border-radius:9px; display:flex; align-items:center; justify-content:center; }
+.au-vm-icon--red  { background:var(--red); }
+.au-vm-icon--navy { background:var(--navy2); }
+.au-vm-card__title { font-family:var(--fcond); font-size:1.3rem; font-weight:800; color:#fff; }
+.au-vm-card__title--dark { color:var(--ink); }
+.au-vm-card__body { font-size:.88rem; line-height:1.75; color:rgba(255,255,255,.72); margin:0; }
+.au-vm-card__body--dark { color:var(--inkm); }
+
+/* ═══════════════════════════════════════════════════
+   ABOUT — QUALITY POLICY
+═══════════════════════════════════════════════════ */
+.au-quality-card { background:var(--surf); border:1px solid var(--border); border-radius:var(--r); padding:2.25rem 2.5rem; }
+.au-quality-card__title { font-family:var(--fcond); font-size:1.25rem; font-weight:800; color:var(--ink); margin-bottom:.5rem; }
+.au-quality-card__body { font-size:.88rem; color:var(--inks); line-height:1.7; margin:0; }
+.au-quality-item { display:flex; align-items:center; gap:.6rem; font-size:.86rem; font-weight:500; color:var(--inkm); padding:.35rem 0; }
+.au-quality-item svg { flex-shrink:0; filter: drop-shadow(0 1px 2px rgba(185,28,28,.18)); }
+
+/* ═══════════════════════════════════════════════════
+   ABOUT — CERTIFICATIONS
+═══════════════════════════════════════════════════ */
+.atl-certs-strip { background:var(--surf); border-top:1px solid var(--border); padding:4rem 0 4.5rem; }
+.au-cert-badge { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:1.25rem .75rem; text-align:center; transition:all .2s; }
+.au-cert-badge:hover { border-color:var(--navy); box-shadow:0 4px 16px rgba(0,0,0,.08); transform:translateY(-3px); }
+.au-cert-badge--red { background:var(--red); border-color:var(--red); }
+.au-cert-badge--red .au-cert-badge__abbr, .au-cert-badge--red .au-cert-badge__lbl { color:#fff; }
+.au-cert-badge__abbr { display:block; font-family:var(--fcond); font-size:1.35rem; font-weight:800; color:var(--navy); line-height:1; margin-bottom:.3rem; }
+.au-cert-badge__lbl  { display:block; font-size:.68rem; font-weight:600; color:var(--inks); line-height:1.3; }
+
+/* ═══════════════════════════════════════════════════
+   SERVICES — CATALOG
+═══════════════════════════════════════════════════ */
+.atl-filter-bar { display:flex; flex-wrap:wrap; gap:.45rem; padding-bottom:1.5rem; margin-bottom:2.25rem; border-bottom:1px solid var(--border); }
+.atl-filter-pill { background:var(--white); border:1px solid var(--border); color:var(--inkm); font-size:.8rem; font-weight:600; padding:6px 16px; border-radius:100px; transition:all .2s; }
+.atl-filter-pill:hover { border-color:var(--navy); color:var(--navy); }
+.atl-filter-pill--on { background:var(--navy); border-color:var(--navy); color:#fff; }
+
+/* Product card */
+.atl-prod-card { border:1px solid var(--border); border-radius:var(--r); background:var(--white); height:100%; display:flex; flex-direction:column; transition:transform .25s,box-shadow .25s,border-color .25s; overflow:hidden; }
+.atl-prod-card:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(0,0,0,.1); border-color:transparent; }
+/* Photo image area */
+.atl-prod-card__img { width:100%; height:200px; overflow:hidden; position:relative; background:var(--surf); }
+.atl-prod-card__img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; padding:0; }
+.atl-prod-card:hover .atl-prod-card__img img { transform:scale(1.04); }
+/* Badge row below image */
+.atl-prod-card__badges { display:flex; align-items:center; justify-content:space-between; padding:.6rem 1.2rem .2rem; }
+.atl-prod-card__top { height:96px; display:flex; align-items:center; justify-content:center; position:relative; }
+.atl-top--blue   { background:linear-gradient(135deg,#EFF4FF,#DBEAFE); }
+.atl-top--red    { background:linear-gradient(135deg,#FEF2F2,#FEE2E2); }
+.atl-top--green  { background:linear-gradient(135deg,#ECFDF5,#D1FAE5); }
+.atl-top--purple { background:linear-gradient(135deg,#F5F3FF,#EDE9FE); }
+.atl-top--teal   { background:linear-gradient(135deg,#ECFEFF,#CFFAFE); }
+.atl-top--orange { background:linear-gradient(135deg,#fff0f0,#ffe4e4); }
+.atl-top--navy   { background:linear-gradient(135deg,#EEF2F8,#d4e0f7); }
+.atl-prod-badge { display:inline-flex; align-items:center; justify-content:center; padding:5px 13px; border-radius:7px; font-family:var(--fmono); font-size:.7rem; font-weight:500; color:#fff; }
+.atl-badge--blue   { background:var(--blue);   box-shadow:0 3px 12px rgba(3,24,133,.32); }
+.atl-badge--red    { background:var(--red);    box-shadow:0 3px 12px rgba(176,0,0,.32); }
+.atl-badge--green  { background:var(--green);  box-shadow:0 3px 12px rgba(10,124,69,.32); }
+.atl-badge--purple { background:var(--purple); box-shadow:0 3px 12px rgba(94,61,184,.32); }
+.atl-badge--teal   { background:var(--teal);   box-shadow:0 3px 12px rgba(12,110,110,.32); }
+.atl-badge--orange { background:var(--orange); box-shadow:0 3px 12px rgba(176,0,0,.32); }
+.atl-badge--navy   { background:var(--navy);   box-shadow:0 3px 12px rgba(3,24,133,.32); }
+.atl-prod-nabl { font-size:.56rem; font-weight:700; text-transform:uppercase; background:var(--navy); color:#fff; padding:2px 6px; border-radius:4px; letter-spacing:.06em; }
+.atl-prod-body { padding:1.2rem; flex:1; display:flex; flex-direction:column; }
+.atl-prod-cat  { font-size:.64rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--inks); }
+.atl-prod-name { font-family:var(--fcond); font-size:1.02rem; font-weight:800; color:var(--ink); margin:.25rem 0 .45rem; line-height:1.2; }
+.atl-prod-desc { font-size:.8rem; color:var(--inks); line-height:1.6; flex:1; margin-bottom:.85rem; }
+.atl-prod-tags { display:flex; flex-wrap:wrap; gap:.3rem; margin-bottom:.9rem; }
+.atl-prod-tag  { font-family:var(--fmono); font-size:.6rem; background:var(--surf); border:1px solid var(--border); padding:2px 6px; border-radius:3px; color:var(--inkm); }
+.atl-prod-actions { display:flex; gap:.45rem; }
+.atl-btn-detail, .atl-btn-buy {
+  flex:1; padding:.55rem 0; border-radius:8px; font-size:.82rem; font-weight:700;
+  font-family:var(--fcond,'Outfit',sans-serif); cursor:pointer; text-align:center;
+  transition:background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-btn-detail { background:var(--navy); color:#fff; border:2px solid var(--navy); }
+.atl-btn-detail:hover { background:#021266; border-color:#021266; transform:translateY(-2px); box-shadow:0 6px 18px rgba(3,24,133,.28); }
+.atl-btn-buy { background:var(--red); color:#fff; border:2px solid var(--red); }
+.atl-btn-buy:hover { background:#8a0000; border-color:#8a0000; transform:translateY(-2px); box-shadow:0 6px 18px rgba(176,0,0,.28); }
+.atl-prod-item.is-hidden { display:none !important; }
+
+.atl-outline-btn { background:transparent; border:2px solid var(--navy); color:var(--navy); font-family:var(--fcond); font-size:.95rem; font-weight:800; padding:.65rem 2.5rem; border-radius:8px; transition:all .2s; }
+.atl-outline-btn:hover { background:var(--navy); color:#fff; }
+
+/* ═══════════════════════════════════════════════════
+   SERVICES — DETAIL PANEL
+═══════════════════════════════════════════════════ */
+.atl-detail { background:var(--surf); border-top:1px solid var(--border); }
+.atl-detail-hero { background:var(--navy); padding:2.5rem 0 2rem; }
+.atl-detail-cat { background:var(--red); color:#fff; font-size:.68rem; font-weight:700; padding:4px 11px; border-radius:5px; letter-spacing:.05em; }
+.atl-detail-live { font-size:.76rem; color:#4ade80; font-weight:500; }
+.atl-detail-title { font-family:var(--fcond); font-size:clamp(1.3rem,2.8vw,2rem); font-weight:800; color:#fff; line-height:1.15; margin:.2rem 0; }
+.atl-detail-desc  { font-size:.86rem; color:rgba(255,255,255,.6); margin:0; line-height:1.65; }
+.atl-detail-partno-label { font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.4); }
+.atl-detail-partno { font-family:var(--fmono); font-size:.8rem; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:rgba(255,255,255,.85); padding:6px 14px; border-radius:7px; display:inline-block; }
+
+/* Tab rail */
+.atl-tab-rail { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:64px; z-index:200; }
+.atl-tabs { list-style:none; margin:0; padding:0; display:flex; overflow-x:auto; scrollbar-width:none; }
+.atl-tabs::-webkit-scrollbar { display:none; }
+.atl-tabs li { flex-shrink:0; }
+.atl-tab { display:block; padding:.9rem 1.25rem; font-size:.82rem; font-weight:600; color:var(--inks); background:none; border:none; border-bottom:3px solid transparent; cursor:pointer; white-space:nowrap; transition:all .2s; }
+.atl-tab:hover { color:var(--navy); }
+.atl-tab--on { color:var(--navy); border-bottom-color:var(--red); }
+
+/* Panels */
+.atl-panels { padding:0; }
+.atl-panel { display:none; padding:2.5rem 0 3rem; }
+.atl-panel--on { display:block; }
+.atl-table-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; box-shadow:var(--sh); }
+.atl-table-card__header { padding:1.4rem 1.75rem 1.2rem; border-bottom:1px solid var(--border); background:var(--surf2); }
+.atl-table-card__title { font-family:var(--fcond); font-size:1.15rem; font-weight:800; color:var(--ink); margin:0 0 .2rem; }
+.atl-table-card__sub { font-size:.8rem; color:var(--inks); margin:0; }
+
+/* Tables */
+.atl-tscroll { overflow-x:auto; }
+.atl-table { width:100%; border-collapse:collapse; font-size:.82rem; min-width:700px; }
+.atl-table thead tr { background:var(--navy); }
+.atl-table thead th { padding:.78rem 1rem; font-size:.66rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:rgba(255,255,255,.92); white-space:nowrap; border-right:1px solid rgba(255,255,255,.1); }
+.atl-table thead th:last-child { border-right:none; }
+.atl-table tbody tr { border-bottom:1px solid var(--border); transition:background .15s; }
+.atl-table tbody tr:last-child { border-bottom:none; }
+.atl-table tbody tr:hover { background:#F0F5FC; }
+.atl-table tbody td { padding:.75rem 1rem; color:var(--inkm); vertical-align:middle; white-space:nowrap; }
+.atl-table tbody td:nth-child(4), .atl-table tbody td:nth-child(5) { white-space:normal; max-width:220px; }
+.atl-empty { text-align:center; color:var(--inks); padding:2.5rem 1rem !important; font-style:italic; white-space:normal !important; }
+.atl-table td code { font-family:var(--fmono); font-size:.73rem; background:var(--surf); border:1px solid var(--border); padding:2px 7px; border-radius:4px; color:var(--navy); }
+
+/* Chips */
+.atl-chip { display:inline-block; font-size:.62rem; font-weight:700; padding:3px 9px; border-radius:5px; white-space:nowrap; letter-spacing:.04em; }
+.atl-chip--blue   { background:#EFF4FF; color:var(--blue); }
+.atl-chip--green  { background:#ECFDF5; color:var(--green); }
+.atl-chip--red    { background:#FEF2F2; color:var(--red); }
+.atl-chip--orange { background:#fff0f0; color:var(--orange); }
+.atl-chip--navy   { background:#EEF2FF; color:var(--navy); }
+
+/* Table buttons */
+.atl-tbl-btn { display:inline-flex; align-items:center; gap:4px; font-size:.72rem; font-weight:700; padding:5px 13px; border-radius:6px; border:none; cursor:pointer; transition:background .2s,transform .15s; font-family:var(--font); white-space:nowrap; }
+.atl-tbl-btn--navy { background:var(--navy); color:#fff; }
+.atl-tbl-btn--navy:hover { background:var(--navy2); transform:translateY(-1px); }
+.atl-tbl-btn--red  { background:var(--red); color:#fff; }
+.atl-tbl-btn--red:hover  { background:var(--red2); transform:translateY(-1px); }
+
+/* ═══════════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════════ */
+.cu-form-title { font-family:var(--fcond); font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; color:var(--ink); letter-spacing:-.01em; margin-bottom:.4rem; }
+.cu-form-sub   { font-size:.9rem; color:var(--inks); line-height:1.6; margin-bottom:2rem; }
+
+/* Quote form bordered wrapper */
+#atlContactForm {
+  background:#fff;
+  border:1.5px solid #e2e8f0;
+  border-radius:16px;
+  padding:2rem;
+  box-shadow:0 4px 24px rgba(0,0,0,.07);
+}
+
+.cu-label { display:block; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--inkm); margin-bottom:.4rem; }
+
+.cu-input {
+  display:block; width:100%;
+  padding:.68rem .9rem; font-size:.9rem; font-family:var(--font);
+  color:var(--ink); background:var(--white);
+  border:1.5px solid #CBD5E1; border-radius:8px;
+  outline:none; appearance:none;
+  transition:border-color .2s,box-shadow .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.cu-input::placeholder { color:#9CA3AF; }
+.cu-input:focus { border-color:var(--navy2); box-shadow:0 0 0 3px rgba(22,52,96,.1); }
+.cu-input.is-invalid { border-color:var(--red); }
+.cu-input.is-invalid:focus { box-shadow:0 0 0 3px rgba(165,28,48,.12); }
+
+.cu-select {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right .9rem center; padding-right:2.4rem; cursor:pointer;
+}
+.cu-textarea { resize:vertical; min-height:120px; }
+.cu-err { font-size:.74rem; color:var(--red); margin-top:.25rem; display:none; }
+.cu-input.is-invalid + .cu-err { display:block; }
+
+.cu-submit-btn {
+  display:block; width:100%; padding:.9rem 2rem;
+  background:var(--red); color:#fff; font-family:var(--fcond);
+  font-size:1rem; font-weight:800; letter-spacing:.04em;
+  text-transform:uppercase; border:none; border-radius:8px;
+  transition:background .2s,transform .2s,box-shadow .2s;
+}
+.cu-submit-btn:hover { background:var(--red2); transform:translateY(-2px); box-shadow:0 6px 20px rgba(165,28,48,.3); }
+.cu-submit-btn:active { transform:translateY(0); }
+.cu-submit-btn:disabled { background:#9CA3AF; cursor:not-allowed; transform:none; box-shadow:none; }
+
+.cu-success {
+  display:none; margin-top:1.1rem;
+  padding:0; background:transparent; border:none;
+  border-radius:12px; overflow:hidden;
+  animation:successSlideIn .4s cubic-bezier(.22,1,.36,1) both;
+}
+.cu-success.show { display:block; }
+.cu-success__inner {
+  display:flex; align-items:flex-start; gap:1rem;
+  padding:1.25rem 1.5rem;
+  background:linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  border:1.5px solid #6EE7B7;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(5,150,105,.12);
+}
+.cu-success__icon {
+  flex-shrink:0; margin-top:2px;
+}
+.cu-success__text {
+  display:flex; flex-direction:column; gap:.3rem;
+}
+.cu-success__title {
+  font-size:.95rem; font-weight:700; color:#065F46; display:block;
+}
+.cu-success__sub {
+  font-size:.82rem; color:#047857; line-height:1.55;
+}
+@keyframes successSlideIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* Contact info card */
+.cu-info-card { background:var(--navy); border-radius:14px; padding:2.25rem 2rem; }
+.cu-info-card__title { font-family:var(--fcond); font-size:1.3rem; font-weight:800; color:#fff; margin-bottom:.7rem; }
+.cu-info-card__hr { height:1px; background:rgba(255,255,255,.15); margin-bottom:1.5rem; }
+.cu-info-row { display:flex; align-items:flex-start; gap:.9rem; padding-bottom:1.2rem; border-bottom:1px solid rgba(255,255,255,.08); margin-bottom:1.2rem; }
+.cu-info-row--last { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.cu-info-icon { width:40px; height:40px; background:rgba(255,255,255,.12); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; transition:background .2s; }
+.cu-info-row:hover .cu-info-icon { background:rgba(255,255,255,.2); }
+.cu-info-content { display:flex; flex-direction:column; gap:.15rem; }
+.cu-info-label { font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); display:block; margin-bottom:.15rem; }
+.cu-info-value { font-size:.9rem; color:rgba(255,255,255,.9); font-weight:500; line-height:1.5; display:block; }
+.cu-info-link  { color:rgba(255,255,255,.9); transition:color .2s; }
+.cu-info-link:hover { color:#fff; text-decoration:underline; }
+
+/* Quick contact strip */
+.cu-quick-strip { display:flex; gap:.75rem; }
+.cu-quick-btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem; flex:1;
+  padding:.82rem 1.9rem; font-family:var(--fcond); font-size:.95rem; font-weight:800;
+  border-radius:8px; text-decoration:none; cursor:pointer; white-space:nowrap;
+  letter-spacing:.04em;
+  transition:background .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.cu-quick-btn--red     { background:var(--red); color:#fff; border:2px solid var(--red); }
+.cu-quick-btn--red:hover { background:#8a0000; border-color:#8a0000; color:#fff; transform:translateY(-3px); box-shadow:0 8px 24px rgba(176,0,0,.28); }
+.cu-quick-btn--outline { background:transparent; color:var(--navy); border:2px solid var(--navy); }
+.cu-quick-btn--outline:hover { background:var(--navy); color:#fff; transform:translateY(-3px); box-shadow:0 8px 24px rgba(3,24,133,.22); }
+
+/* ═══════════════════════════════════════════════════
+   BUY MODAL
+═══════════════════════════════════════════════════ */
+.atl-modal { border-radius:14px; border:none; overflow:hidden; }
+.atl-modal__head { background:linear-gradient(135deg,#c00000,#B00000); padding:1.4rem 1.75rem; display:flex; justify-content:space-between; align-items:flex-start; }
+.atl-modal__title { font-family:var(--fcond); font-size:1.2rem; font-weight:800; color:#fff; margin:0; }
+.atl-modal__sub   { font-size:.78rem; color:rgba(255,255,255,.5); margin:.15rem 0 0; }
+.atl-modal__x { background:rgba(255,255,255,.12); border:none; color:rgba(255,255,255,.7); width:30px; height:30px; border-radius:7px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+.atl-modal__x:hover { background:rgba(255,255,255,.25); color:#fff; }
+.atl-modal__strip { display:flex; flex-wrap:wrap; gap:1.25rem; background:var(--surf2); border-bottom:1px solid var(--border); padding:1rem 1.75rem; }
+.atl-modal__strip-item { display:flex; flex-direction:column; gap:2px; }
+.atl-modal__strip-lbl  { font-size:.62rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--inks); }
+.atl-modal__strip-val  { font-size:.88rem; font-weight:600; color:var(--ink); }
+.atl-modal__strip-code { font-family:var(--fmono); font-size:.78rem; background:#EFF4FF; border:1px solid #C7D7F8; color:var(--navy); padding:2px 8px; border-radius:5px; }
+.atl-modal__body { padding:1.75rem; }
+.atl-modal__cancel { background:var(--surf); border:1px solid var(--border); color:var(--inkm); font-size:.85rem; font-weight:600; padding:.65rem 1.4rem; border-radius:8px; transition:all .2s; }
+.atl-modal__cancel:hover { background:var(--border); }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+.atl-footer { background:#313185; padding:3.5rem 0 0; }
+.atl-footer__desc { font-size:.84rem; color:rgba(255,255,255,.55); line-height:1.7; margin:0; }
+.atl-footer__heading { font-family:var(--fcond); font-size:.8rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.85rem; }
+.atl-footer__list { list-style:none; margin:0; padding:0; }
+.atl-footer__list li, .atl-footer__list a { font-size:.84rem; color:rgba(255,255,255,.65); line-height:1.9; transition:color .2s; }
+.atl-footer__list a:hover { color:#fff; }
+.atl-footer__bottom { border-top:1px solid rgba(255,255,255,.12); padding:1.25rem 0; margin-top:3rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:.75rem; }
+.atl-footer__bottom span { font-size:.76rem; color:rgba(255,255,255,.4); }
+
+/* ═══════════════════════════════════════════════════
+   PRODUCT DETAIL CARD  (screenshot 2 style)
+═══════════════════════════════════════════════════ */
+.atl-pd-wrap {
+  background:#F5F7FA; border-top:1px solid var(--border);
+  padding:2.5rem 0 3.5rem;
+}
+.atl-pd-breadcrumb {
+  font-size:.65rem; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--inks); margin-bottom:1.75rem;
+}
+
+/* LEFT — image card */
+.atl-pd-img-card {
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  overflow:hidden; margin-bottom:1rem;
+}
+.atl-pd-view-tabs {
+  display:flex; border-bottom:1px solid var(--border);
+}
+.atl-pd-view-tab {
+  flex:1; padding:.65rem .5rem; font-size:.78rem; font-weight:600;
+  color:var(--inks); background:none; border:none; border-bottom:2px solid transparent;
+  cursor:pointer; transition:color .2s,border-color .2s;
+  margin-bottom:-1px;
+}
+.atl-pd-view-tab:hover { color:var(--navy); }
+.atl-pd-view-tab--on { color:var(--navy); border-bottom-color:var(--navy); background:#F9FAFB; }
+
+.atl-pd-visual {
+  display:flex; align-items:center; justify-content:center;
+  min-height:240px; padding:2rem; background:#fff;
+}
+.atl-pd-chip-render {
+  display:flex; align-items:center; justify-content:center;
+  width:100%; height:200px;
+}
+
+/* Chip SVG render per service */
+.atl-pd-chip-svg {
+  filter:drop-shadow(0 12px 32px rgba(13,33,71,.18));
+  animation:atlChipFloat 4s ease-in-out infinite;
+}
+@keyframes atlChipFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* Documents card */
+.atl-pd-docs-card {
+  background:#fff; border:1px solid var(--border); border-radius:12px;
+  padding:1.25rem 1.5rem;
+}
+.atl-pd-docs-card__title {
+  font-size:.65rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--inks); margin-bottom:1rem;
+  padding-bottom:.65rem; border-bottom:1px solid var(--border);
+}
+.atl-pd-doc-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.65rem 0; border-bottom:1px solid #F3F4F6;
+}
+.atl-pd-doc-row:last-child { border-bottom:none; }
+.atl-pd-doc-left { display:flex; align-items:center; gap:.65rem; }
+.atl-pd-doc-icon {
+  width:28px; height:28px; border:1px solid var(--border); border-radius:5px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--inks); flex-shrink:0;
+}
+.atl-pd-doc-name { font-size:.82rem; font-weight:500; color:var(--ink); }
+.atl-pd-doc-meta { font-size:.7rem; color:var(--inks); }
+
+/* RIGHT — header row */
+.atl-pd-header {
+  display:flex; align-items:flex-start; justify-content:space-between;
+  flex-wrap:wrap; gap:.75rem; margin-bottom:.85rem;
+}
+.atl-pd-family {
+  display:inline-block; background:#EFF4FF; color:var(--blue);
+  font-size:.75rem; font-weight:700; padding:4px 12px; border-radius:100px;
+}
+.atl-pd-status {
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-size:.78rem; font-weight:600; color:var(--green);
+}
+.atl-pd-status__dot {
+  width:7px; height:7px; background:var(--green); border-radius:50%;
+  animation:atlPulse 2s ease-in-out infinite;
+}
+@keyframes atlPulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.atl-pd-partno-wrap { text-align:right; }
+.atl-pd-partno-lbl { display:block; font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--inks); margin-bottom:.2rem; }
+.atl-pd-partno-val { display:block; font-family:var(--fmono); font-size:.88rem; color:var(--ink); font-weight:500; }
+
+.atl-pd-title {
+  font-family:var(--fcond); font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:800; color:var(--ink); letter-spacing:-.01em; margin:0 0 .25rem;
+}
+.atl-pd-subtitle { font-size:.88rem; color:var(--inks); margin:0 0 .85rem; }
+.atl-pd-desc { font-size:.9rem; color:var(--inkm); line-height:1.75; margin-bottom:1.5rem; }
+
+/* Specs table — matching screenshot 2 exactly */
+.atl-pd-specs-card {
+  border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:1.75rem;
+}
+.atl-pd-specs-card__head {
+  background:var(--surf2); padding:.75rem 1.25rem;
+  font-size:.7rem; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--inkm);
+  border-bottom:1px solid var(--border);
+}
+.atl-pd-specs-table { width:100%; border-collapse:collapse; }
+.atl-pd-spec-key, .atl-pd-spec-val {
+  padding:.72rem 1.25rem; font-size:.88rem; border-bottom:1px solid #F3F4F6;
+}
+.atl-pd-specs-table tr:last-child td { border-bottom:none; }
+.atl-pd-spec-key { color:var(--inks); width:38%; font-weight:500; }
+.atl-pd-spec-val { color:var(--ink); font-weight:500; }
+
+/* Action buttons row — matching screenshot 2 */
+.atl-pd-actions { display:flex; flex-wrap:wrap; gap:.65rem; }
+.atl-pd-btn {
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.78rem 1.5rem; border-radius:8px; font-size:.88rem;
+  font-weight:700; border:none; cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.atl-pd-btn--sample {
+  background:var(--navy); color:#fff; flex:1 1 auto;
+}
+.atl-pd-btn--sample:hover { background:var(--navy2); transform:translateY(-2px); box-shadow:0 6px 18px rgba(13,33,71,.3); }
+.atl-pd-btn--buy {
+  background:var(--red); color:#fff; flex:1 1 auto;
+}
+.atl-pd-btn--buy:hover { background:var(--red2); transform:translateY(-2px); box-shadow:0 6px 18px rgba(165,28,48,.3); }
+.atl-pd-btn--dl {
+  background:#fff; color:var(--inkm); border:1px solid var(--border);
+}
+.atl-pd-btn--dl:hover { background:var(--surf); border-color:var(--navy); color:var(--navy); }
+
+/* ═══════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════ */
+.atl-reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease; }
+.atl-reveal.is-visible { opacity:1; transform:translateY(0); }
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width:991.98px) {
+  .atl-nav__links { display:none; }
+  .atl-nav__burger { display:flex; }
+  .atl-home-hero { padding:4rem 0 3.5rem; min-height:auto; }
+  .atl-mega { display: none; } /* mega menu hidden on mobile — use drawer instead */
+  .atl-detail-partno { display:inline-block; margin-top:.5rem; }
+  .atl-pd-header { flex-direction:column; align-items:flex-start; }
+  .atl-pd-partno-wrap { text-align:left; }
+}
+@media (max-width:767.98px) {
+  .atl-util-bar { display:none; }
+  .atl-nav { top:0; }
+  .atl-home-hero__title { font-size:2.4rem; }
+  .atl-home-hero__stats { gap:.5rem; }
+  .atl-section-body { padding:2.5rem 1rem; }
+  .au-quality-card { padding:1.5rem; }
+  .cu-quick-strip { flex-direction:column; }
+  .atl-panel { padding:1.75rem 0 2.5rem; }
+  .atl-modal__body, .atl-modal__head { padding:1.1rem; }
+  .atl-modal__strip { flex-direction:column; gap:.65rem; }
+  .atl-tab-rail { top:64px; }
+  .atl-pd-actions { flex-direction:column; }
+  .atl-pd-btn { width:100%; justify-content:center; }
+  .atl-mega__inner { grid-template-columns:1fr; }
+  .atl-mega__col--feature { display:none; }
+}
+
+/* ═══════════════════════════════════════════════════
+   HERO — Service pills & product bar  (new additions)
+═══════════════════════════════════════════════════ */
+.atl-hero-svc-row {
+  display: flex; flex-wrap: wrap; gap: .5rem; width: 100%;
+  justify-content: center;
+}
+.atl-hero-svc-pill {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .35rem .85rem; border-radius: 20px; font-size: .72rem;
+  font-weight: 600; letter-spacing: .04em; text-decoration: none;
+  border: 1.5px solid; transition: all .2s;
+}
+.atl-hero-svc-pill--blue   { color:#031885; border-color:rgba(27,80,160,.35);   background:rgba(27,80,160,.08); }
+.atl-hero-svc-pill--red    { color:#B00000; border-color:rgba(165,28,48,.35);   background:rgba(165,28,48,.08); }
+.atl-hero-svc-pill--teal   { color:#0C6E6E; border-color:rgba(12,110,110,.35);  background:rgba(12,110,110,.08);}
+.atl-hero-svc-pill--purple { color:#5E3DB8; border-color:rgba(94,61,184,.35);   background:rgba(94,61,184,.08); }
+.atl-hero-svc-pill:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,0,0,.12); }
+
+/* ═══════════════════════════════════════════════════
+   PRODUCTS PAGE — Hardware product cards
+═══════════════════════════════════════════════════ */
+.atl-hw-card { border-radius: 12px; overflow: hidden; border: 1.5px solid #e8edf4; background: #fff; box-shadow: 0 2px 12px rgba(14,34,69,.06); transition: box-shadow .2s, transform .2s; display:flex; flex-direction:column; }
+.atl-hw-card:hover { box-shadow: 0 8px 32px rgba(14,34,69,.14); transform: translateY(-3px); }
+
+.atl-prod-meta { display: flex; align-items: center; justify-content: space-between; margin-top: .75rem; padding-top: .75rem; border-top: 1px solid #eef0f4; }
+.atl-prod-partno { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; color: var(--navy); font-weight: 600; }
+.atl-prod-lead { font-size: .7rem; font-weight: 600; color: #0a7c45; background: #ecfdf5; padding: .2rem .55rem; border-radius: 20px; }
+
+.atl-prod-foot { display: flex; gap: .5rem; padding: 1rem 1.25rem 1.25rem; margin-top: auto; border-top: 1px solid #eef0f4; }
+.atl-prod-detail-btn, .atl-prod-buy-btn {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .5rem .75rem; border-radius: 7px; font-size: .8rem; font-weight: 600;
+  cursor: pointer; border: none; transition: all .2s;
+}
+.atl-prod-detail-btn { background: #f0f4fa; color: var(--navy); }
+.atl-prod-detail-btn:hover { background: #dce8f7; }
+.atl-prod-buy-btn { background: var(--red); color: #fff; }
+.atl-prod-buy-btn:hover { background: #8a1726; }
+
+/* ═══════════════════════════════════════════════════
+   SERVICES PAGE — Service card prod actions override
+═══════════════════════════════════════════════════ */
+.atl-btn-detail { 
+  padding: .55rem 1rem; border-radius: 8px; border: 2px solid var(--navy);
+  background: transparent; color: var(--navy); font-size: .82rem; font-weight: 700;
+  font-family:var(--fcond,'Outfit',sans-serif);
+  cursor: pointer; transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-btn-detail:hover { background: var(--navy); color: #fff; transform:translateY(-2px); box-shadow:0 6px 18px rgba(3,24,133,.28); }
+.atl-btn-buy {
+  padding: .55rem 1rem; border-radius: 8px; border: 2px solid var(--red);
+  background: var(--red); color: #fff; font-size: .82rem; font-weight: 700;
+  font-family:var(--fcond,'Outfit',sans-serif);
+  cursor: pointer; transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.atl-btn-buy:hover { background: #8a0000; border-color:#8a0000; transform:translateY(-2px); box-shadow:0 6px 18px rgba(176,0,0,.28); }
+
+/* ═══════════════════════════════════════════════════
+   SERVICE DETAIL — sub-service count badge
+═══════════════════════════════════════════════════ */
+.atl-prod-svc-count {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: .7rem; font-weight: 700; color: var(--navy);
+  background: #eef4ff; padding: .2rem .6rem; border-radius: 20px; margin-top: .5rem;
+}
+
+/* ════════════════════════════════════════════════
+   HOW WE WORK — Process Steps (About Us section)
+════════════════════════════════════════════════ */
+.atl-hww-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  padding: 5rem 0 5.5rem;
+}
+.atl-hww-title {
+  font-family: var(--fcond);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.02em;
+  margin: .5rem 0 .75rem;
+  line-height: 1.1;
+}
+.atl-hww-sub {
+  font-size: .95rem;
+  color: rgba(255,255,255,.65);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Steps row */
+.atl-hww-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  align-items: start;
+}
+@media (max-width: 767px) {
+  .atl-hww-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem 1rem; }
+}
+@media (max-width: 480px) {
+  .atl-hww-steps { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Each step */
+.atl-hww-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* Numbered circle */
+.atl-hww-step__circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  border: 2px solid rgba(255,255,255,.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: background .3s, border-color .3s, transform .3s;
+  margin-bottom: 1.4rem;
+}
+.atl-hww-step:hover .atl-hww-step__circle {
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.55);
+  transform: translateY(-4px) scale(1.05);
+}
+.atl-hww-step__num {
+  font-family: var(--fcond);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+
+/* Horizontal connector line between steps */
+.atl-hww-step__connector {
+  position: absolute;
+  top: 40px; /* half of circle height */
+  left: calc(50% + 40px); /* right edge of circle */
+  width: calc(100% - 80px);
+  height: 1px;
+  background: rgba(255,255,255,.2);
+  z-index: 1;
+}
+.atl-hww-step--last .atl-hww-step__connector { display: none; }
+@media (max-width: 767px) {
+  .atl-hww-step__connector { display: none; }
+}
+
+.atl-hww-step__title {
+  font-family: var(--fcond);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 .6rem;
+  letter-spacing: -.01em;
+}
+.atl-hww-step__desc {
+  font-size: .83rem;
+  color: rgba(255,255,255,.62);
+  line-height: 1.65;
+  max-width: 180px;
+}
+
+/* ── Products page: photo cards ────────────────────────── */
+.atl-hw-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: #f0f4ff;
+}
+.atl-hw-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  padding: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.atl-hw-card:hover .atl-hw-img-wrap img {
+  transform: scale(1.06);
+}
+.atl-hw-img-badges {
+  position: absolute;
+  top: 10px; left: 10px; right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* ── Footer logo — colored on white pill (same as header) ── */
+.atl-footer__logo-color {
+  filter: none !important;
+  background: #ffffff;
+  padding: 7px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+/* ═══════════════════════════════════════════════════════
+   GLOBAL SUCCESS TOAST
+═══════════════════════════════════════════════════════ */
+.atl-toast-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 24, 133, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.atl-toast-overlay.atl-toast--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.atl-toast {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(3, 24, 133, 0.28), 0 8px 24px rgba(0,0,0,0.12);
+  padding: 2.5rem 2.75rem 2.5rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.1rem;
+  overflow: hidden;
+  transform: scale(0.88) translateY(24px);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border-top: 5px solid #031885;
+}
+.atl-toast-overlay.atl-toast--visible .atl-toast {
+  transform: scale(1) translateY(0);
+}
+
+/* Circle check icon */
+.atl-toast__icon-wrap {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(3, 24, 133, 0.08);
+  display: flex; align-items: center; justify-content: center;
+  animation: atlToastBounce 0.5s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.atl-toast__check {
+  filter: drop-shadow(0 4px 12px rgba(3, 24, 133, 0.35));
+}
+@keyframes atlToastBounce {
+  0%   { transform: scale(0.4); opacity: 0; }
+  70%  { transform: scale(1.12); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Text */
+.atl-toast__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.atl-toast__title {
+  font-family: var(--fcond, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #031885;
+  letter-spacing: -0.01em;
+  display: block;
+}
+.atl-toast__sub {
+  font-size: 0.92rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+.atl-toast__sub strong {
+  color: #031885;
+}
+
+/* Close button */
+.atl-toast__close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f3f4f6;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+.atl-toast__close:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* Auto-dismiss progress bar */
+.atl-toast__progress {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #031885, #B00000);
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  transform-origin: left;
+  animation: none;
+}
+.atl-toast-overlay.atl-toast--visible .atl-toast__progress {
+  animation: atlToastProgress 6s linear forwards;
+}
+@keyframes atlToastProgress {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+@media (max-width: 480px) {
+  .atl-toast {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+  .atl-toast__title { font-size: 1.15rem; }
+}
+
+/* ── Detail link buttons — style <a> same as <button> ── */
+a.atl-btn-detail {
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; flex: 1;
+  padding: .55rem 0; border-radius: 8px;
+  font-size: .82rem; font-weight: 700;
+  font-family:var(--fcond,'Outfit',sans-serif);
+  background: var(--navy); color: #fff; border:2px solid var(--navy);
+  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+a.atl-btn-detail:hover { background: #021266; border-color:#021266; transform: translateY(-2px); color: #fff; box-shadow:0 6px 18px rgba(3,24,133,.28); }
+
+a.atl-prod-detail-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .3rem;
+  text-decoration: none;
+  padding: 0; background: #f0f4fa; color: var(--navy);
+  border-radius: 7px; font-size: .78rem; font-weight: 700;
+  transition: background .2s;
+}
+a.atl-prod-detail-btn:hover { background: #dce8f7; color: var(--navy); }
+
+/* ═══════════════════════════════════════════════════
+   MEGA MENU — SLIDING UNDERLINE ANIMATION
+   Navy-to-red gradient slide matching website palette
+═══════════════════════════════════════════════════ */
+
+/* Sliding underline bar that sweeps across the top of the panel */
+.atl-mega__panel::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--navy) 0%, #1B50A0 40%, var(--red) 100%);
+  border-radius: 0;
+  transition: width 0.50s cubic-bezier(0.32, 1, 0.36, 1);
+  z-index: 2;
+}
+/* Remove the static ::before gradient (replaced by animated ::after) */
+.atl-mega__panel::before {
+  display: none;
+}
+
+.atl-nav__item--mega.mega-open .atl-mega__panel::after {
+  width: 100%;
+}
+
+/* ════════════════════════════════════════════════════
+   COLUMN STAGGER ANIMATION — slide down from above
+   Each column drops into view with increasing delay,
+   exactly matching the video's downward slide effect.
+════════════════════════════════════════════════════ */
+.atl-mega__col {
+  opacity: 0;
+  transform: translateY(-24px);
+  transition: opacity 0.36s ease, transform 0.36s cubic-bezier(0.32, 1, 0.36, 1);
+}
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(1) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.06s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(2) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.13s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(3) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.20s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(4) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.27s;
+}
+
+/* Product cards — same downward stagger */
+.atl-mega__prod-card {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.33s ease, transform 0.33s cubic-bezier(0.32, 1, 0.36, 1), background 0.2s, box-shadow 0.2s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(1) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.08s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(2) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.15s;
+}
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(3) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.14s;
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE NAV — ACCORDION (Services / Products)
+═══════════════════════════════════════════════════ */
+.atl-nav__macc {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.atl-nav__macc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.atl-nav__macc-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.atl-nav__macc-btn.open svg {
+  transform: rotate(180deg);
+}
+
+.atl-nav__macc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #f8faff;
+  border-radius: 0 0 8px 8px;
+}
+.atl-nav__macc-body.open {
+  max-height: 800px;
+}
+
+.atl-nav__macc-section {
+  padding: .5rem 1.25rem .25rem;
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  opacity: .55;
+  margin-top: .25rem;
+}
+
+.atl-nav__msublink {
+  display: block;
+  padding: .45rem 1.25rem .45rem 1.5rem;
+  font-size: .82rem;
+  color: #374151;
+  text-decoration: none;
+  transition: color .15s, background .15s;
+  border-left: 2px solid transparent;
+}
+.atl-nav__msublink:hover {
+  color: var(--navy);
+  background: rgba(3,24,133,.04);
+  border-left-color: var(--navy);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE IMPROVEMENTS
+═══════════════════════════════════════════════════ */
+
+/* Service page gallery — better on mobile */
+@media (max-width: 575px) {
+  .gallery-main__display { height: 240px; }
+  .gallery-scroll-slide  { height: 240px; }
+  .sd-hero { padding: 1.5rem 0 1.25rem; }
+  .sd-hero__title { font-size: clamp(1.35rem, 5vw, 2rem); }
+  .sd-hero__tagline { font-size: .75rem; }
+  .sd-hero__desc { font-size: .82rem; }
+  .sd-nav__inner { height: 70px; padding: 0 .75rem; }
+  .sd-nav__logo img { height: 44px; }
+  .sd-nav__back { font-size: .75rem; padding: .32rem .7rem; }
+  .sd-nav__cta  { font-size: .75rem; padding: .42rem .9rem; }
+  .sd-tab-rail  { top: 58px; }
+}
+
+/* Quote modal — full screen on very small */
+@media (max-width: 480px) {
+  .quote-overlay { padding: 0; align-items: flex-end; }
+  .quote-modal   { border-radius: 16px 16px 0 0; max-height: 95vh; }
+}
+
+/* Main site — hero responsive */
+@media (max-width: 575px) {
+  .atl-home-hero__title { font-size: 1.9rem; }
+  .atl-home-hero__desc  { font-size: .88rem; }
+  .atl-home-hero__btns  { flex-direction: column; gap: .75rem; }
+  .atl-btn-primary, .atl-btn-outline { width: 100%; justify-content: center; }
+}
+
+/* Products mega – full width on tablet */
+@media (max-width: 767px) {
+  .atl-mega__inner--products { grid-template-columns: 1fr; }
+}
+
+/* Feature card NABL logo sizing */
+.atl-mega__feature-visual img {
+  display: block;
+  margin: .5rem auto;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MEGA MENU — LEFT-TO-RIGHT HIGHLIGHT ANIMATION
+   Applied to: Service list links + Product cards
+   Every hover triggers its own independent left-to-right expand.
+   Pure CSS ::before — no JavaScript needed.
+   Timing: 200ms ease — smooth, visible, matches the video.
+════════════════════════════════════════════════════════════════ */
+
+/* ── SERVICE LIST LINKS ──────────────────────────────────────── */
+
+.atl-mega__list li {
+  position: relative;
+}
+
+/* ::before = the expanding highlight behind each link */
+.atl-mega__list li::before {
+  content: '';
+  position: absolute;
+  inset: 0 -6px;
+  border-radius: 8px;
+  background: rgba(3, 24, 133, 0.16);
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: left center;   /* anchored LEFT — expands rightward */
+  transform: scaleX(0);
+  transition: transform 0.6s ease; /* v27: final speed */
+}
+
+.atl-mega__list li:hover::before {
+  transform: scaleX(1);
+}
+
+/* Text and dot above the highlight */
+.atl-mega__list li > a,
+.atl-mega__list li .atl-mega__dot {
+  position: relative;
+  z-index: 1;
+}
+
+/* Text turns navy on hover */
+.atl-mega__list li:hover > a {
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+  padding-left: 0 !important;
+}
+
+/* ── PRODUCT CARDS ───────────────────────────────────────────── */
+
+/* Each product card gets its own left-to-right highlight */
+.atl-mega__prod-card {
+  position: relative;
+  overflow: hidden;   /* keeps ::before clipped to card's border-radius */
+}
+
+.atl-mega__prod-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: rgba(3, 24, 133, 0.16);
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: left center;   /* expand left → right */
+  transform: scaleX(0);
+  transition: transform 0.6s ease; /* v27: final speed */
+}
+
+.atl-mega__prod-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon, badge, name, spec sit above the highlight */
+.atl-mega__prod-icon,
+.atl-mega__prod-info {
+  position: relative;
+  z-index: 1;
+}
+
+/* On hover: darken product name slightly */
+.atl-mega__prod-card:hover .atl-mega__prod-name {
+  color: var(--navy);
+}
+/* ── Footer keeps original dark navy ──────────────── */
+.atl-footer,
+.atl-footer * { --navy: #021266; --navy2: #010d44; }
+
+/* ── TASK 3: Fill icons globally ──────────────── */
+.atl-nav svg,
+.atl-btn-primary svg,
+.atl-btn-outline svg,
+.atl-nav__cta svg,
+.sd-btn svg,
+.cu-submit-btn svg,
+.svc-btn svg,
+.resource-link svg,
+.atl-tbl-btn svg {
+  fill: currentColor;
+  stroke: none;
+}
+/* Keep stroke where it's needed for accuracy */
+.atl-hero-bg svg,
+.gallery-main svg { fill: none; stroke: currentColor; }
+
+/* ══════════════════════════════════════════════════
+   TASK 7: SCROLL-TRIGGERED ANIMATIONS — Unique reveals
+   Uses IntersectionObserver via JS (added to atl-merged.js)
+══════════════════════════════════════════════════ */
+
+/* Base hidden state — apply before JS adds .is-visible */
+[data-anim] {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  will-change: transform, opacity;
+}
+[data-anim].is-visible { opacity: 1; transform: none !important; }
+
+/* Slide up (default — cards, sections) */
+[data-anim="slide-up"]   { transform: translateY(48px); }
+
+/* Slide in from left */
+[data-anim="slide-left"] { transform: translateX(-56px); }
+
+/* Slide in from right */
+[data-anim="slide-right"]{ transform: translateX(56px); }
+
+/* Scale up (stat numbers, feature badges) */
+[data-anim="scale-up"]   { transform: scale(0.82); }
+
+/* Flip in (cards with perspective) */
+[data-anim="flip-up"]    {
+  transform: perspective(600px) rotateX(18deg) translateY(32px);
+  transform-origin: bottom center;
+}
+
+/* Stagger delays for children */
+[data-anim-delay="1"] { transition-delay: 0.08s; }
+[data-anim-delay="2"] { transition-delay: 0.16s; }
+[data-anim-delay="3"] { transition-delay: 0.24s; }
+[data-anim-delay="4"] { transition-delay: 0.32s; }
+[data-anim-delay="5"] { transition-delay: 0.40s; }
+[data-anim-delay="6"] { transition-delay: 0.48s; }
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  [data-anim] { transition: none; opacity: 1; transform: none !important; }
+}
+
+/* ══════════════════════════════════════════════════
+   TASK 8: Filter pills with Get Quote style border
+══════════════════════════════════════════════════ */
+.atl-filter-pill {
+  background: var(--white);
+  border: 2px solid var(--border);
+  color: var(--inkm);
+  font-size: .82rem; font-weight: 600;
+  padding: 7px 20px; border-radius: 100px;
+  cursor: pointer; transition: all .2s; font-family: var(--font);
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.atl-filter-pill:hover {
+  border-color: var(--navy); color: var(--navy);
+  box-shadow: 0 2px 8px rgba(49,49,133,.14);
+}
+.atl-filter-pill--on,
+.atl-filter-pill.active {
+  background: var(--navy); border-color: var(--navy); color: #fff;
+  box-shadow: 0 4px 14px rgba(49,49,133,.28);
+}
+
+/* ══════════════════════════════════════════════════
+   TASK 9: Mobile Drawer — full-screen, accordion fixed
+══════════════════════════════════════════════════ */
+.atl-nav__mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  z-index: 9998;
+  overflow-y: auto;
+  padding: 0 0 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.15);
+}
+.atl-nav__mobile.open { display: block; }
+
+/* Mobile drawer top — logo + close */
+.atl-nav__mobile-top {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: .75rem 1.25rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  position: sticky; top: 0; z-index: 2;
+}
+
+/* Mobile nav links */
+.atl-nav__mlink {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .85rem 1.25rem;
+  font-size: .95rem; font-weight: 600; color: #1e1e3c;
+  border-bottom: 1px solid #e5e7eb;
+  text-decoration: none; background: none; border-left: none;
+  border-right: none; border-top: none; width: 100%;
+  cursor: pointer; font-family: var(--font);
+  transition: color .18s, background .18s;
+}
+.atl-nav__mlink:hover { color: #313185; background: rgba(49,49,133,.05); }
+
+/* Accordion container */
+.atl-nav__macc { border-bottom: 1px solid #e5e7eb; }
+
+.atl-nav__macc-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: .85rem 1.25rem;
+  background: none; border: none; cursor: pointer;
+  font-size: .95rem; font-weight: 600; color: #1e1e3c;
+  font-family: var(--font); transition: color .18s, background .18s;
+  text-align: left;
+}
+.atl-nav__macc-btn:hover { color: #313185; background: rgba(49,49,133,.05); }
+.atl-nav__macc-btn.open { color: #313185; }
+.atl-nav__macc-btn svg { flex-shrink: 0; transition: transform 0.28s ease; }
+.atl-nav__macc-btn.open svg { transform: rotate(180deg); }
+
+/* Accordion body — slides open */
+.atl-nav__macc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.22,1,0.36,1);
+  background: #f8f9fb;
+}
+.atl-nav__macc-body.open { max-height: 900px; }
+
+/* Section labels */
+.atl-nav__macc-section {
+  padding: .6rem 1.25rem .2rem 1.5rem;
+  font-size: .62rem; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; color: #9ca3af; margin-top: .35rem;
+}
+
+/* Sub links */
+.atl-nav__msublink {
+  display: block; padding: .55rem 1.25rem .55rem 1.75rem;
+  font-size: .87rem; font-weight: 400; color: #4b5563;
+  text-decoration: none; border-left: 2px solid transparent;
+  transition: color .15s, background .15s, border-color .15s; line-height: 1.45;
+}
+.atl-nav__msublink:hover {
+  color: #313185; background: rgba(49,49,133,.05); border-left-color: #313185;
+}
+
+/* Get Quote CTA inside mobile */
+.atl-nav__mobile .atl-nav__cta {
+  display: block; margin: 1rem 1.25rem .5rem;
+  text-align: center; width: calc(100% - 2.5rem); padding: .85rem;
+}
+
+/* Hamburger → X animation */
+.atl-nav__burger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--ink); border-radius: 2px;
+  transition: transform .25s, opacity .25s, top .25s;
+  position: relative;
+}
+.atl-nav__burger span:not(:last-child) { margin-bottom: 5px; }
+.atl-nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.atl-nav__burger.open span:nth-child(2) { opacity: 0; }
+.atl-nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL ANIMATIONS — IntersectionObserver driven
+═══════════════════════════════════════════════════════ */
+
+/* Base hidden state — applied by JS */
+.sa-hidden { opacity: 0; }
+
+/* Fade up — generic */
+@keyframes saFadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.sa-fade-up { animation: saFadeUp .65s cubic-bezier(.22,.68,0,1.2) both; }
+
+/* Fade in */
+@keyframes saFadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+.sa-fade-in { animation: saFadeIn .7s ease both; }
+
+/* Slide from left */
+@keyframes saSlideLeft {
+  from { opacity:0; transform:translateX(-50px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+.sa-slide-left { animation: saSlideLeft .65s cubic-bezier(.22,.68,0,1.1) both; }
+
+/* Slide from right */
+@keyframes saSlideRight {
+  from { opacity:0; transform:translateX(50px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+.sa-slide-right { animation: saSlideRight .65s cubic-bezier(.22,.68,0,1.1) both; }
+
+/* Scale pop */
+@keyframes saScalePop {
+  from { opacity:0; transform:scale(.85); }
+  to   { opacity:1; transform:scale(1); }
+}
+.sa-scale-pop { animation: saScalePop .55s cubic-bezier(.34,1.56,.64,1) both; }
+
+/* Flip in Y */
+@keyframes saFlipY {
+  from { opacity:0; transform:rotateY(-25deg) translateX(-20px); }
+  to   { opacity:1; transform:rotateY(0) translateX(0); }
+}
+.sa-flip-y { animation: saFlipY .6s cubic-bezier(.22,.68,0,1.1) both; }
+
+/* Rise (used for steps) */
+@keyframes saRise {
+  from { opacity:0; transform:translateY(30px) scale(.95); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+.sa-rise { animation: saRise .6s cubic-bezier(.34,1.2,.64,1) both; }
+
+/* Stretch width (used for cert/partner strips) */
+@keyframes saStretch {
+  from { opacity:0; transform:scaleX(.7); }
+  to   { opacity:1; transform:scaleX(1); }
+}
+.sa-stretch { animation: saStretch .6s ease both; transform-origin:left center; }
+
+/* Stagger delays */
+.sa-d1  { animation-delay:.08s; }
+.sa-d2  { animation-delay:.16s; }
+.sa-d3  { animation-delay:.24s; }
+.sa-d4  { animation-delay:.32s; }
+.sa-d5  { animation-delay:.40s; }
+.sa-d6  { animation-delay:.48s; }
+.sa-d7  { animation-delay:.56s; }
+.sa-d8  { animation-delay:.64s; }
+
+/* fadeInUp used inside products thank-you */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROFILE BROCHURE DROPDOWN — used on all pages
+═══════════════════════════════════════════════════════════════ */
+.atl-brochure-dropdown {
+  position: relative;
+}
+.atl-brochure-btn {
+  cursor: pointer; border: none; gap: .25rem;
+  display: inline-flex; align-items: center;
+  position: relative; overflow: hidden;
+  transition: background .25s cubic-bezier(.4,0,.2,1),
+              box-shadow .25s cubic-bezier(.4,0,.2,1),
+              transform .2s cubic-bezier(.34,1.56,.64,1),
+              letter-spacing .2s ease;
+}
+.atl-brochure-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.28) 50%, transparent 80%);
+  transition: left .45s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+.atl-brochure-btn:hover,
+.atl-brochure-dropdown.open .atl-brochure-btn {
+  background: #1a1a72 !important;
+  box-shadow: 0 6px 24px rgba(3,24,133,.38), 0 2px 8px rgba(3,24,133,.22);
+  transform: translateY(-2px);
+  letter-spacing: .06em;
+}
+.atl-brochure-btn:hover::before,
+.atl-brochure-dropdown.open .atl-brochure-btn::before { left: 160%; }
+.atl-brochure-btn:active {
+  transform: translateY(0px) scale(.97) !important;
+  box-shadow: 0 2px 8px rgba(3,24,133,.2) !important;
+  transition-duration: .08s !important;
+}
+
+/* Desktop: position fixed (JS sets top/right), slides down from top */
+.atl-brochure-menu {
+  display: block;
+  position: fixed;
+  top: 100px;
+  right: auto;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 8px 32px -4px rgba(3,24,133,.18),
+    0 24px 64px -8px rgba(3,24,133,.14),
+    0 0 0 1px rgba(3,24,133,.06);
+  min-width: 260px;
+  padding: .5rem 0;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-110%);
+  transform-origin: top right;
+  transition:
+    transform 0.40s cubic-bezier(0.4, 0, 1, 1),
+    opacity   0.30s ease,
+    visibility 0s linear 0.40s;
+}
+.atl-brochure-dropdown.open .atl-brochure-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    transform 0.52s cubic-bezier(0.0, 0.0, 0.2, 1),
+    opacity   0.38s ease,
+    visibility 0s linear 0s;
+}
+.atl-brochure-dropdown.open .atl-brochure-btn svg { transform: rotate(180deg); }
+.atl-brochure-btn svg { transition: transform .22s; }
+
+/* FIX: On mobile, switch from fixed/off-screen to absolute below the button */
+@media (max-width: 991px) {
+  .atl-brochure-dropdown {
+    position: static;
+  }
+  .atl-brochure-menu {
+    position: absolute !important;
+    top: auto !important;
+    right: 0 !important;
+    left: auto !important;
+    /* Place just below the nav bar */
+    margin-top: 4px;
+    transform: translateY(-10px);
+    transform-origin: top right;
+    border-radius: 12px;
+    min-width: 220px;
+    max-width: calc(100vw - 16px);
+    z-index: 3000;
+  }
+  .atl-brochure-dropdown.open .atl-brochure-menu {
+    transform: translateY(0);
+  }
+  /* Sub-menu "List of Certificates": open BELOW the parent row instead of to the side */
+  .atl-brochure-sub {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 0 0 1.2rem !important;
+    min-width: 0 !important;
+    background: transparent !important;
+    display: none;
+  }
+  /* Show sub-menu only when parent is hovered/focused — use JS toggle instead */
+  .atl-brochure-item--has-sub.sub-open .atl-brochure-sub {
+    display: block;
+  }
+  .atl-brochure-item--has-sub .atl-sub-arrow {
+    transition: transform .22s;
+  }
+  .atl-brochure-item--has-sub.sub-open .atl-sub-arrow {
+    transform: rotate(90deg);
+    color: #313185;
+  }
+}
+
+.atl-brochure-item {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .6rem 1.1rem;
+  font-size: .82rem; font-weight: 600; color: #374151;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+  position: relative;
+}
+.atl-brochure-item:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #313185; flex-shrink: 0;
+}
+.atl-brochure-item--has-sub { justify-content: space-between; }
+.atl-brochure-item--has-sub .atl-sub-arrow { margin-left: auto; transition: transform .2s; color: #9CA3AF; }
+.atl-brochure-sub {
+  display: block;
+  position: absolute;
+  top: 0; right: calc(100% + 6px);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(3,24,133,.16), 0 0 0 1px rgba(3,24,133,.07);
+  min-width: 220px;
+  padding: .5rem 0;
+  z-index: 2100;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px) scaleX(.96);
+  transform-origin: right top;
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1), transform .2s cubic-bezier(.34,1.4,.64,1), visibility 0s linear .2s;
+}
+.atl-brochure-item--has-sub:hover .atl-brochure-sub {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateX(0) scaleX(1);
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1), transform .2s cubic-bezier(.34,1.4,.64,1), visibility 0s linear 0s;
+}
+.atl-brochure-item--has-sub:hover .atl-sub-arrow { transform: rotate(-90deg); color: #313185; }
+.atl-brochure-subitem {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .55rem 1rem;
+  font-size: .8rem; font-weight: 600; color: #374151;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.atl-brochure-subitem:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-subdot { width: 6px; height: 6px; border-radius: 50%; background: #6366f1; flex-shrink: 0; }
+
+/* ── Back to Products/Services button: hide on mobile (burger takes over) ── */
+@media (max-width: 991.98px) {
+  .atl-nav__back-products {
+    display: none !important;
+  }
+}
+
+/* ── Mobile sticky header fix ── */
+@media (max-width: 767.98px) {
+  .atl-util-bar { display: none !important; }
+  .atl-nav, nav.atl-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+  }
+  html, body {
+    margin: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+  .atl-nav,
+  nav.atl-nav,
+  #atlNav,
+  nav#atlNav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+    margin-top: 0 !important;
+  }
+  html, body {
+    margin-top: 0 !important;
+  }
+  /* Remove white space above header on mobile */
+  body > *:first-child { margin-top: 0 !important; }
+}
+
+/* ── Back to Home button (products & services pages) ── */
+.atl-btn-back-home {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .55rem 1.2rem;
+  background: transparent; color: #031885;
+  border: 2px solid #031885; border-radius: 8px;
+  font-family: var(--fcond, 'Outfit', sans-serif); font-size: .85rem; font-weight: 800;
+  letter-spacing: .04em; text-decoration: none; white-space: nowrap;
+  transition: all .22s; cursor: pointer;
+}
+.atl-btn-back-home:hover {
+  background: #031885; color: #fff;
+  transform: translateY(-2px); box-shadow: 0 6px 20px rgba(3,24,133,.2);
+}
+.atl-btn-back-home svg { flex-shrink: 0; }
+
+/* Hero btns + stats alignment wrapper */
+.atl-hero-btns-stats-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+.atl-hero-btns-stats-wrap .atl-home-hero__btns {
+  margin-bottom: 1rem;
+}
+.atl-hero-btns-stats-wrap .atl-home-hero__stats-card {
+  display: block;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE FIXES — Header, Logo, Profile Brochure Button & All Buttons
+   Applied only on mobile screens (max-width: 767.98px)
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767.98px) {
+
+  /* ── Header height reduction ── */
+  .atl-nav__inner {
+    height: 52px !important;
+    padding: 0 .75rem !important;
+  }
+
+  /* ── Logo: smaller to fit mobile header ── */
+  .atl-nav__logo-img {
+    height: 30px !important;
+    width: auto !important;
+    max-width: 125px !important;
+  }
+
+  /* ── Profile Brochure button: compact on mobile ── */
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .3rem .6rem !important;
+    font-size: .68rem !important;
+    letter-spacing: .02em !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+    line-height: 1.3 !important;
+  }
+  .atl-brochure-btn svg {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: 2px !important;
+  }
+
+  /* ── Right side controls: tighter gap ── */
+  .atl-nav__right {
+    gap: .4rem !important;
+  }
+
+  /* ── Burger button tighter ── */
+  .atl-nav__burger {
+    padding: 3px !important;
+  }
+
+  /* ── Primary & Outline hero buttons ── */
+  .atl-btn-primary,
+  .atl-btn-outline {
+    padding: .6rem 1.1rem !important;
+    font-size: .8rem !important;
+    border-radius: 7px !important;
+    width: auto !important;
+  }
+
+  /* ── Product card buttons (detail / buy) ── */
+  .atl-btn-detail,
+  .atl-btn-buy {
+    padding: .42rem .7rem !important;
+    font-size: .72rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* ── Back to home button ── */
+  .atl-btn-back-home {
+    padding: .4rem .85rem !important;
+    font-size: .75rem !important;
+  }
+
+  /* ── Outline button (services/products pages) ── */
+  .atl-outline-btn {
+    padding: .5rem 1.4rem !important;
+    font-size: .8rem !important;
+  }
+
+  /* ── Related service CTA button ── */
+  .atl-rel-cta {
+    padding: .55rem 1.2rem !important;
+    font-size: .78rem !important;
+  }
+
+  /* ── Hero buttons: stack and full-width on very small screens ── */
+  .atl-home-hero__btns {
+    flex-direction: column !important;
+    gap: .55rem !important;
+  }
+  .atl-home-hero__btns .atl-btn-primary,
+  .atl-home-hero__btns .atl-btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Extra small screens (max-width: 400px) */
+@media (max-width: 400px) {
+  .atl-nav__inner {
+    height: 48px !important;
+    padding: 0 .6rem !important;
+  }
+  .atl-nav__logo-img {
+    height: 26px !important;
+    max-width: 105px !important;
+  }
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .25rem .5rem !important;
+    font-size: .62rem !important;
+  }
+  .atl-btn-primary,
+  .atl-btn-outline {
+    padding: .55rem .9rem !important;
+    font-size: .75rem !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V13 MOBILE FIXES
+   1. Brochure menu: visible within screen
+   2. Back to Home: before Profile Brochure, compact size
+   3. Forms: fit mobile screen
+   4. All buttons: reduced sizes
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Back to Home nav button: hide text label on very small screens ── */
+@media (max-width: 767.98px) {
+  /* Back to Home button - compact */
+  .atl-btn-back-home-nav {
+    padding: .28rem .5rem !important;
+    font-size: .65rem !important;
+    border-radius: 6px !important;
+    gap: .25rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .atl-btn-back-home-nav svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+  }
+  .atl-back-home-text {
+    display: inline !important;
+    font-size: .65rem !important;
+  }
+
+  /* Nav right: tighter gap to fit all 3 items (back-home + brochure + burger) */
+  .atl-nav__right {
+    gap: .3rem !important;
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+  }
+
+  /* Profile Brochure button - compact */
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .28rem .45rem !important;
+    font-size: .62rem !important;
+    letter-spacing: 0 !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .atl-brochure-btn svg {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: 2px !important;
+  }
+
+  /* Brochure dropdown menu: ensure it stays within screen */
+  .atl-brochure-dropdown {
+    position: relative !important;
+  }
+  .atl-brochure-menu {
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    right: 0 !important;
+    left: auto !important;
+    min-width: 210px !important;
+    max-width: calc(100vw - 12px) !important;
+    width: max-content !important;
+    z-index: 3500 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18) !important;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+  /* When menu would overflow left side, pin to right of viewport */
+  .atl-brochure-dropdown.open .atl-brochure-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  /* ── All page buttons: reduced sizes ── */
+  .atl-btn-primary,
+  .atl-btn-outline {
+    padding: .55rem 1rem !important;
+    font-size: .78rem !important;
+    border-radius: 7px !important;
+  }
+  .atl-btn-detail,
+  .atl-btn-buy {
+    padding: .38rem .65rem !important;
+    font-size: .72rem !important;
+    border-radius: 6px !important;
+  }
+  .atl-btn-back-home {
+    padding: .38rem .8rem !important;
+    font-size: .73rem !important;
+  }
+  .atl-outline-btn {
+    padding: .45rem 1.2rem !important;
+    font-size: .78rem !important;
+  }
+  .atl-rel-cta {
+    padding: .5rem 1rem !important;
+    font-size: .76rem !important;
+  }
+  .atl-nav__cta:not(.atl-brochure-btn):not(.atl-btn-back-home-nav) {
+    padding: .42rem .9rem !important;
+    font-size: .76rem !important;
+  }
+  /* Hero CTA buttons: stack and full width */
+  .atl-home-hero__btns {
+    flex-direction: column !important;
+    gap: .5rem !important;
+  }
+  .atl-home-hero__btns .atl-btn-primary,
+  .atl-home-hero__btns .atl-btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* ── Forms: fit mobile screen ── */
+  /* Contact / quote modals */
+  .atl-modal,
+  .quote-modal {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    margin: 0 8px !important;
+    border-radius: 12px !important;
+  }
+  .atl-modal__body,
+  .atl-modal__head,
+  .quote-modal__body,
+  .quote-modal__head {
+    padding: 1rem !important;
+  }
+  .atl-modal__strip {
+    flex-direction: column !important;
+    gap: .5rem !important;
+    padding: .75rem 1rem !important;
+  }
+  /* Form rows: single column */
+  .qf-row {
+    grid-template-columns: 1fr !important;
+    gap: .5rem !important;
+  }
+  .qf-input,
+  .qf-select,
+  .qf-textarea {
+    font-size: .82rem !important;
+    padding: .52rem .7rem !important;
+  }
+  .quote-submit {
+    padding: .72rem !important;
+    font-size: .82rem !important;
+  }
+
+  /* Contact form in index.html */
+  .atl-contact-form,
+  .cu-form,
+  form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  input, select, textarea {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Extra small (≤ 400px) */
+@media (max-width: 400px) {
+  .atl-nav__inner {
+    padding: 0 .5rem !important;
+    height: 48px !important;
+  }
+  .atl-nav__logo-img {
+    height: 24px !important;
+    max-width: 95px !important;
+  }
+  .atl-btn-back-home-nav {
+    padding: .22rem .38rem !important;
+    font-size: .58rem !important;
+  }
+  .atl-back-home-text {
+    display: none !important; /* hide text, keep only icon on very tiny screens */
+  }
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .22rem .38rem !important;
+    font-size: .58rem !important;
+  }
+  .atl-btn-primary,
+  .atl-btn-outline {
+    padding: .48rem .8rem !important;
+    font-size: .72rem !important;
+  }
+  .quote-modal,
+  .atl-modal {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 MOBILE FIXES
+   1. Back to Home button: same style/size as Profile Brochure btn
+   2. Back to Services button: same compact style
+   3. Sticky header for ALL pages on mobile
+   4. Header spacing fits screen
+   5. Brochure menu visible within screen
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Make ALL nav headers sticky on mobile ── */
+@media (max-width: 991.98px) {
+  .atl-util-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+    display: none !important; /* hide util bar on mobile to save space */
+  }
+  .atl-nav, nav.atl-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1050 !important;
+  }
+  /* For pages that use atl-header-sticky-wrap */
+  .atl-header-sticky-wrap {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+  }
+  .atl-header-sticky-wrap .atl-util-bar {
+    position: relative !important;
+    top: auto !important;
+    display: none !important;
+  }
+  .atl-header-sticky-wrap .atl-nav {
+    position: relative !important;
+    top: auto !important;
+  }
+}
+
+/* ── Back to Home button: match Profile Brochure button style ── */
+@media (max-width: 991.98px) {
+  /* Override the red large style with compact outline style matching brochure btn */
+  a.atl-btn-back-home-nav,
+  .atl-nav__right a.atl-btn-back-home-nav {
+    background: transparent !important;
+    border: 1.5px solid #313185 !important;
+    color: #313185 !important;
+    box-shadow: none !important;
+    font-weight: 700 !important;
+    padding: .28rem .5rem !important;
+    font-size: .65rem !important;
+    border-radius: 6px !important;
+    gap: .25rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    letter-spacing: .03em !important;
+  }
+  a.atl-btn-back-home-nav svg {
+    width: 11px !important;
+    height: 11px !important;
+    stroke: #313185 !important;
+    flex-shrink: 0 !important;
+  }
+  .atl-back-home-text {
+    display: inline !important;
+    font-size: .65rem !important;
+  }
+
+  /* ── Back to Services button: same compact style ── */
+  .atl-nav__right a.atl-back-btn,
+  a.atl-back-btn {
+    padding: .28rem .5rem !important;
+    font-size: .65rem !important;
+    border-radius: 6px !important;
+    gap: .25rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    color: #313185 !important;
+    border: 1.5px solid #313185 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    letter-spacing: .03em !important;
+  }
+  a.atl-back-btn svg {
+    width: 11px !important;
+    height: 11px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ── Nav right: tight spacing to fit logo + btns + burger ── */
+  .atl-nav__right {
+    gap: .3rem !important;
+    flex-shrink: 0 !important;
+    align-items: center !important;
+  }
+  .atl-nav__inner {
+    gap: .4rem !important;
+  }
+
+  /* ── Profile Brochure button: compact ── */
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .28rem .45rem !important;
+    font-size: .65rem !important;
+    letter-spacing: 0 !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .atl-brochure-btn svg {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: 2px !important;
+  }
+
+  /* ── Burger button: compact ── */
+  .atl-nav__burger {
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ── Brochure dropdown: stays within screen ── */
+  .atl-brochure-dropdown {
+    position: relative !important;
+  }
+  .atl-brochure-menu {
+    position: fixed !important;
+    top: auto !important;
+    right: 6px !important;
+    left: auto !important;
+    min-width: 200px !important;
+    max-width: calc(100vw - 12px) !important;
+    width: max-content !important;
+    z-index: 9999 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,.22) !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+  }
+  .atl-brochure-dropdown.open .atl-brochure-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+}
+
+/* ── Extra small (≤ 400px): further shrink ── */
+@media (max-width: 400px) {
+  a.atl-btn-back-home-nav,
+  .atl-nav__right a.atl-btn-back-home-nav {
+    padding: .22rem .38rem !important;
+    font-size: .58rem !important;
+  }
+  .atl-back-home-text {
+    display: inline !important;
+    font-size: .58rem !important;
+  }
+  a.atl-back-btn,
+  .atl-nav__right a.atl-back-btn {
+    padding: .22rem .38rem !important;
+    font-size: .58rem !important;
+  }
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .22rem .38rem !important;
+    font-size: .58rem !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 STICKY HEADER — ALL PAGES MOBILE
+   When util-bar is hidden, nav must move to top:0
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 991.98px) {
+  /* Hide the top utility bar on mobile to save space */
+  .atl-util-bar {
+    display: none !important;
+  }
+  /* Ensure nav sticks at top:0 (not top:36px which is for desktop with util-bar) */
+  .atl-nav,
+  nav.atl-nav,
+  #atlNav,
+  #siteNav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+  }
+  /* For pages using atl-header-sticky-wrap */
+  .atl-header-sticky-wrap {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+  }
+  .atl-header-sticky-wrap .atl-util-bar {
+    display: none !important;
+  }
+  .atl-header-sticky-wrap .atl-nav,
+  .atl-header-sticky-wrap nav.atl-nav {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V14 DESKTOP — Back to Home button (red) color rule
+   (replaces the previously-inline style that was removed)
+═══════════════════════════════════════════════════════════════ */
+.atl-nav__cta.atl-btn-back-home-nav {
+  background: #B00000;
+  border-color: #B00000;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(176,0,0,.25);
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+.atl-nav__cta.atl-btn-back-home-nav:hover {
+  background: #8a0000;
+  border-color: #8a0000;
+  color: #fff;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   V15 MOBILE FIXES — Sticky header, Red back-to-home, Button sizes
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 991.98px) {
+
+  /* ── Hide util-bar on mobile, stick nav at top:0 ── */
+  .atl-util-bar {
+    display: none !important;
+  }
+  .atl-nav,
+  nav.atl-nav,
+  #atlNav,
+  #siteNav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1100 !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* ── Nav inner: logo + right controls properly spaced ── */
+  .atl-nav__inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 54px !important;
+    padding: 0 .85rem !important;
+    gap: .5rem !important;
+  }
+
+  /* ── Logo ── */
+  .atl-nav__logo {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .atl-nav__logo-img {
+    height: 30px !important;
+    width: auto !important;
+    max-width: 125px !important;
+    display: block !important;
+  }
+
+  /* ── Desktop links: hidden on mobile ── */
+  .atl-nav__links {
+    display: none !important;
+  }
+
+  /* ── Right side (Profile Brochure + burger) ── */
+  .atl-nav__right {
+    display: flex !important;
+    align-items: center !important;
+    gap: .45rem !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+
+  /* ── Profile Brochure button: compact, consistent ── */
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .32rem .65rem !important;
+    font-size: .68rem !important;
+    letter-spacing: .02em !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+    line-height: 1.3 !important;
+    height: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .atl-brochure-btn svg,
+  .atl-nav__cta.atl-brochure-btn svg {
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: 2px !important;
+  }
+
+  /* ── Burger: properly sized ── */
+  .atl-nav__burger {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .atl-nav__inner {
+    height: 50px !important;
+    padding: 0 .65rem !important;
+  }
+  .atl-nav__logo-img {
+    height: 26px !important;
+    max-width: 108px !important;
+  }
+  .atl-brochure-btn,
+  .atl-nav__cta.atl-brochure-btn {
+    padding: .28rem .5rem !important;
+    font-size: .62rem !important;
+    height: 30px !important;
+  }
+}
+
+/* ── ALL "Back to Home" buttons: red, consistent size ── */
+.atl-btn-back-home-nav,
+a.atl-btn-back-home-nav,
+.atl-nav__cta.atl-btn-back-home-nav {
+  background: #B00000 !important;
+  border-color: #B00000 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(176,0,0,.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .3rem !important;
+}
+.atl-btn-back-home-nav:hover,
+a.atl-btn-back-home-nav:hover,
+.atl-nav__cta.atl-btn-back-home-nav:hover {
+  background: #8a0000 !important;
+  border-color: #8a0000 !important;
+  color: #fff !important;
+}
+
+/* Sidebar "Back to Home" (atl-brochure-btn used as back-home in sidebar) */
+a.atl-nav__cta.atl-brochure-btn[href*="index.html"] {
+  background: #B00000 !important;
+  border-color: #B00000 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+a.atl-nav__cta.atl-brochure-btn[href*="index.html"]:hover {
+  background: #8a0000 !important;
+  border-color: #8a0000 !important;
+}
+
+/* ── Consistent button size across all pages (mobile) ── */
+@media (max-width: 767.98px) {
+  /* Primary/Outline hero buttons */
+  .atl-btn-primary,
+  .atl-btn-outline,
+  .atl-outline-btn,
+  .atl-rel-cta {
+    padding: .6rem 1.2rem !important;
+    font-size: .82rem !important;
+    border-radius: 7px !important;
+    min-height: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Service page buttons */
+  .svc-btn {
+    padding: .55rem 1rem !important;
+    font-size: .78rem !important;
+    border-radius: 7px !important;
+    min-height: 38px !important;
+  }
+
+  /* Back to home nav button */
+  .atl-btn-back-home-nav,
+  .atl-nav__cta.atl-btn-back-home-nav {
+    padding: .45rem .9rem !important;
+    font-size: .78rem !important;
+    min-height: 36px !important;
+    border-radius: 7px !important;
+  }
+
+  /* Product card buttons */
+  .atl-btn-detail,
+  .atl-btn-buy {
+    padding: .55rem 1rem !important;
+    font-size: .78rem !important;
+    border-radius: 7px !important;
+    min-height: 38px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   V15 MOBILE FIXES
+   1. Hide "Our Services" inline panel on mobile screens
+   2. Back to Home button: ALWAYS red (#B00000), never blue
+═══════════════════════════════════════════════════════════════ */
+
+/* 1. Hide the "Our Services" inline panel on mobile */
+@media (max-width: 767.98px) {
+  #allServicesPanel {
+    display: none !important;
+  }
+}
+
+/* 2. Back to Home — always red, normal AND hover AND focus AND active states */
+.atl-btn-back-home-nav,
+a.atl-btn-back-home-nav,
+.atl-nav__cta.atl-btn-back-home-nav,
+.atl-btn-back-home-nav:link,
+.atl-btn-back-home-nav:visited,
+.atl-btn-back-home-nav:hover,
+.atl-btn-back-home-nav:focus,
+.atl-btn-back-home-nav:active,
+a.atl-btn-back-home-nav:link,
+a.atl-btn-back-home-nav:visited,
+a.atl-btn-back-home-nav:hover,
+a.atl-btn-back-home-nav:focus,
+a.atl-btn-back-home-nav:active,
+.atl-nav__cta.atl-btn-back-home-nav:hover,
+.atl-nav__cta.atl-btn-back-home-nav:focus,
+.atl-nav__cta.atl-btn-back-home-nav:active {
+  background: #B00000 !important;
+  border-color: #B00000 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(176,0,0,.25) !important;
+}
+
+/* ═══ Desktop: nav sticks at 36px (below util-bar) ═══ */
+@media (min-width: 992px) {
+  .atl-util-bar {
+    position: relative;
+    top: auto;
+    z-index: 1100;
+  }
+  .atl-nav,
+  nav.atl-nav,
+  #atlNav,
+  #siteNav {
+    position: relative;
+    top: auto;
+    z-index: 1000;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE MENU — Close button
+═══════════════════════════════════════════════════ */
+.atl-nav__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .65rem .5rem .65rem .25rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: .4rem;
+}
+.atl-nav__mobile-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+.atl-nav__mobile-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  transition: background .18s, border-color .18s, color .18s;
+  flex-shrink: 0;
+}
+.atl-nav__mobile-close svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  stroke: #374151;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.atl-nav__mobile-close:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #B00000;
+}
+.atl-nav__mobile-close:hover svg {
+  stroke: #B00000;
+}
+
+/* ═══════════════════════════════════════════════════
+   MEGA MENU — Slower, smoother animation
+   (only affects mega menu, not other transitions)
+═══════════════════════════════════════════════════ */
+
+/* Main panel open/close — slower slide + fade */
+.atl-mega {
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.55s ease !important;
+}
+
+/* Column heads stagger — slower delays */
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(1) .atl-mega__col-head { transition-delay: 0.12s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(2) .atl-mega__col-head { transition-delay: 0.26s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(3) .atl-mega__col-head { transition-delay: 0.36s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__col:nth-child(4) .atl-mega__col-head { transition-delay: 0.30s !important; }
+
+/* Column head items transition duration */
+.atl-mega__col-head {
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* List items stagger — slower */
+.atl-mega__list li {
+  transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(1)  { transition-delay: 0.10s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(2)  { transition-delay: 0.16s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(3)  { transition-delay: 0.20s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(4)  { transition-delay: 0.24s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(5)  { transition-delay: 0.28s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(6)  { transition-delay: 0.32s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(7)  { transition-delay: 0.34s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(8)  { transition-delay: 0.36s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(9)  { transition-delay: 0.38s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(10) { transition-delay: 0.40s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(11) { transition-delay: 0.42s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__list li:nth-child(12) { transition-delay: 0.44s !important; }
+
+/* Feature card / product cards */
+.atl-mega__feature-card,
+.atl-mega__prod-card {
+  transition: opacity 0.48s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(1) { transition-delay: 0.20s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(2) { transition-delay: 0.28s !important; }
+.atl-nav__item--mega.mega-open .atl-mega__prod-card:nth-child(3) { transition-delay: 0.36s !important; }
+
+/* Chevron arrow on nav link — fast spin */
+.atl-nav__link--has-mega svg,
+.atl-nav__chevron {
+  transition: transform 1.65s ease !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GLOBAL FIXES — v20 Final
+   1. 6px image padding (with targeted exceptions for structural images)
+   2. Sticky header reinforcement
+   3. Megamenu opens flush below header border line
+   4. Service hover animation speed reduced ~42%
+══════════════════════════════════════════════════════════════ */
+
+
+/* ── Mega menu: nav bar always stays above overlay backdrop ────────────
+   The mega overlay is z-index:900. The sticky header is z-index:1100.
+   By giving .atl-nav position:relative + z-index:1050 (and making sure
+   .atl-sticky-header keeps its own stacking context at 1100), every nav
+   link — including plain "About Us" and "Contact Us" — stays fully
+   clickable and visually on top even when a mega backdrop is open.
+   Without this, the semi-transparent backdrop could visually obscure
+   or intercept events on sibling nav items.
+──────────────────────────────────────────────────────────────────────── */
+.atl-sticky-header .atl-nav,
+.atl-sticky-header nav.atl-nav {
+  position: relative !important;
+  z-index: 1050 !important;
+  isolation: isolate;
+}
+
+/* All direct nav links (non-mega) must paint above the overlay */
+.atl-nav__item:not(.atl-nav__item--mega) .atl-nav__link {
+  position: relative;
+  z-index: 1;
+}
+/* ── 1. Image padding exceptions ─────────────────────────────
+   Global rule: img { padding: 6px } is set above.
+   These selectors reset padding for structural/cover images
+   that must not have padding.
+──────────────────────────────────────────────────────────── */
+
+/* Header & footer logos */
+.atl-nav__logo-img,
+.atl-footer__logo-img,
+.atl-footer__logo-color,
+.sd-nav__logo img { padding: 0 !important; border: none !important; }
+
+/* Cover images (object-fit:cover) inside card containers */
+.atl-prod-card__img img,
+.atl-hw-img-wrap img,
+.atl-hw-img img,
+.atl-hero-img img,
+.atl-banner img { padding: 0 !important; border: none !important; }
+
+/* Megamenu feature/NABL images */
+.atl-mega__feature-visual img,
+.atl-mega__col-icon img,
+.atl-mega__prod-icon img { padding: 0 !important; border: none !important; }
+
+/* Icon-only images (icons used inside buttons, badges, chips) */
+.atl-icon img,
+img[width="16"], img[width="20"], img[width="24"],
+img[height="16"], img[height="20"], img[height="24"] { padding: 0 !important; border: none !important; }
+
+/* Slider / hero background images */
+.atl-hero-bg img,
+.atl-slide img,
+.swiper-slide img { padding: 0 !important; border: none !important; }
+
+/* ── 2. Fixed header — belt & suspenders reinforcement ──────
+   .atl-sticky-header is position:fixed on all pages.
+   This block ensures it survives any conflicting rules.
+──────────────────────────────────────────────────────────── */
+.atl-sticky-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+}
+
+/* Inner nav/util must never be fixed/sticky themselves */
+.atl-sticky-header > .atl-util-bar,
+.atl-sticky-header > .atl-nav,
+.atl-sticky-header > nav.atl-nav {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* ── 3. Megamenu flush below header border line ──────────────
+   The JS sets panel.style.top = navBottom (getBoundingClientRect().bottom).
+   These rules ensure:
+   a) The panel has no top border-radius so it sits flush.
+   b) The backdrop clip is handled entirely by JS-set clip-path.
+   c) The panel z-index (900) is always below the nav border (1000)
+      so the blue border line visually "owns" the panel top edge.
+──────────────────────────────────────────────────────────── */
+.atl-mega__panel {
+  border-radius: 0 0 16px 16px !important; /* flat top — flush with header */
+  margin-top: 0 !important;
+}
+
+/* The backdrop wrapper starts below nav bottom via JS — no clip-path needed */
+.atl-mega {
+  z-index: 900 !important; /* always below nav z-index:1000 */
+}
+
+/* ── 4. Service hover animation speed — reduced ~42% ─────────
+   Original values: 0.45s expand, 0.20s text/color.
+   New values: 0.26s expand (~42% faster), 0.12s text/color (~40% faster).
+   These !important overrides win against any earlier rules.
+──────────────────────────────────────────────────────────── */
+
+/* Service list item highlight expand — v27: 50% slower */
+.atl-mega__list li::before {
+  transition: transform 0.39s ease !important;
+}
+
+/* Product card highlight expand — v27: 50% slower */
+.atl-mega__prod-card::before {
+  transition: transform 0.39s ease !important;
+}
+
+/* Anchor text color + slide on hover — 50% slower */
+.atl-mega__list a {
+  transition: color .18s ease, transform .18s ease !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   V21 FIXES — Three-point patch
+   1. Sticky header — nav ALWAYS stays fixed at top (works even
+      when <nav> is outside the .atl-sticky-header wrapper div)
+   2. Megamenu — header stays fully visible; other nav items
+      never hide; chevron animation 40% slower
+   3. Image gallery — 6px padding, full image visible in thumbs
+      and main display on all service/product pages
+══════════════════════════════════════════════════════════════ */
+
+/* ══ FIX 1: STICKY HEADER — nav itself also becomes sticky ══
+   The HTML has .atl-sticky-header wrapping only the util-bar
+   in most pages, with <nav> immediately after as a sibling.
+   Solution: make nav#atlNav also sticky so both elements
+   stick together at the top on scroll.
+   Using position:sticky + top:36px (util-bar height) so nav
+   appears directly below the already-sticky util-bar.
+   The atl-sticky-header wrapper is also reinforced.
+══════════════════════════════════════════════════════════════ */
+.atl-sticky-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1200 !important;
+  width: 100% !important;
+  background: #fff !important;
+}
+
+/* Nav is now always inside .atl-sticky-header on all pages (HTML fixed).
+   Keep nav as position:relative so the parent wrapper does the sticking. */
+.atl-sticky-header nav.atl-nav,
+.atl-sticky-header .atl-nav,
+nav.atl-nav#atlNav,
+nav#atlNav {
+  position: relative !important;
+  top: auto !important;
+  z-index: 1100;
+  background: #fff;
+  width: 100%;
+}
+
+
+/* ══ FIX 2: MEGAMENU — header stays visible, nav items never hide ══
+   The mega overlay (.atl-mega) is fixed and covers the whole screen.
+   The header (z-index:1200) must always paint above the overlay (z-index:900).
+   The nav (z-index:1100) must also be above the overlay.
+   Non-mega nav items must never be obscured or intercept-blocked.
+══════════════════════════════════════════════════════════════════════ */
+
+/* Ensure mega overlay z-index is firmly below both header elements */
+.atl-mega {
+  z-index: 950 !important;
+}
+
+/* Nav must paint above overlay backdrop at all times */
+nav.atl-nav#atlNav,
+nav#atlNav {
+  isolation: isolate;
+}
+
+/* All nav items (including About Us, Contact Us) must stay on top */
+.atl-nav__links {
+  position: relative;
+  z-index: 10;
+}
+
+.atl-nav__item {
+  position: relative;
+  z-index: 10;
+}
+
+.atl-nav__item:not(.atl-nav__item--mega) .atl-nav__link {
+  position: relative;
+  z-index: 10;
+}
+
+/* Mega panel: also above the overlay backdrop */
+.atl-mega__panel {
+  z-index: 10 !important;
+}
+
+/* ── Chevron spin: 40% slower than original ──────────────────
+   Original: .675s  →  New: 0.945s  (0.675 × 1.4 = 0.945)
+   Original for .atl-nav__chevron: .945s  →  New: 1.323s
+   These override the earlier rules with !important.
+──────────────────────────────────────────────────────────── */
+.atl-nav__link--has-mega svg {
+  transition: transform 1.65s ease !important;
+}
+.atl-nav__item--mega.mega-open .atl-nav__link--has-mega svg {
+  transform: rotate(180deg);
+}
+
+.atl-nav__chevron {
+  transition: transform 1.65s ease !important;
+}
+.atl-nav__item--mega.mega-open .atl-nav__chevron {
+  transform: rotate(180deg);
+}
+
+
+/* ══ FIX 3: IMAGE GALLERY — 6px padding, full images visible ══
+   Previously: padding:5px + border:5px solid #fff + box-sizing:border-box
+   caused images to be cropped (10px lost each side = 20px total).
+   Fix: use padding:6px only, no separate border hack, object-fit:contain
+   so full image is always shown without cropping.
+══════════════════════════════════════════════════════════════════ */
+
+/* ── Thumbnail images (sidebar strip) ── */
+.gallery-thumb img {
+  padding: 6px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  object-fit: contain !important;  /* full image visible, no crop */
+  background: #f8f9fc !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* ── Main gallery display slides ── */
+.gallery-scroll-slide {
+  padding: 6px !important;
+  border: none !important;
+  object-fit: contain !important;  /* full image visible, no crop */
+  background: #f8f9fc !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Main display area background matches */
+.gallery-main__display {
+  background: #f8f9fc !important;
+}
+
+/* ── Products page card images — 6px padding, full visible ── */
+.atl-prod-card__img {
+  background: #f8f9fc !important;
+}
+.atl-prod-card__img img {
+  padding: 6px !important;
+  border: none !important;
+  object-fit: contain !important;
+  background: #f8f9fc !important;
+  box-sizing: border-box !important;
+}
+
+/* ── Explore products / view all products pages ── */
+.atl-hw-img-wrap img,
+.atl-hw-img img {
+  padding: 6px !important;
+  border: none !important;
+  object-fit: contain !important;
+  background: #f8f9fc !important;
+  box-sizing: border-box !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MEGAMENU: JS-only control — CSS :hover rules removed so that
+   the menu auto-closes when cursor leaves (JS mouseleave handles
+   open/close exclusively via .mega-open class).
+══════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   FIX: STICKY HEADER — ensure header never scrolls away
+   Applies to ALL pages universally.
+══════════════════════════════════════════════════════════════ */
+
+/* Any page that wraps header in atl-header-sticky-wrap */
+.atl-header-sticky-wrap {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1200 !important;
+  width: 100% !important;
+}
+
+/* Direct sticky header (most pages) */
+.atl-sticky-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1200 !important;
+  width: 100% !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FIX: CHEVRON ANIMATION — fast 0.2s
+══════════════════════════════════════════════════════════════ */
+.atl-nav__link--has-mega svg {
+  transition: transform 1.65s ease !important;
+}
+.atl-nav__chevron {
+  transition: transform 1.65s ease !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FIXED HEADER — overrides all sticky attempts
+   sticky breaks when any ancestor has overflow:hidden/auto.
+   position:fixed always works regardless of ancestor overflow.
+══════════════════════════════════════════════════════════════ */
+.atl-sticky-header,
+.atl-header-sticky-wrap {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1200 !important;
+}
+
+/* Header uses sticky positioning — no body padding-top needed */
+
+
+/* ================================================================
+   ABSOLUTE FINAL OVERRIDES — nothing after this, these always win
+   1. Header: position fixed (inline HTML style is even stronger,
+      but this CSS backup ensures it too)
+   2. Body padding for fixed header
+   3. Chevron: 1.65s = exactly 50% slower than 1.1s
+================================================================ */
+
+/* 1. Fixed header */
+.atl-sticky-header,
+.atl-header-sticky-wrap {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+}
+
+/* 2. Body padding — removed (sticky header, no offset needed) */
+
+/* 3. Chevron — 0.3s (exactly 50% slower than 0.2s) */
+.atl-nav__link--has-mega svg,
+.atl-nav__chevron,
+.atl-nav__item--mega .atl-nav__chevron,
+.atl-nav__item--mega .atl-nav__link--has-mega svg {
+  transition: transform 1.65s ease !important;
+}
+
+/* ── Body offset for fixed header (desktop: util-bar 36px + nav 64px = 100px) ── */
+body { padding-top: 100px !important; }
+@media (max-width: 767.98px) { body { padding-top: 64px !important; } }
+
+/* ═══════════════════════════════════════════════════════════════
+   V27 — MEGAMENU SLIDING LEFT→RIGHT ANIMATION + CHEVRON
+   Hover on any megamenu link slides it rightward (translateX)
+   with a › chevron that slides in from the left.
+   Speed: 50% slower than original (.12s → .18s)
+═══════════════════════════════════════════════════════════════ */
+
+/* Reset any leftover padding-left behavior */
+.atl-mega__list a {
+  padding-left: 0 !important;
+  transform: translateX(0) !important;
+  transition: color .18s ease, transform .18s ease !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Chevron removed */
+.atl-mega__list a::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* On hover: slide the link 6px to the right */
+.atl-mega__list a:hover {
+  color: var(--navy) !important;
+  transform: translateX(6px) !important;
+  padding-left: 0 !important;
+}
+
+/* Dot stays visible on hover */
+.atl-mega__list a:hover .atl-mega__dot {
+  opacity: 1 !important;
+}
+
+/* Product cards in megamenu — same slide right on hover */
+.atl-mega__prod-card {
+  transition: opacity 0.33s ease, transform 0.33s cubic-bezier(0.32, 1, 0.36, 1),
+              background 0.2s, box-shadow 0.2s !important;
+}
+.atl-mega__prod-card:hover {
+  transform: translateX(6px) translateY(-2px) !important;
+  background: var(--surf, #f5f7ff) !important;
+  box-shadow: 0 4px 18px rgba(3,24,133,.10) !important;
+}
+
+/* Column header — slide right gently on hover */
+.atl-mega__col-title {
+  transition: color .18s ease, transform .18s ease !important;
+}
+.atl-mega__col-head:hover .atl-mega__col-title {
+  color: var(--navy, #0d2147) !important;
+  transform: translateX(4px) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   COMPREHENSIVE RESPONSIVENESS FIXES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Stats card: wrap gracefully on small screens ── */
+@media (max-width: 640px) {
+  .atl-home-hero__stats-card {
+    display: block;
+    width: 100%;
+    padding: .85rem 1rem;
+    box-sizing: border-box;
+  }
+  .atl-home-hero__stats {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: .5rem .25rem;
+    align-items: center;
+    justify-items: center;
+  }
+  /* hide the last divider on small screens */
+  .atl-home-hero__stats .atl-home-stat__div:last-of-type { display: none; }
+  .atl-home-stat__num { font-size: 1.45rem; }
+  .atl-home-stat__lbl { font-size: .55rem; }
+  .atl-home-stat__div { height: 28px; }
+
+  /* Hero buttons stack vertically */
+  .atl-home-hero__btns {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .atl-home-hero__btns .atl-btn-primary,
+  .atl-home-hero__btns .atl-btn-outline {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ── Hero title responsive ── */
+@media (max-width: 480px) {
+  .atl-home-hero__title { font-size: 1.9rem !important; }
+  .atl-home-hero__desc  { font-size: .88rem; }
+}
+
+/* ── Services / Products grid responsive ── */
+@media (max-width: 767px) {
+  .atl-services-grid,
+  .atl-products-grid { grid-template-columns: 1fr !important; }
+  .atl-wcu-card { padding: 1.25rem !important; }
+}
+
+/* ── Mega menu feature links — prevent overflow on tablet ── */
+@media (max-width: 991px) {
+  .atl-mega__feature-link { display: none !important; }
+}
+
+/* ── Mobile nav: brochure accordion — no overflow-x reset ── */
+.atl-nav__msublink {
+  white-space: normal !important;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+/* ── Tables: horizontal scroll on mobile ── */
+@media (max-width: 767px) {
+  .atl-table-wrap,
+  .sd-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .atl-table { min-width: 520px; }
+}
+
+/* ── Section headings responsive ── */
+@media (max-width: 575px) {
+  .atl-section-h3  { font-size: clamp(1.35rem, 6vw, 1.9rem) !important; }
+  .atl-section-h2  { font-size: clamp(1.5rem, 7vw, 2.2rem)  !important; }
+  .atl-eyebrow     { font-size: .6rem; }
+}
+
+/* ── Stats/cards in why-choose-us on mobile ── */
+@media (max-width: 575px) {
+  .atl-wcu-section .row { gap: .75rem !important; }
+  .atl-wcu-card__title  { font-size: 1rem !important; }
+  .atl-wcu-card__desc   { font-size: .8rem !important; }
+  .atl-wcu-card__tag    { font-size: .62rem !important; }
+}
+
+/* ── Products popup responsive ── */
+@media (max-width: 480px) {
+  .atl-products-popup {
+    padding: 1.5rem 1.25rem 1.4rem;
+    border-radius: 14px;
+  }
+  .atl-pbar__label { font-size: .75rem; }
+}
+
+/* ── Hero orbit (QC Jig page) mobile ── */
+@media (max-width: 767px) {
+  .qcj-orbit-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .qcj-orbit-center { order: -1; margin: 0 auto; }
+  .qcj-orbit-item { text-align: center !important; max-width: 320px; }
+}
+
+/* ── Brochure modal responsive ── */
+@media (max-width: 480px) {
+  .bro-modal { border-radius: 12px; }
+  .bro-modal__title { font-size: 1.2rem; }
+  .qf-row { grid-template-columns: 1fr !important; }
+  .bro-phone-wrap { flex-direction: column !important; }
+  .bro-dial-select { width: 100%; }
+}
+
+/* ── Footer links wrapping on mobile ── */
+@media (max-width: 575px) {
+  .sd-footer p {
+    font-size: .72rem;
+    line-height: 2;
+    text-align: center;
+  }
+}
+
+/* ── Prevent horizontal scroll globally ── */
+html, body { overflow-x: hidden; max-width: 100vw; }
+
+/* ── Touch targets: minimum 44px for all interactive elements ── */
+@media (max-width: 767px) {
+  .atl-nav__mlink,
+  .atl-nav__msublink {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+  }
+  .atl-btn-primary,
+  .atl-btn-outline {
+    min-height: 48px;
+    padding: .75rem 1.5rem !important;
+  }
+}
+/* ═══════════════════════════════════════════════════════════════════
+   END RESPONSIVENESS FIXES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hide hero CTA buttons on mobile only ── */
+@media (max-width: 767px) {
+  .atl-hero-btns-stats-wrap .atl-home-hero__btns { display: none !important; }
+}
