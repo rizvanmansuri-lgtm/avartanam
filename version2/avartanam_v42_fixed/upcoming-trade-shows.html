@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Trade Shows — Avartanam Test Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="atl-merged.css">
+  <link rel="stylesheet" href="css/responsive-fix.css">
+
+  <style>
+html,body{margin:0!important;}
+
+    /* ── Tokens ───────────────────────────────────────────── */
+    :root {
+      --navy:   #313185;
+      --navy2:  #252268;
+      --red:    #B00000;
+      --red2:   #8a0000;
+      --teal:   #0C6E6E;
+      --ink:    #111827;
+      --inkm:   #374151;
+      --inks:   #6B7280;
+      --border: #E5E7EB;
+      --surf:   #F5F7FA;
+      --white:  #FFFFFF;
+      --r:      10px;
+      --font:   'Poppins', sans-serif;
+      --fcond:  'Outfit', sans-serif;
+      --fmono:  'IBM Plex Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      background: var(--surf);
+      color: var(--ink);
+      margin: 0;
+      padding-top: 102px;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; }
+
+    /* ── Utility bar ──────────────────────────────────────── */
+    .util-bar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 34px; background: #111; z-index: 1100;
+      display: flex; align-items: center;
+    }
+    .util-bar__inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 1.5rem;
+      width: 100%; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .util-link {
+      color: rgba(255,255,255,.7); font-size: .72rem;
+      display: inline-flex; align-items: center; gap: .3rem;
+      transition: color .18s;
+    }
+    .util-link:hover { color: #fff; }
+    .util-links { display: flex; align-items: center; gap: 1.25rem; }
+
+    /* ── Main nav ─────────────────────────────────────────── */
+    .site-nav {
+      position: fixed; top: 34px; left: 0; right: 0;
+      height: 68px; background: #fff; z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 var(--border), 0 2px 8px rgba(0,0,0,.04);
+      transition: box-shadow .25s;
+    }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.1); }
+    .site-nav__inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 1.5rem;
+      height: 100%; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .site-nav__logo img { height: 40px; display: block; }
+    .site-nav__links { display: flex; align-items: center; gap: 2rem; }
+    .site-nav__link {
+      font-size: .88rem; font-weight: 600; color: var(--inkm);
+      transition: color .18s; padding: .25rem 0;
+    }
+    .site-nav__link:hover,
+    .site-nav__link--active { color: var(--navy); }
+    .site-nav__cta {
+      background: var(--navy); color: #fff;
+      font-family: var(--fcond); font-size: .88rem; font-weight: 700;
+      padding: .52rem 1.4rem; border-radius: 7px;
+      transition: background .18s, transform .15s;
+    }
+    .site-nav__cta:hover { background: var(--navy2); color: #fff; transform: translateY(-1px); }
+    .site-nav__right { display: flex; align-items: center; gap: 1rem; }
+
+    /* ── Breadcrumb ───────────────────────────────────────── */
+    .breadcrumb-bar {
+      background: rgba(49,49,133,.06);
+      border-bottom: 1px solid rgba(49,49,133,.1);
+      padding: .6rem 0;
+    }
+    .breadcrumb-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .78rem; color: var(--inks);
+    }
+    .breadcrumb-inner a { color: var(--navy); font-weight: 500; transition: color .15s; }
+    .breadcrumb-inner a:hover { color: var(--navy2); }
+    .breadcrumb-inner span { opacity: .5; }
+    .breadcrumb-inner .current { color: var(--ink); font-weight: 600; }
+
+    /* ── Page hero ────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy2) 0%, var(--navy) 60%, #3d3d9a 100%);
+      padding: 3rem 0 2.75rem;
+      border-bottom: 3px solid var(--red);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero__inner { position: relative; z-index: 1; }
+    .page-hero__eyebrow {
+      font-size: .65rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(255,255,255,.5);
+      display: block; margin-bottom: .4rem;
+    }
+    .page-hero__title {
+      font-family: var(--fcond); font-size: clamp(2rem,4vw,3rem);
+      font-weight: 800; color: #fff; letter-spacing: -.01em;
+      margin: 0 0 .6rem; line-height: 1.1;
+    }
+    .page-hero__sub {
+      font-size: .92rem; color: rgba(255,255,255,.62);
+      max-width: 540px; margin: 0; line-height: 1.65;
+    }
+    .page-hero__stats {
+      display: flex; gap: 2rem; margin-top: 1.75rem; flex-wrap: wrap;
+    }
+    .hero-stat__num {
+      font-family: var(--fcond); font-size: 1.5rem; font-weight: 800;
+      color: #fff; line-height: 1; display: block;
+    }
+    .hero-stat__lbl {
+      font-size: .62rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 2px; display: block;
+    }
+
+    /* ── Filter tabs ──────────────────────────────────────── */
+    .section-body { padding: 3rem 0 4rem; }
+    .filter-bar {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      padding-bottom: 1.5rem; margin-bottom: 2.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .filter-pill {
+      display: inline-flex; align-items: center;
+      background: var(--white); border: 2px solid #CBD5E1;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      color: var(--inkm); font-size: .82rem; font-weight: 700;
+      padding: .52rem 1.35rem; border-radius: 50px; cursor: pointer;
+      transition: all .18s; font-family: var(--fcond);
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .filter-pill:hover { border-color: var(--navy); color: var(--navy); background: #f5f5ff; box-shadow: 0 2px 8px rgba(49,49,133,.14); }
+    .filter-pill.active { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 4px 14px rgba(49,49,133,.28); }
+
+    /* ── Event cards ──────────────────────────────────────── */
+    .event-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 14px; overflow: hidden; height: 100%;
+      display: flex; flex-direction: column;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      position: relative;
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 44px rgba(49,49,133,.13);
+      border-color: rgba(49,49,133,.2);
+    }
+
+    /* Top colour band by event type */
+    .event-card__band {
+      height: 5px; width: 100%; display: block;
+    }
+    .event-card__band--upcoming  { background: linear-gradient(90deg,#313185,#B00000); }
+    .event-card__band--confirmed { background: linear-gradient(90deg,#0C6E6E,#0a9f6e); }
+    .event-card__band--soon      { background: linear-gradient(90deg,#c25800,#e07800); }
+
+    /* Status badge */
+    .event-status {
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: var(--fmono); font-size: .58rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 20px;
+    }
+    .event-status--upcoming  { background: #EEF2FF; color: #313185; }
+    .event-status--confirmed { background: #ECFDF5; color: #0C6E6E; }
+    .event-status--soon      { background: #FFF7ED; color: #c25800; }
+    .event-status--past      { background: #F3F4F6; color: #6B7280; }
+
+    /* Card image */
+    .event-card__img {
+      width: 100%; height: 190px; overflow: hidden;
+      position: relative; background: var(--surf); flex-shrink: 0;
+    }
+    .event-card__img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform .4s ease;
+    }
+    .event-card:hover .event-card__img img { transform: scale(1.05); }
+
+    /* Placeholder when no image */
+    .event-card__img--placeholder {
+      display: flex; align-items: center; justify-content: center;
+      height: 190px;
+    }
+    .event-card__img--exhibition { background: linear-gradient(135deg,#252268 0%,#313185 60%,#3d3d9a 100%); }
+    .event-card__img--conference { background: linear-gradient(135deg,#0C6E6E 0%,#0a9f6e 100%); }
+    .event-card__img--openhouse  { background: linear-gradient(135deg,#B00000 0%,#8a0000 100%); }
+    .event-card__img--industry   { background: linear-gradient(135deg,#c25800 0%,#e07800 100%); }
+
+    /* Date chip over image */
+    .event-date-chip {
+      position: absolute; bottom: .75rem; left: .75rem;
+      background: rgba(0,0,0,.72); backdrop-filter: blur(6px);
+      color: #fff; border-radius: 8px; padding: .4rem .7rem;
+      display: flex; flex-direction: column; align-items: center;
+      min-width: 52px;
+    }
+    .event-date-chip__day  { font-family: var(--fcond); font-size: 1.3rem; font-weight: 800; line-height: 1; }
+    .event-date-chip__mon  { font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+
+    /* Card body */
+    .event-card__body { padding: 1.1rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .event-cat {
+      font-size: .6rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--inks); margin-bottom: .18rem;
+    }
+    .event-name {
+      font-family: var(--fcond); font-size: 1rem; font-weight: 800;
+      color: var(--ink); line-height: 1.25; margin: 0 0 .55rem;
+    }
+    .event-meta {
+      display: flex; flex-direction: column; gap: .3rem;
+      margin-bottom: .85rem;
+    }
+    .event-meta-row {
+      display: flex; align-items: flex-start; gap: .45rem;
+      font-size: .78rem; color: var(--inkm);
+    }
+    .event-meta-row svg { flex-shrink: 0; margin-top: 1px; opacity: .6; }
+    .event-desc {
+      font-size: .78rem; color: var(--inks); line-height: 1.6;
+      flex: 1; margin-bottom: .9rem;
+    }
+    .event-tags { display: flex; flex-wrap: wrap; gap: .28rem; margin-bottom: .9rem; }
+    .event-tag {
+      font-family: var(--fmono); font-size: .58rem;
+      background: var(--surf); border: 1px solid var(--border);
+      padding: 2px 7px; border-radius: 3px; color: var(--inkm);
+    }
+
+    /* Action row */
+    .event-actions { display: flex; gap: .4rem; margin-top: auto; }
+    .ev-btn {
+      flex: 1; padding: 8px 0; border-radius: 8px; font-size: .78rem;
+      font-weight: 700; border: none; cursor: pointer; text-align: center;
+      transition: background .18s, transform .13s; display: inline-flex;
+      align-items: center; justify-content: center; gap: .3rem;
+      font-family: var(--font); text-decoration: none;
+    }
+    .ev-btn--register { background: var(--navy); color: #fff; }
+    .ev-btn--register:hover { background: var(--navy2); color: #fff; transform: translateY(-1px); }
+    .ev-btn--enquire  { background: var(--red); color: #fff; }
+    .ev-btn--enquire:hover  { background: var(--red2); color: #fff; transform: translateY(-1px); }
+    .ev-btn--outline  {
+      background: transparent; color: var(--navy);
+      border: 2px solid var(--navy) !important; flex: none; padding: 8px 16px;
+    }
+    .ev-btn--outline:hover { background: var(--navy); color: #fff; transform: translateY(-1px); }
+
+    /* ── CTA Banner ──────────────────────────────────────── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      border-radius: 16px; padding: 2.5rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem;
+      box-shadow: 0 8px 32px rgba(49,49,133,.22);
+    }
+    .cta-banner__title {
+      font-family: var(--fcond); font-size: 1.4rem; font-weight: 800;
+      color: #fff; margin: 0 0 .3rem; line-height: 1.2;
+    }
+    .cta-banner__sub { font-size: .88rem; color: rgba(255,255,255,.65); margin: 0; }
+    .cta-banner__btn {
+      background: var(--red); color: #fff; font-family: var(--fcond);
+      font-size: .92rem; font-weight: 800; letter-spacing: .04em;
+      text-transform: uppercase; padding: .82rem 2rem; border-radius: 8px;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: background .18s, transform .13s; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .cta-banner__btn:hover { background: var(--red2); transform: translateY(-1px); color: #fff; }
+
+    /* ── Register Modal ───────────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(49,49,133,.55); backdrop-filter: blur(4px);
+      z-index: 9999; align-items: center; justify-content: center; padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 16px; width: 100%; max-width: 520px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.22); overflow: hidden;
+      animation: modalIn .28s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform:scale(.9) translateY(16px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+    .modal-head {
+      background: linear-gradient(135deg, var(--navy2), var(--navy));
+      padding: 1.35rem 1.5rem 1.15rem; position: relative;
+    }
+    .modal-badge  { font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5); margin:0 0 .25rem; }
+    .modal-title  { font-family:var(--fcond); font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 .2rem; }
+    .modal-sub    { font-size:.8rem; color:rgba(255,255,255,.6); margin:0 0 .6rem; }
+    .modal-event-pill {
+      display:inline-flex; align-items:center; gap:.4rem;
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:rgba(255,255,255,.85); font-size:.75rem; font-weight:600;
+      padding:.28rem .85rem; border-radius:20px;
+    }
+    .modal-close {
+      position:absolute; top:.9rem; right:1rem;
+      width:30px; height:30px; border-radius:50%;
+      background:rgba(255,255,255,.12); border:none;
+      color:rgba(255,255,255,.8); cursor:pointer;
+      display:flex; align-items:center; justify-content:center; font-size:1rem;
+    }
+    .modal-body { padding: 1.5rem; }
+    .m-label { display:block; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--inkm); margin-bottom:.38rem; }
+    .m-input {
+      display:block; width:100%; padding:.65rem .9rem;
+      font-size:.88rem; font-family:var(--font); color:var(--ink);
+      background:#fff; border:1.5px solid #CBD5E1; border-radius:8px;
+      outline:none; appearance:none; transition:border-color .18s,box-shadow .18s;
+      box-shadow:0 1px 3px rgba(0,0,0,.05);
+    }
+    .m-input:focus { border-color:var(--navy2); box-shadow:0 0 0 3px rgba(49,49,133,.1); }
+    .m-input.bad  { border-color:var(--red); }
+    .m-err { font-size:.72rem; color:var(--red); margin-top:.22rem; display:none; font-weight:500; }
+    .m-textarea { resize:vertical; min-height:80px; }
+    .m-submit {
+      width:100%; background:var(--navy); color:#fff;
+      font-family:var(--fcond); font-size:.95rem; font-weight:800;
+      letter-spacing:.04em; text-transform:uppercase;
+      border:none; border-radius:8px; padding:.85rem; cursor:pointer;
+      margin-top:1rem; transition:background .18s,transform .13s;
+    }
+    .m-submit:hover { background:var(--navy2); transform:translateY(-1px); }
+    .m-submit:disabled { background:#9ca3af; cursor:not-allowed; transform:none; }
+
+    /* Modal success */
+    .modal-success { display:none; text-align:center; padding:2.5rem 1.5rem 2rem; animation:fadeUp .32s cubic-bezier(.34,1.56,.64,1) both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(14px)scale(.95)} to{opacity:1;transform:translateY(0)scale(1)} }
+    .modal-success.show { display:block; }
+    .success-icon { width:72px;height:72px;background:#dcfce7;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;box-shadow:0 4px 16px rgba(22,101,52,.16); }
+    .success-title { font-family:var(--fcond);font-size:1.6rem;font-weight:800;color:var(--ink);margin:0 0 .45rem; }
+    .success-sub { font-size:.9rem;color:var(--inks);line-height:1.65;margin:0; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .site-footer { background: #313185; padding: 3.5rem 0 0; }
+    .footer-logo { display:inline-block; background:#ffffff; padding:7px 14px; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.18); margin-bottom:.85rem; }
+    .footer-logo img { height:44px; display:block; object-fit:contain; }
+    .footer-desc { font-size:.84rem; color:rgba(255,255,255,.5); line-height:1.7; margin:0; }
+    .footer-heading { font-family:var(--fcond); font-size:.8rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.85rem; }
+    .footer-list { list-style:none; margin:0; padding:0; }
+    .footer-list li, .footer-list a { font-size:.84rem; color:rgba(255,255,255,.6); line-height:1.9; transition:color .18s; }
+    .footer-list a:hover { color:#fff; }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.1); padding:1.25rem 0; margin-top:3rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:.75rem; }
+    .footer-bottom span { font-size:.76rem; color:rgba(255,255,255,.4); }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 991px) {
+      .cta-banner { text-align: center; justify-content: center; flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 767px) {
+      body { padding-top: 58px; }
+      .util-bar { display: none; }
+      .site-nav { top: 0; }
+      .site-nav__links { display: none; }
+      .page-hero { padding: 2rem 0 1.75rem; }
+      .page-hero__title { font-size: 1.75rem; }
+      .section-body { padding: 2rem 0 3rem; }
+      .event-actions { flex-wrap: wrap; }
+      .ev-btn { min-height: 42px; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+      .cta-banner { padding: 1.75rem 1.25rem; }
+      .cta-banner__btn { width: 100%; justify-content: center; }
+      .page-hero__stats { gap: 1.25rem; }
+    }
+    @media (max-width: 575px) {
+      .page-hero__title { font-size: 1.55rem; }
+      .filter-bar { gap: .35rem; }
+      .filter-pill { font-size: .75rem; padding: .45rem 1rem; }
+    }
+  html,body{margin:0!important;}
+</style>
+<style>
+</style>
+<style>
+html,body{margin:0!important;}
+
+/* ── Profile Brochure Dropdown ── */
+.atl-brochure-dropdown {
+  position: relative;
+}
+.atl-brochure-btn {
+  cursor: pointer; border: none; gap: .25rem;
+  display: inline-flex; align-items: center;
+  position: relative; overflow: hidden;
+  transition: background .25s cubic-bezier(.4,0,.2,1),
+              box-shadow .25s cubic-bezier(.4,0,.2,1),
+              transform .2s cubic-bezier(.34,1.56,.64,1),
+              letter-spacing .2s ease;
+}
+/* Shimmer sweep pseudo-element */
+.atl-brochure-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255,255,255,.28) 50%,
+    transparent 80%
+  );
+  transition: left .45s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+/* Hover state on the button itself */
+.atl-brochure-btn:hover,
+.atl-brochure-dropdown.open .atl-brochure-btn {
+  background: #1a1a72 !important;
+  box-shadow: 0 6px 24px rgba(3,24,133,.38), 0 2px 8px rgba(3,24,133,.22);
+  transform: translateY(-2px);
+  letter-spacing: .06em;
+}
+.atl-brochure-btn:hover::before,
+.atl-brochure-dropdown.open .atl-brochure-btn::before {
+  left: 160%;
+}
+.atl-brochure-btn:active {
+  transform: translateY(0px) scale(.97) !important;
+  box-shadow: 0 2px 8px rgba(3,24,133,.2) !important;
+  transition-duration: .08s !important;
+}
+.atl-brochure-menu {
+  display: block;
+  position: fixed;
+  top: 100px; /* set by JS */
+  right: auto; /* set by JS */
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 8px 32px -4px rgba(3,24,133,.18),
+    0 24px 64px -8px rgba(3,24,133,.14),
+    0 0 0 1px rgba(3,24,133,.06);
+  min-width: 260px;
+  padding: .5rem 0;
+  z-index: 2000;
+  /* Slide-down animation exactly matching mega menu */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-110%);
+  transform-origin: top right;
+  transition:
+    transform 0.40s cubic-bezier(0.4, 0, 1, 1),
+    opacity   0.30s ease,
+    visibility 0s linear 0.40s;
+}
+/* Open via .open class on dropdown wrapper (set by JS) */
+.atl-brochure-dropdown.open .atl-brochure-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    transform 0.52s cubic-bezier(0.0, 0.0, 0.2, 1),
+    opacity   0.38s ease,
+    visibility 0s linear 0s;
+}
+/* Chevron rotates when open */
+.atl-brochure-dropdown.open .atl-brochure-btn svg {
+  transform: rotate(180deg);
+}
+.atl-brochure-btn svg { transition: transform .22s; }
+
+.atl-brochure-item {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .6rem 1.1rem;
+  font-size: .82rem; font-weight: 600; color: #374151;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+  position: relative;
+}
+.atl-brochure-item:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #313185; flex-shrink: 0;
+}
+
+/* ── List of Certificates submenu ── */
+.atl-brochure-item--has-sub {
+  justify-content: space-between;
+}
+.atl-brochure-item--has-sub .atl-sub-arrow {
+  margin-left: auto;
+  transition: transform .2s;
+  color: #9CA3AF;
+}
+.atl-brochure-sub {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: calc(100% + 6px);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(3,24,133,.16), 0 0 0 1px rgba(3,24,133,.07);
+  min-width: 220px;
+  padding: .5rem 0;
+  z-index: 2100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(8px) scaleX(.96);
+  transform-origin: right top;
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1),
+              transform .2s cubic-bezier(.34,1.4,.64,1),
+              visibility 0s linear .2s;
+}
+.atl-brochure-item--has-sub:hover .atl-brochure-sub {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) scaleX(1);
+  transition: opacity .2s cubic-bezier(.34,1.4,.64,1),
+              transform .2s cubic-bezier(.34,1.4,.64,1),
+              visibility 0s linear 0s;
+}
+.atl-brochure-item--has-sub:hover .atl-sub-arrow {
+  transform: rotate(-90deg);
+  color: #313185;
+}
+.atl-brochure-subitem {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .55rem 1rem;
+  font-size: .8rem; font-weight: 600; color: #374151;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.atl-brochure-subitem:hover { background: #f0f3ff; color: #313185; }
+.atl-brochure-subdot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #6366f1; flex-shrink: 0;
+}
+
+/* Profile Brochure visible on mobile */
+
+html,body{margin:0!important;}
+</style>
+  <style id="chevron-speed-override">
+  /* CHEVRON SPEED — 1.1s — beats all external stylesheet !important rules */
+  .atl-nav .atl-nav__link--has-mega svg,
+  .atl-nav .atl-nav__chevron,
+  .atl-nav .atl-nav__item--mega .atl-nav__chevron,
+  .atl-nav .atl-nav__item--mega .atl-nav__link--has-mega svg {
+    transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  </style>
+      <style id="v27-sliding-animation">
+    .atl-nav__link::after { transition: width .9s cubic-bezier(.22,1,.36,1), left .9s cubic-bezier(.22,1,.36,1) !important; }
+    .atl-mega__list li::before { transition: transform 0.6s ease !important; }
+    .atl-mega__prod-card::before { transition: transform 0.6s ease !important; }
+    .atl-mega__list a { position:relative !important; overflow:visible !important; padding-left:0 !important; transition:color .5s ease, transform .5s ease !important; }
+    .atl-mega__list a::after { content:none !important; display:none !important; }
+    .atl-mega__list a:hover { color:var(--navy,#0d2147) !important; transform:none !important; padding-left:0 !important; }
+    .atl-mega__list a:hover .atl-mega__dot { opacity:1 !important; }
+  </style>
+<style>
+/* Brochure Modal */
+.bro-overlay{display:none;position:fixed;inset:0;background:rgba(3,24,133,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:10000;align-items:center;justify-content:center;padding:1rem}
+.bro-overlay.open{display:flex}
+.bro-modal{background:#fff;border-radius:18px;width:100%;max-width:580px;max-height:92vh;overflow-y:auto;box-shadow:0 28px 72px rgba(0,0,0,.24);animation:modalIn .28s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes modalIn{from{opacity:0;transform:scale(.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.bro-modal__head{background:linear-gradient(135deg,#031885 0%,#0a2ab0 60%,#B00000 140%);padding:1.5rem 1.75rem 1.3rem;position:relative}
+.bro-modal__badge{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.35rem}
+.bro-modal__title{font-family:var(--fcond,'Outfit',sans-serif);font-size:1.45rem;font-weight:800;color:#fff;margin:0 0 .25rem;letter-spacing:-.01em}
+.bro-modal__sub{font-size:.8rem;color:rgba(255,255,255,.62);margin:0}
+.bro-close{position:absolute;top:1rem;right:1.1rem;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:rgba(255,255,255,.7);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.bro-close:hover{background:rgba(255,255,255,.22);color:#fff}
+.bro-modal__body{padding:1.5rem 1.75rem 1.75rem}
+.bro-phone-wrap{display:flex;gap:.5rem}
+.bro-dial-select{width:auto;min-width:90px;flex-shrink:0;padding:.6rem .5rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.82rem;color:#111827;background:#fff;outline:none;cursor:pointer;transition:border-color .18s,box-shadow .18s}
+.bro-dial-select:focus{border-color:#031885;box-shadow:0 0 0 3px rgba(3,24,133,.08)}
+.bro-phone-input{flex:1;min-width:0}
+.bro-submit{display:flex!important;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(90deg,#031885 0%,#B00000 100%)!important}
+.bro-submit:hover{background:linear-gradient(90deg,#020f5e 0%,#8a0000 100%)!important}
+.bro-success{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1rem}
+.bro-success.show{display:flex}
+.bro-success__icon{width:64px;height:64px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.bro-success__title{font-size:1.25rem;font-weight:800;color:#111827;margin-bottom:.35rem}
+.bro-success__sub{font-size:.85rem;color:#6b7280;max-width:320px;line-height:1.6}
+.qf-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.qf-row--full{grid-template-columns:1fr}
+.qf-group{display:flex;flex-direction:column;gap:.3rem}
+.qf-input,.qf-select,.qf-textarea{width:100%;padding:.6rem .85rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:.85rem;color:#111827;background:#fff;outline:none;transition:border-color .18s,box-shadow .18s;box-sizing:border-box}
+.qf-input:focus,.qf-select:focus{border-color:#031885;box-shadow:0 0 0 3px rgba(3,24,133,.08)}
+.qf-input.err,.qf-select.err{border-color:#B00000}
+.qf-err{font-size:.7rem;color:#B00000;display:none}
+.qf-err.show{display:block}
+.quote-submit{width:100%;padding:.85rem;background:#B00000;color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;transition:background .18s,transform .15s;margin-top:.25rem}
+.quote-submit:hover{background:#8a0000;transform:translateY(-1px)}
+.quote-submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
+@media(max-width:575px){.bro-modal__head{padding:1.2rem 1.2rem 1rem}.bro-modal__body{padding:1.1rem 1.2rem 1.3rem}.bro-phone-wrap{flex-direction:column;gap:.4rem}.bro-dial-select{width:100%}.qf-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="atl-sticky-header">
+<div class="atl-util-bar" >
+  <div class="atl-util-bar__inner">
+    <div class="atl-util-bar__left">
+      <span class="atl-util-link">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        India · NABL Accredited
+      </span>
+    </div>
+    <div class="atl-util-bar__right">
+      <a href="tel:+917486031238" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 74860 31238
+      </a>
+      <a href="tel:+917567552981" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 75675 52981
+      </a>
+      <a href="mailto:sales@avartanamlabs.com" class="atl-util-link">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        sales@avartanamlabs.com
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     MAIN NAVBAR — 6 items with Aaensa-style animated mega menus
+     Services · Products · Solutions · Resources · About · Contact Us
+════════════════════════════════════════════════ -->
+<nav class="atl-nav" id="atlNav" >
+  <div class="atl-nav__inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="atl-nav__logo">
+      <img src="images/avartanam-logo.png" alt="Avartanam Test Labs" class="atl-nav__logo-img">
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="atl-nav__links" id="navLinks">
+
+      <!-- 1. SERVICES (mega) -->
+      <li class="atl-nav__item atl-nav__item--mega" id="megaServices">
+        <button class="atl-nav__link atl-nav__link--has-mega" onclick="toggleMega('megaServices')">
+          Services
+          <svg class="atl-nav__chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="atl-mega" id="mega-megaServices">
+          <div class="atl-mega__panel">
+            <div class="atl-mega__inner">
+
+              <!-- Col 1: RF -->
+              <div class="atl-mega__col">
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--blue">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M10.54 17a6 6 0 012.92 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">Radio Frequency</p>
+                    <p class="atl-mega__col-desc">OTA · VSWR · TRP/TIS · Pre-compliance</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list" style="margin-top:.5rem;">
+                  <!-- WPC Certification — First & highlighted -->
+                  <li class="atl-mega__list-wpc-item"><a href="wpc-certification-service.html"><span class="atl-mega__dot atl-mega__dot--wpc"></span>WPC Certification Service<span class="atl-mega__nabl-badge">NABL ACCREDITED</span></a></li>
+                  <li><a href="antenna-radiation-pattern.html"><span class="atl-mega__dot"></span>Antenna Radiation Pattern Measurement Services</a></li>
+                  <li><a href="antenna-tuning.html"><span class="atl-mega__dot"></span>Antenna Tuning Optimization Services</a></li>
+                  <li><a href="vswr-return-loss.html"><span class="atl-mega__dot"></span>Antenna VSWR Return Loss Measurement Services</a></li>
+                  <li><a href="trp-measurement.html"><span class="atl-mega__dot"></span>Product TRP Measurement Service</a></li>
+                  <li><a href="tis-measurement.html"><span class="atl-mega__dot"></span>Product TIS - Total Isotropic Sensitivity Testing Services</a></li>
+                  <li><a href="basic-rf-testing.html"><span class="atl-mega__dot"></span>Product Basic Testing Service</a></li>
+                  <li><a href="pre-compliance-testing.html"><span class="atl-mega__dot"></span>Product Pre Compliance Testing Service</a></li>
+                  <li><a href="outdoor-range-testing.html"><span class="atl-mega__dot"></span>Product Outdoor Range Testing Service</a></li>
+                  <li><a href="spurious-optimization.html"><span class="atl-mega__dot"></span>Product Radio Spurious Optimization Services</a></li>
+                  <li><a href="wpc-type-approval.html"><span class="atl-mega__dot"></span>Product RF Site Survey Services</a></li>
+                  <li><a href="bis-crs-certification.html"><span class="atl-mega__dot"></span>Product EIRP Measurement Service</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 2: EMI-EMC + Environmental -->
+              <div class="atl-mega__col">
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--red">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">EMI EMC Testing Service</p>
+                    <p class="atl-mega__col-desc">CISPR · IEC 61000 · EN Standards</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list">
+                  <li><a href="conducted-emission-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Conducted Emission Testing Service</a></li>
+                  <li><a href="esd-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Electronic Discharge Testing Service</a></li>
+                  <li><a href="surge-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Surge Testing Service</a></li>
+                  <li><a href="rootcause-analysis-emc-certification.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Root Cause Analysis and Solution Offering in Radio and EMC Certification</a></li>
+                  <li><a href="radiated-emission-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>Radiated Emission Testing Service</a></li>
+                  <li><a href="mil-grade-certification-testing.html"><span class="atl-mega__dot atl-mega__dot--red"></span>MIL Grade Certification Testing</a></li>
+                </ul>
+                <div class="atl-mega__col-divider"></div>
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--teal">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">Environmental Testing Service</p>
+                    <p class="atl-mega__col-desc">IEC 60068 · −20°C to +100°C</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list">
+                  <li><a href="environmental-testing.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Environmental Testing Service</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 3: Consultancy -->
+              <div class="atl-mega__col">
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--purple">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">Consultancy Service</p>
+                    <p class="atl-mega__col-desc">WPC · BIS · CE · TEC · Certification</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list">
+                  <li><a href="consultancy.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for Product's Certification</a></li>
+                  <li><a href="consultancy-product-board-design-review.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Expert RF Board Design Review</a></li>
+                  <li><a href="consultancy-qc-jig-rf-calibration.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>RF QC Jig Calibration Service</a></li>
+                  <li><a href="consultancy-customize-antenna-design.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for Customize Antenna Design</a></li>
+                  <li><a href="consultancy-ce-fcc-certification.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for CE &amp; FCC Certification</a></li>
+                  <li><a href="consultancy-mtcte-certification.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for MTCTE Certification</a></li>
+                  <li><a href="consultancy-bis-certification.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--purple"></span>Consultancy Service for BIS Certification</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 4: Feature card -->
+              <div class="atl-mega__col atl-mega__col--feature">
+                <div class="atl-mega__feature-card">
+                  <span class="atl-mega__new-tag">NABL ACCREDITED</span>
+
+                  <p class="atl-mega__feature-name">NABL Accredited Lab</p>
+                  <p class="atl-mega__feature-desc">ISO/IEC 17025:2017 accredited. BIS &amp; WPC recognised. Plot#32, GIDC Estate, Anand, Gujarat.</p>
+                  <a href="services-page.html" class="atl-mega__feature-link">View All Services →</a>
+                  <div class="atl-mega__cert-badges">
+                    <span class="atl-mega__cert">NABL</span>
+                    <span class="atl-mega__cert">ISO</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2. PRODUCTS (mega) — same style as Services -->
+      <li class="atl-nav__item atl-nav__item--mega" id="megaProducts">
+        <button class="atl-nav__link atl-nav__link--has-mega" onclick="toggleMega('megaProducts')">
+          Products
+          <svg class="atl-nav__chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="atl-mega" id="mega-megaProducts">
+          <div class="atl-mega__panel">
+            <div class="atl-mega__inner atl-mega__inner--3col">
+
+              <!-- Col 1: RF Filters -->
+              <div class="atl-mega__col">
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--blue">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">RF Filters</p>
+                    <p class="atl-mega__col-desc">Low-pass &amp; Band-pass filters</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list">
+                  <li><a href="products/afl001.html?ref=megamenu"><span class="atl-mega__dot"></span>RF Filter – AFL-0001</a></li>
+                  <li><a href="products/afl003.html?ref=megamenu"><span class="atl-mega__dot"></span>RF Filter – AFL-0003</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 2: RF Antennas -->
+              <div class="atl-mega__col">
+                <div class="atl-mega__col-head">
+                  <div class="atl-mega__col-icon atl-mega__col-icon--teal">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.5 8.5a5 5 0 0 0 7 7"/><path d="M5 5a9 9 0 0 0 13 13"/><path d="M2 2a13 13 0 0 0 19 19"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+                  </div>
+                  <div>
+                    <p class="atl-mega__col-title">Customised RF Antennas</p>
+                    <p class="atl-mega__col-desc">Sub-GHz custom antenna solutions</p>
+                  </div>
+                </div>
+                <ul class="atl-mega__list">
+                  <li><a href="products/coil-antenna.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Coil Antenna</a></li>
+                  <li><a href="products/flexible-antenna.html?ref=megamenu"><span class="atl-mega__dot atl-mega__dot--teal"></span>Flexible Antenna</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 3: Feature card -->
+              <div class="atl-mega__col atl-mega__col--feature">
+                <div class="atl-mega__feature-card">
+                  <span class="atl-mega__new-tag">NABL ACCREDITED</span>
+                  <p class="atl-mega__feature-name">NABL Accredited Lab</p>
+                  <p class="atl-mega__feature-desc">ISO/IEC 17025:2017 accredited. BIS &amp; WPC recognised. Plot#32, GIDC Estate, Anand, Gujarat.</p>
+                  <a href="products.html" class="atl-mega__feature-link">View All Products →</a>
+                  <div class="atl-mega__cert-badges">
+                    <span class="atl-mega__cert">NABL</span>
+                    <span class="atl-mega__cert">ISO</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- 5. ABOUT -->
+      <li class="atl-nav__item">
+        <a class="atl-nav__link" href="about.html">About Us</a>
+      </li>
+
+      <!-- 6. CONTACT US -->
+      <li class="atl-nav__item">
+        <a class="atl-nav__link" href="contact.html">Contact Us</a>
+      </li>
+
+    </ul>
+
+    <!-- Right -->
+    <div class="atl-nav__right">
+      <div class="atl-brochure-dropdown" id="brochureDropdown">
+        <button class="atl-nav__cta atl-brochure-btn" id="brochureBtn" aria-expanded="false">
+          Profile Brochure <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:4px;transition:transform .25s"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="atl-brochure-menu" id="brochureMenu">
+          <a href="https://LINK_BROCHURE_COMPANY_PROFILE.pdf" target="_blank" rel="noopener" class="atl-brochure-item">
+            <span class="atl-brochure-dot"></span>Company Profile Brochure
+          </a>
+          <a href="https://LINK_BROCHURE_RF_TESTING.pdf" target="_blank" rel="noopener" class="atl-brochure-item">
+            <span class="atl-brochure-dot"></span>RF Testing Service Brochure
+          </a>
+          <a href="https://LINK_BROCHURE_EMI_EMC.pdf" target="_blank" rel="noopener" class="atl-brochure-item">
+            <span class="atl-brochure-dot"></span>EMI-EMC Services Brochure
+          </a>
+          <a href="https://LINK_CATALOG_AFL_PRODUCTS.pdf" target="_blank" rel="noopener" class="atl-brochure-item">
+            <span class="atl-brochure-dot"></span>Product Catalog (AFL Series)
+          </a>
+          <span class="atl-brochure-item atl-brochure-item--has-sub">
+            <span style="display:flex;align-items:center;gap:.55rem;">
+              <span class="atl-brochure-dot"></span>List of Certificates
+            </span>
+            <svg class="atl-sub-arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+            <div class="atl-brochure-sub">
+              <a href="https://LINK_CERT_NABL.pdf" target="_blank" rel="noopener" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>NABL Accreditation Certificate</a>
+              <a href="https://LINK_CERT_BIS.pdf" target="_blank" rel="noopener" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>BIS Recognition Certificate</a>
+              <a href="https://LINK_CERT_WPC.pdf" target="_blank" rel="noopener" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>WPC Recognition Certificate</a>
+              <a href="https://LINK_CERT_ISO17025.pdf" target="_blank" rel="noopener" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>ISO 17025 Certificate</a>
+              <a href="https://LINK_CERT_SCOPE_ACCREDITATION.pdf" target="_blank" rel="noopener" class="atl-brochure-subitem"><span class="atl-brochure-subdot"></span>Scope of Accreditation</a>
+            </div>
+          </span>
+        </div>
+      </div>
+      <button class="atl-nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="atl-nav__mobile" id="navMobile">
+  <div class="atl-nav__mobile-header">
+    <span class="atl-nav__mobile-title">Menu</span>
+    <button class="atl-nav__mobile-close" id="navMobileClose" aria-label="Close menu" onclick="(function(){var m=document.getElementById('navMobile'),b=document.getElementById('navBurger');if(m)m.classList.remove('open');if(b){b.classList.remove('open');b.setAttribute('aria-expanded','false');}})()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+    <a class="atl-nav__mlink" href="#home" onclick="return mobileNavClick('home')">Home</a>
+
+    <!-- Mobile Services Accordion -->
+    <div class="atl-nav__macc">
+      <button class="atl-nav__mlink atl-nav__macc-btn" onclick="toggleMobileAcc(this)">
+        Services
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="atl-nav__macc-body">
+        <div class="atl-nav__macc-section">RF Testing</div>
+        <a class="atl-nav__msublink" href="antenna-radiation-pattern.html">Antenna Radiation Pattern Measurement Services</a>
+        <a class="atl-nav__msublink" href="antenna-tuning.html">Antenna Tuning Optimization Services</a>
+        <a class="atl-nav__msublink" href="vswr-return-loss.html">VSWR &amp; Return Loss</a>
+        <a class="atl-nav__msublink" href="trp-measurement.html">Product TRP Measurement Service</a>
+        <a class="atl-nav__msublink" href="tis-measurement.html">Product TIS - Total Isotropic Sensitivity Testing Services</a>
+        <a class="atl-nav__msublink" href="basic-rf-testing.html">Basic RF Testing</a>
+        <a class="atl-nav__msublink" href="pre-compliance-testing.html">Product Pre Compliance Testing Service</a>
+        <a class="atl-nav__msublink" href="outdoor-range-testing.html">Product Outdoor Range Testing Service</a>
+        <a class="atl-nav__msublink" href="spurious-optimization.html">Product Radio Spurious Optimization Services</a>
+        <a class="atl-nav__msublink" href="wpc-type-approval.html">Product RF Site Survey Services</a>
+        <a class="atl-nav__msublink" href="bis-crs-certification.html">Product EIRP Measurement Service</a>
+        <a class="atl-nav__msublink" href="wpc-certification-service.html">WPC Certification Service</a>
+        <div class="atl-nav__macc-section">EMI / EMC</div>
+        <a class="atl-nav__msublink" href="conducted-emission-testing.html">Conducted Emission Testing</a>
+        <a class="atl-nav__msublink" href="esd-testing.html">Electronic Discharge Testing Service</a>
+        <a class="atl-nav__msublink" href="surge-testing.html">Surge Testing Service</a>
+        <a class="atl-nav__msublink" href="rootcause-analysis-emc-certification.html">Root Cause Analysis and Solution Offering in Radio and EMC Certification</a>
+        <a class="atl-nav__msublink" href="radiated-emission-testing.html">Radiated Emission Testing Service</a>
+        <a class="atl-nav__msublink" href="mil-grade-certification-testing.html">MIL Grade Certification Testing</a>
+        <div class="atl-nav__macc-section">Environmental &amp; Consultancy</div>
+        <a class="atl-nav__msublink" href="environmental-testing.html">Environmental Testing Service</a>
+        <a class="atl-nav__msublink" href="consultancy.html">Consultancy Service for Product's Certification</a>
+        <a class="atl-nav__msublink" href="consultancy-product-board-design-review.html">Expert RF Board Design Review</a>
+        <a class="atl-nav__msublink" href="consultancy-qc-jig-rf-calibration.html">RF QC Jig Calibration Service</a>
+        <a class="atl-nav__msublink" href="consultancy-customize-antenna-design.html">Consultancy Service for Customize Antenna Design</a>
+      </div>
+    </div>
+
+    <!-- Mobile Products Accordion -->
+    <div class="atl-nav__macc">
+      <button class="atl-nav__mlink atl-nav__macc-btn" onclick="toggleMobileAcc(this)">
+        Products
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="atl-nav__macc-body">
+        <a class="atl-nav__msublink" href="products/afl001.html">RF Filter – AFL0001</a>
+        <a class="atl-nav__msublink" href="products/afl003.html">RF Filter – AFL0003</a>
+        <a class="atl-nav__msublink" href="products/coil-antenna.html">Coil Antenna</a>
+        <a class="atl-nav__msublink" href="products/flexible-antenna.html">Flexible Antenna</a>
+      </div>
+    </div>
+
+    <a class="atl-nav__mlink" href="about.html">About</a>
+    <a class="atl-nav__mlink" href="contact.html">Contact</a>
+    <!-- Mobile Profile Brochure Accordion -->
+    <div class="atl-nav__macc" style="border-bottom:none;">
+      <button class="atl-nav__mlink atl-nav__macc-btn" onclick="toggleMobileAcc(this)" style="font-weight:800;color:#313185;background:rgba(49,49,133,.06);border-radius:8px;margin:.5rem 0 .25rem;">
+        <span style="display:flex;align-items:center;gap:.5rem;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Profile Brochure
+        </span>
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="atl-nav__macc-body">
+        <div class="atl-nav__macc-section">Downloads</div>
+        <a class="atl-nav__msublink" href="https://LINK_BROCHURE_COMPANY_PROFILE.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Company Profile Brochure
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_BROCHURE_RF_TESTING.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          RF Testing Service Brochure
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_BROCHURE_EMI_EMC.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          EMI-EMC Services Brochure
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_CATALOG_AFL_PRODUCTS.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Product Catalog (AFL Series)
+        </a>
+        <div class="atl-nav__macc-section">Certificates</div>
+        <a class="atl-nav__msublink" href="https://LINK_CERT_NABL.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3"/></svg>
+          NABL Accreditation Certificate
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_CERT_BIS.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3"/></svg>
+          BIS Recognition Certificate
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_CERT_WPC.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3"/></svg>
+          WPC Recognition Certificate
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_CERT_ISO17025.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3"/></svg>
+          ISO 17025 Certificate
+        </a>
+        <a class="atl-nav__msublink" href="https://LINK_CERT_SCOPE_ACCREDITATION.pdf" target="_blank" rel="noopener">
+          <svg width="12" height="12" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M9 21l3-3 3 3"/></svg>
+          Scope of Accreditation
+        </a>
+      </div>
+    </div>
+  </div>
+
+</nav>
+</div><!-- /.atl-sticky-header -->
+</div>
+
+<!-- ── Breadcrumb ─────────────────────────────────────────── -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span>Resources</span>
+    <span>›</span>
+    <span>Exhibition</span>
+    <span>›</span>
+    <span class="current">Upcoming Trade Shows</span>
+  </div>
+</div>
+
+<!-- ── Page Hero ─────────────────────────────────────────── -->
+<div class="page-hero">
+  <div class="container page-hero__inner">
+    <span class="page-hero__eyebrow">Resources · Exhibition</span>
+    <h1 class="page-hero__title">Upcoming Trade Shows</h1>
+    <p class="page-hero__sub">Meet the Avartanam Test Labs team at industry events across India and globally. Connect with our RF, EMI-EMC and environmental testing experts in person.</p>
+    <div class="page-hero__stats">
+      <div>
+        <span class="hero-stat__num">6+</span>
+        <span class="hero-stat__lbl">Events in 2025</span>
+      </div>
+      <div>
+        <span class="hero-stat__num">4</span>
+        <span class="hero-stat__lbl">Cities</span>
+      </div>
+      <div>
+        <span class="hero-stat__num">Free</span>
+        <span class="hero-stat__lbl">Entry at all booths</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Events Catalog ────────────────────────────────────── -->
+<section class="section-body">
+  <div class="container">
+
+    <!-- Filter pills -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-pill active" data-cat="all">All Events</button>
+      <button class="filter-pill" data-cat="trade-show">Trade Shows</button>
+      <button class="filter-pill" data-cat="conference">Conferences</button>
+      <button class="filter-pill" data-cat="open-house">Lab Open House</button>
+      <button class="filter-pill" data-cat="industry">Industry Events</button>
+    </div>
+
+    <!-- Event cards grid -->
+    <div class="row g-4" id="eventsGrid">
+
+      <!-- 1. ELECRAMA 2025 -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="trade-show">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--upcoming"></span>
+          <span class="event-status event-status--upcoming">Upcoming</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--exhibition">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.3">
+              <rect x="2" y="7" width="20" height="14" rx="2" fill="#fff"/>
+              <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" fill="#fff"/>
+              <line x1="12" y1="12" x2="12" y2="16" stroke="#313185" stroke-width="2"/>
+              <line x1="10" y1="14" x2="14" y2="14" stroke="#313185" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="event-date-chip" style="bottom:.75rem;left:.75rem;">
+            <span class="event-date-chip__day">18</span>
+            <span class="event-date-chip__mon">Jan</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Trade Show</span>
+            <h3 class="event-name">ELECRAMA 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                IEEMA, Bharat Mandapam, New Delhi
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                18 – 22 January 2025 · 5 days
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Booth No. H4-321 &nbsp;·&nbsp; Hall 4
+              </div>
+            </div>
+            <p class="event-desc">India's premier electrical industry event. Avartanam Test Labs will showcase RF, EMI-EMC and environmental testing capabilities for electrical and electronics manufacturers.</p>
+            <div class="event-tags">
+              <span class="event-tag">RF Testing</span>
+              <span class="event-tag">EMI-EMC</span>
+              <span class="event-tag">BIS / WPC</span>
+              <span class="event-tag">NABL</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('ELECRAMA 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('ELECRAMA 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Electronics For You Expo -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="trade-show">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--confirmed"></span>
+          <span class="event-status event-status--confirmed">Confirmed</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--conference">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.28">
+              <circle cx="12" cy="12" r="10" fill="#fff"/>
+              <path d="M12 6v6l4 2" stroke="#0C6E6E" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="event-date-chip">
+            <span class="event-date-chip__day">14</span>
+            <span class="event-date-chip__mon">Mar</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Trade Show</span>
+            <h3 class="event-name">Electronics For You Expo 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                NSIC, Okhla, New Delhi
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                14 – 16 March 2025 · 3 days
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Booth No. B2-108
+              </div>
+            </div>
+            <p class="event-desc">Asia's largest electronics trade show. Meet our engineers to discuss pre-compliance testing, NABL certification and WPC / BIS type approval for your product.</p>
+            <div class="event-tags">
+              <span class="event-tag">IoT</span>
+              <span class="event-tag">Wireless</span>
+              <span class="event-tag">Pre-compliance</span>
+              <span class="event-tag">WPC</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('Electronics For You Expo 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('Electronics For You Expo 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. India Smart Grid Forum -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="conference">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--soon"></span>
+          <span class="event-status event-status--soon">Registering</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--industry">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.28">
+              <polygon points="12 2 22 8 22 16 12 22 2 16 2 8 12 2" fill="#fff"/>
+              <polyline points="12 2 12 22" stroke="#c25800" stroke-width="2"/>
+              <polyline points="2 8 22 8" stroke="#c25800" stroke-width="2"/>
+              <polyline points="2 16 22 16" stroke="#c25800" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="event-date-chip">
+            <span class="event-date-chip__day">22</span>
+            <span class="event-date-chip__mon">Apr</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Conference</span>
+            <h3 class="event-name">India Smart Grid Forum 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                The Leela Ambience, Gurugram
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                22 – 23 April 2025 · 2 days
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Speaker Session · Day 1, 3:30 PM
+              </div>
+            </div>
+            <p class="event-desc">Our experts will present a session on EMC/EMI challenges in smart grid and energy meter devices. Separate one-on-one consultation slots available.</p>
+            <div class="event-tags">
+              <span class="event-tag">Smart Grid</span>
+              <span class="event-tag">EMI-EMC</span>
+              <span class="event-tag">Energy Meters</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('India Smart Grid Forum 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('India Smart Grid Forum 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Avartanam Lab Open House – Q2 -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="open-house">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--upcoming"></span>
+          <span class="event-status event-status--upcoming">Upcoming</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--openhouse">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.28">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" fill="#fff"/>
+              <polyline points="9 22 9 12 15 12 15 22" stroke="#B00000" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="event-date-chip">
+            <span class="event-date-chip__day">10</span>
+            <span class="event-date-chip__mon">May</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Lab Open House</span>
+            <h3 class="event-name">Avartanam Lab Open House — Q2 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Avartanam Test Labs, GIDC, Anand, Gujarat
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                10 May 2025 · 10:00 AM – 5:00 PM
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Limited seats · Pre-registration required
+              </div>
+            </div>
+            <p class="event-desc">Exclusive facility walkthrough of our OTA anechoic chambers, EMI shielded rooms and temperature/humidity test chambers. Live RF and EMI demonstrations for attendees.</p>
+            <div class="event-tags">
+              <span class="event-tag">OTA Chamber</span>
+              <span class="event-tag">Live Demo</span>
+              <span class="event-tag">Free Entry</span>
+              <span class="event-tag">NABL Lab</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('Lab Open House Q2 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('Lab Open House Q2 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. MediaTek IoT Summit -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="industry">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--confirmed"></span>
+          <span class="event-status event-status--confirmed">Confirmed</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--conference">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.28">
+              <path d="M1.42 9a16 16 0 0121.16 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <path d="M5 12.55a11 11 0 0114.08 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10.54 17a6 6 0 012.92 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="20" r="1" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="event-date-chip">
+            <span class="event-date-chip__day">06</span>
+            <span class="event-date-chip__mon">Jun</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Industry Event</span>
+            <h3 class="event-name">IoT India Congress 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                The Lalit Ashok, Bengaluru
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                6 – 7 June 2025 · 2 days
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Exhibitor Booth · Zone C
+              </div>
+            </div>
+            <p class="event-desc">India's largest IoT industry congress. We'll be showcasing our RF OTA testing capabilities for LoRa, Zigbee, BLE, Wi-Fi 6 and Sub-GHz IoT devices.</p>
+            <div class="event-tags">
+              <span class="event-tag">LoRa</span>
+              <span class="event-tag">BLE</span>
+              <span class="event-tag">Zigbee</span>
+              <span class="event-tag">Wi-Fi 6</span>
+              <span class="event-tag">OTA</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('IoT India Congress 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('IoT India Congress 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Semicon India 2025 -->
+      <div class="col-12 col-sm-6 col-xl-4 ev-item" data-cat="trade-show">
+        <div class="event-card">
+          <span class="event-card__band event-card__band--upcoming"></span>
+          <span class="event-status event-status--upcoming">Upcoming</span>
+          <div class="event-card__img event-card__img--placeholder event-card__img--exhibition">
+            <svg width="64" height="64" fill="none" viewBox="0 0 24 24" style="opacity:.28">
+              <rect x="4" y="4" width="6" height="6" rx="1" fill="#fff"/>
+              <rect x="14" y="4" width="6" height="6" rx="1" fill="#fff"/>
+              <rect x="4" y="14" width="6" height="6" rx="1" fill="#fff"/>
+              <rect x="14" y="14" width="6" height="6" rx="1" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="event-date-chip">
+            <span class="event-date-chip__day">11</span>
+            <span class="event-date-chip__mon">Sep</span>
+          </div>
+          <div class="event-card__body">
+            <span class="event-cat">Trade Show</span>
+            <h3 class="event-name">Semicon India 2025</h3>
+            <div class="event-meta">
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Yashobhoomi, Dwarka, New Delhi
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+                11 – 13 September 2025 · 3 days
+              </div>
+              <div class="event-meta-row">
+                <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                Booth No. TBC · Semiconductor Hall
+              </div>
+            </div>
+            <p class="event-desc">India's flagship semiconductor and electronics manufacturing event. Meet us to discuss EMI-EMC testing solutions for chip-level and system-level devices.</p>
+            <div class="event-tags">
+              <span class="event-tag">Semiconductor</span>
+              <span class="event-tag">EMI-EMC</span>
+              <span class="event-tag">System-level</span>
+            </div>
+            <div class="event-actions">
+              <button class="ev-btn ev-btn--register" onclick="openRegModal('Semicon India 2025', 'register')">Register Interest</button>
+              <button class="ev-btn ev-btn--enquire" onclick="openRegModal('Semicon India 2025', 'enquire')">Enquire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <div>
+        <p class="cta-banner__title">Can't make it to a show?</p>
+        <p class="cta-banner__sub">Schedule a virtual or in-person lab consultation — our engineers come to you.</p>
+      </div>
+      <button class="cta-banner__btn" onclick="openRegModal('Lab Visit / Virtual Consultation', 'enquire')">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Book a Consultation
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Register / Enquire Modal ───────────────────────────── -->
+<div class="modal-overlay" id="regModal" onclick="if(event.target===this)closeRegModal()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 class="modal-title">Register Interest</h2>
+      <p class="modal-sub">Our team will contact you with event details and directions.</p>
+      <div class="modal-event-pill" id="modalEventPill">
+        <span>&#9679;</span> <span id="modalEventName">Event</span>
+      </div>
+      <button class="modal-close" onclick="closeRegModal()">✕</button>
+    </div>
+
+    <!-- Success -->
+    <div class="modal-success" id="regSuccess">
+      <div class="success-icon">
+        <svg width="32" height="32" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 class="success-title">Thank You!</h3>
+      <p class="success-sub">Our engineering team will connect you soon.</p>
+      <p class="success-sub">Our team will reach out soon with full event details.</p>
+    </div>
+
+    <!-- Form -->
+    <div class="modal-body" id="regFormWrap">
+      <form id="regForm" novalidate>
+        <div class="row g-3">
+          <div class="col-6">
+            <label class="m-label" for="rFirst">First Name <span style="color:var(--red)">*</span></label>
+            <input class="m-input" id="rFirst" type="text" placeholder="Rahul">
+            <div class="m-err" id="reFirst">Required</div>
+          </div>
+          <div class="col-6">
+            <label class="m-label" for="rLast">Last Name <span style="color:var(--red)">*</span></label>
+            <input class="m-input" id="rLast" type="text" placeholder="Sharma">
+            <div class="m-err" id="reLast">Required</div>
+          </div>
+          <div class="col-6">
+            <label class="m-label" for="rEmail">Email <span style="color:var(--red)">*</span></label>
+            <input class="m-input" id="rEmail" type="email" placeholder="rahul@company.com">
+            <div class="m-err" id="reEmail">Valid email required</div>
+          </div>
+          <div class="col-6">
+            <label class="m-label" for="rPhone">Phone <span style="color:var(--red)">*</span></label>
+            <input class="m-input" id="rPhone" type="tel" placeholder="+91 98765 43210">
+            <div class="m-err" id="rePhone">10-digit number required</div>
+          </div>
+          <div class="col-12">
+            <label class="m-label" for="rCompany">Company <span style="color:var(--red)">*</span></label>
+            <input class="m-input" id="rCompany" type="text" placeholder="Your company name">
+            <div class="m-err" id="reCompany">Required</div>
+          </div>
+          <div class="col-12">
+            <label class="m-label" for="rMsg">Message (optional)</label>
+            <textarea class="m-input m-textarea" id="rMsg" placeholder="Any specific questions or requirements for the event…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="m-submit" id="rSubmit">REGISTER INTEREST</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-md-4">
+        <div class="footer-logo">
+          <img src="images/avartanam-logo.png" alt="Avartanam Test Labs">
+        </div>
+        <p class="footer-desc">NABL-accredited RF, EMI-EMC, Electrical Safety and Environmental testing laboratory in Anand, Gujarat, India.</p>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 class="footer-heading">Navigate</h6>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="services-page.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-3">
+        <h6 class="footer-heading">Services</h6>
+        <ul class="footer-list">
+          <li><a href="antenna-radiation-pattern.html">Radio Frequency Testing</a></li>
+          <li><a href="conducted-emission-testing.html">EMI / EMC Testing</a></li>
+          <li><a href="environmental-testing.html">Environmental Testing</a></li>
+          <li><a href="consultancy.html">Consultancy</a></li>
+        </ul>
+        <h6 class="footer-heading mt-3">Resources</h6>
+        <ul class="footer-list">
+          <li><a href="upcoming-trade-shows.html">Upcoming Trade Shows</a></li>
+          <li><a href="coming-soon.html">Lab Open House</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-3">
+        <h6 class="footer-heading">Contact</h6>
+        <ul class="footer-list">
+          <li><a href="tel:+917486031238">+91 74860 31238</a> / <a href="tel:+917567552981">+91 75675 52981</a></li>
+          <li><a href="mailto:sales@avartanamlabs.com">sales@avartanamlabs.com</a></li>
+          <li>Plot#32, Zone-D/4, Phase-1 GIDC Estate, V.U.Nagar, Anand, 388 121, Gujarat, India.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Avartanam Test Labs. All rights reserved.</span>
+      <span>NABL Accredited · ISO 17025</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Nav shadow on scroll ─────────────────────────────────── */
+window.addEventListener('scroll', function() {
+  document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── Filter pills ─────────────────────────────────────────── */
+document.getElementById('filterBar').addEventListener('click', function(e) {
+  var pill = e.target.closest('.filter-pill');
+  if (!pill) return;
+  document.querySelectorAll('.filter-pill').forEach(function(p){ p.classList.remove('active'); });
+  pill.classList.add('active');
+  var cat = pill.getAttribute('data-cat');
+  document.querySelectorAll('.ev-item').forEach(function(item) {
+    item.style.display = (cat === 'all' || item.getAttribute('data-cat') === cat) ? '' : 'none';
+  });
+});
+
+/* ── Modal ────────────────────────────────────────────────── */
+function openRegModal(eventName, type) {
+  document.getElementById('modalEventName').textContent = eventName || 'Event';
+  document.getElementById('regModal').classList.add('open');
+  document.getElementById('regSuccess').classList.remove('show');
+  document.getElementById('regFormWrap').style.display = '';
+
+  /* Always reset submit button state when modal opens */
+  var submitBtn = document.getElementById('rSubmit');
+  submitBtn.style.display = '';
+  submitBtn.disabled = false;
+  submitBtn.textContent = type === 'enquire' ? 'SEND ENQUIRY' : 'REGISTER INTEREST';
+
+  document.getElementById('regForm').reset();
+  document.querySelectorAll('.m-input').forEach(function(i){ i.classList.remove('bad'); });
+  document.querySelectorAll('.m-err').forEach(function(e){ e.style.display = 'none'; });
+  document.body.style.overflow = 'hidden';
+
+  /* Change modal header + submit button colour based on type */
+  var head = document.querySelector('#regModal .modal-head');
+  if (type === 'enquire') {
+    head.style.background = 'linear-gradient(135deg, #c00000, #B00000)';
+    submitBtn.style.background = '#B00000';
+    submitBtn.onmouseover = function(){ this.style.background='#8a0000'; };
+    submitBtn.onmouseout  = function(){ this.style.background='#B00000'; };
+  } else {
+    head.style.background = '';   /* reset to CSS default (navy) */
+    submitBtn.style.background = '';
+    submitBtn.onmouseover = null;
+    submitBtn.onmouseout  = null;
+  }
+}
+function closeRegModal() {
+  document.getElementById('regModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeRegModal(); });
+
+/* ── Form validation ──────────────────────────────────────── */
+document.getElementById('regForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var ok = true;
+
+  function chk(id, errId, type) {
+    var el = document.getElementById(id);
+    var err = document.getElementById(errId);
+    var val = el.value.trim();
+    var bad = false;
+    if (type === 'required') bad = val === '';
+    else if (type === 'email') bad = val === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    else if (type === 'phone') {
+      var d = val.replace(/[\s\-\(\)\+]/g,'');
+      if (d.length===12 && d.slice(0,2)==='91') d=d.slice(2);
+      bad = val==='' || !/^\d{10}$/.test(d);
+    }
+    el.classList.toggle('bad', bad);
+    err.style.display = bad ? 'block' : 'none';
+    if (bad) ok = false;
+  }
+
+  chk('rFirst',   'reFirst',   'required');
+  chk('rLast',    'reLast',    'required');
+  chk('rEmail',   'reEmail',   'email');
+  chk('rPhone',   'rePhone',   'phone');
+  chk('rCompany', 'reCompany', 'required');
+
+  if (!ok) return;
+
+  var btn = document.getElementById('rSubmit');
+  btn.disabled = true; btn.textContent = 'Sending…';
+
+  setTimeout(function() {
+    document.getElementById('regFormWrap').style.display = 'none';
+    document.getElementById('regSuccess').classList.add('show');
+    setTimeout(closeRegModal, 4500);
+  }, 1000);
+});
+
+/* Clear errors on input */
+['rFirst','rLast','rEmail','rPhone','rCompany'].forEach(function(id) {
+  var el = document.getElementById(id);
+  var errMap = { rFirst:'reFirst', rLast:'reLast', rEmail:'reEmail', rPhone:'rePhone', rCompany:'reCompany' };
+  var err = document.getElementById(errMap[id]);
+  if (!el) return;
+  el.addEventListener('input', function() {
+    el.classList.remove('bad');
+    if (err) err.style.display = 'none';
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="atl-merged.js"></script>
+
+<!-- ══ Brochure Request Modal ══ -->
+<div class="bro-overlay" id="broOverlay" role="dialog" aria-modal="true" aria-labelledby="broModalTitle">
+  <div class="bro-modal" id="broModal">
+    <div class="bro-modal__head">
+      <div class="bro-modal__badge">FREE DOWNLOAD</div>
+      <h2 class="bro-modal__title" id="broModalTitle">Download Document</h2>
+      <p class="bro-modal__sub">Fill in your details and we’ll send the document instantly.</p>
+      <button class="bro-close" id="broClose" aria-label="Close modal">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="bro-modal__body">
+      <div class="bro-success" id="broSuccess" role="alert">
+        <div class="bro-success__icon">
+          <svg width="32" height="32" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="bro-success__title">Thank You!</div>
+        <div class="bro-success__sub">Your brochure is on its way. Our team will contact you shortly.</div>
+      </div>
+      <form id="broForm" novalidate autocomplete="on">
+        <!-- Row 1: First + Last name -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broFirst" type="text" placeholder="First Name *" required autocomplete="given-name">
+            <span class="qf-err" id="broErrFirst">Please enter your first name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broLast" type="text" placeholder="Last Name *" required autocomplete="family-name">
+            <span class="qf-err" id="broErrLast">Please enter your last name.</span>
+          </div>
+        </div>
+        <!-- Row 2: Business email + Phone -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broEmail" type="email" placeholder="Business Email *" required autocomplete="email">
+            <span class="qf-err" id="broErrEmail">Please enter a valid business email.</span>
+          </div>
+          <div class="qf-group">
+            <div class="bro-phone-wrap">
+              <select class="bro-dial-select" id="broDialCode" aria-label="Country dial code">
+                <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
+                <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
+                <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
+                <option value="+971" data-flag="🇦🇪">🇦🇪 +971</option>
+                <option value="+65" data-flag="🇸🇬">🇸🇬 +65</option>
+                <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
+                <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
+                <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
+                <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
+                <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
+                <option value="+82" data-flag="🇰🇷">🇰🇷 +82</option>
+                <option value="+39" data-flag="🇮🇹">🇮🇹 +39</option>
+                <option value="+34" data-flag="🇪🇸">🇪🇸 +34</option>
+                <option value="+31" data-flag="🇳🇱">🇳🇱 +31</option>
+                <option value="+46" data-flag="🇸🇪">🇸🇪 +46</option>
+                <option value="+47" data-flag="🇳🇴">🇳🇴 +47</option>
+                <option value="+45" data-flag="🇩🇰">🇩🇰 +45</option>
+                <option value="+358" data-flag="🇫🇮">🇫🇮 +358</option>
+                <option value="+48" data-flag="🇵🇱">🇵🇱 +48</option>
+                <option value="+7" data-flag="🇷🇺">🇷🇺 +7</option>
+                <option value="+55" data-flag="🇧🇷">🇧🇷 +55</option>
+                <option value="+52" data-flag="🇲🇽">🇲🇽 +52</option>
+                <option value="+27" data-flag="🇿🇦">🇿🇦 +27</option>
+                <option value="+20" data-flag="🇪🇬">🇪🇬 +20</option>
+                <option value="+966" data-flag="🇸🇦">🇸🇦 +966</option>
+                <option value="+60" data-flag="🇲🇾">🇲🇾 +60</option>
+                <option value="+66" data-flag="🇹🇭">🇹🇭 +66</option>
+                <option value="+84" data-flag="🇻🇳">🇻🇳 +84</option>
+                <option value="+62" data-flag="🇮🇩">🇮🇩 +62</option>
+                <option value="+63" data-flag="🇵🇭">🇵🇭 +63</option>
+                <option value="+880" data-flag="🇧🇩">🇧🇩 +880</option>
+                <option value="+92" data-flag="🇵🇰">🇵🇰 +92</option>
+                <option value="+94" data-flag="🇱🇰">🇱🇰 +94</option>
+                <option value="+977" data-flag="🇳🇵">🇳🇵 +977</option>
+                <option value="+64" data-flag="🇳🇿">🇳🇿 +64</option>
+                <option value="+41" data-flag="🇨🇭">🇨🇭 +41</option>
+                <option value="+32" data-flag="🇧🇪">🇧🇪 +32</option>
+                <option value="+43" data-flag="🇦🇹">🇦🇹 +43</option>
+                <option value="+351" data-flag="🇵🇹">🇵🇹 +351</option>
+                <option value="+30" data-flag="🇬🇷">🇬🇷 +30</option>
+                <option value="+90" data-flag="🇹🇷">🇹🇷 +90</option>
+                <option value="+972" data-flag="🇮🇱">🇮🇱 +972</option>
+                <option value="+98" data-flag="🇮🇷">🇮🇷 +98</option>
+              </select>
+              <input class="bro-phone-input qf-input" id="broPhone" type="tel" placeholder="Phone Number *" required autocomplete="tel" maxlength="15" oninput="this.value=this.value.replace(/[^0-9\s\-\(\)]/g,'')">
+            </div>
+            <span class="qf-err" id="broErrPhone">Please enter a valid 10-digit phone number.</span>
+          </div>
+        </div>
+        <!-- Row 3: Country -->
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broCountry" required>
+              <option value="" disabled selected>🌐 Select Country *</option>
+              <option value="IN">🇮🇳 India</option>
+              <option value="US">🇺🇸 United States</option>
+              <option value="GB">🇬🇧 United Kingdom</option>
+              <option value="AE">🇦🇪 UAE</option>
+              <option value="SG">🇸🇬 Singapore</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="FR">🇫🇷 France</option>
+              <option value="JP">🇯🇵 Japan</option>
+              <option value="CN">🇨🇳 China</option>
+              <option value="AU">🇦🇺 Australia</option>
+              <option value="KR">🇰🇷 South Korea</option>
+              <option value="IT">🇮🇹 Italy</option>
+              <option value="ES">🇪🇸 Spain</option>
+              <option value="NL">🇳🇱 Netherlands</option>
+              <option value="SE">🇸🇪 Sweden</option>
+              <option value="NO">🇳🇴 Norway</option>
+              <option value="DK">🇩🇰 Denmark</option>
+              <option value="FI">🇫🇮 Finland</option>
+              <option value="PL">🇵🇱 Poland</option>
+              <option value="RU">🇷🇺 Russia</option>
+              <option value="BR">🇧🇷 Brazil</option>
+              <option value="MX">🇲🇽 Mexico</option>
+              <option value="ZA">🇿🇦 South Africa</option>
+              <option value="EG">🇪🇬 Egypt</option>
+              <option value="SA">🇸🇦 Saudi Arabia</option>
+              <option value="MY">🇲🇾 Malaysia</option>
+              <option value="TH">🇹🇭 Thailand</option>
+              <option value="VN">🇻🇳 Vietnam</option>
+              <option value="ID">🇮🇩 Indonesia</option>
+              <option value="PH">🇵🇭 Philippines</option>
+              <option value="BD">🇧🇩 Bangladesh</option>
+              <option value="PK">🇵🇰 Pakistan</option>
+              <option value="LK">🇱🇰 Sri Lanka</option>
+              <option value="NP">🇳🇵 Nepal</option>
+              <option value="NZ">🇳🇿 New Zealand</option>
+              <option value="CH">🇨🇭 Switzerland</option>
+              <option value="BE">🇧🇪 Belgium</option>
+              <option value="AT">🇦🇹 Austria</option>
+              <option value="PT">🇵🇹 Portugal</option>
+              <option value="GR">🇬🇷 Greece</option>
+              <option value="TR">🇹🇷 Turkey</option>
+              <option value="IL">🇮🇱 Israel</option>
+              <option value="OTHER">🌐 Other</option>
+            </select>
+            <span class="qf-err" id="broErrCountry">Please select your country.</span>
+          </div>
+        </div>
+        <!-- Row 4: Company + State -->
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broCompany" type="text" placeholder="Company / Organisation *" required autocomplete="organization">
+            <span class="qf-err" id="broErrCompany">Please enter your company name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broState" type="text" placeholder="State / Province *" required autocomplete="address-level1">
+            <span class="qf-err" id="broErrState">Please enter your state.</span>
+          </div>
+        </div>
+        <!-- Row 5: Industry -->
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broIndustry" required>
+              <option value="" disabled selected>Select Industry *</option>
+              <option value="iot">IoT &amp; Smart Devices</option>
+              <option value="medical">Medical Devices &amp; Healthcare</option>
+              <option value="automotive">Automotive &amp; Telematics</option>
+              <option value="industrial">Industrial &amp; IIoT</option>
+              <option value="telecom">Telecom &amp; Networking OEM</option>
+              <option value="consumer">Consumer Electronics</option>
+              <option value="smart-metering">Smart Metering &amp; Energy</option>
+              <option value="defense">Defence &amp; Aerospace</option>
+              <option value="agriculture">Agriculture &amp; Rural IoT</option>
+              <option value="wearable">Wearables &amp; Hearables</option>
+              <option value="semiconductor">Semiconductor &amp; Chipset</option>
+              <option value="contract-mfg">Contract Manufacturing</option>
+              <option value="research">R&amp;D / Research Institution</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="qf-err" id="broErrIndustry">Please select your industry.</span>
+          </div>
+        </div>
+        <button type="submit" class="quote-submit bro-submit" id="broSubmit">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg>
+          Get My Brochure
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ══ End Brochure Modal ══ -->
+
+<script>
+/* ── Brochure Request Modal (unified download gate) v29 ── */
+(function () {
+  function openBroModal(docLabel) {
+    var overlay = document.getElementById('broOverlay');
+    var title = document.getElementById('broModalTitle');
+    var form = document.getElementById('broForm');
+    var success = document.getElementById('broSuccess');
+    var btn = document.getElementById('broSubmit');
+    if (!overlay) return;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (form) form.style.display = '';
+    if (success) success.classList.remove('show');
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg> Get My Document';
+    }
+    if (title) title.textContent = docLabel ? 'Download \u2014 ' + docLabel : 'Download Document';
+  }
+  function closeBroModal() {
+    var overlay = document.getElementById('broOverlay');
+    if (overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  window.openBroModal = openBroModal;
+  window.closeBroModal = closeBroModal;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // 1. Nav dropdown brochure items
+    document.querySelectorAll('.atl-brochure-item:not(.atl-brochure-item--has-sub)').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = document.getElementById('brochureDropdown');
+        if (dd) dd.classList.remove('open');
+        openBroModal(el.textContent.trim());
+      });
+    });
+
+    // 2. Certificate sub-menu items
+    document.querySelectorAll('.atl-brochure-subitem').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dd = document.getElementById('brochureDropdown');
+        if (dd) dd.classList.remove('open');
+        openBroModal(el.textContent.trim());
+      });
+    });
+
+    // 3. Mobile nav download sub-links pointing to PDFs
+    document.querySelectorAll('.atl-nav__msublink').forEach(function(el) {
+      var href = el.getAttribute('href') || '';
+      if (/\.pdf|REPLACE_LINK/i.test(href)) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          var navMobile = document.getElementById('navMobile');
+          if (navMobile) navMobile.classList.remove('open');
+          openBroModal(el.textContent.trim());
+        });
+      }
+    });
+
+    // 4. Spec-card brochure/download button
+    document.querySelectorAll('.sd-card-brochure').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBroModal(el.getAttribute('title') || el.textContent.trim());
+      });
+    });
+
+    // 5. Any element with [data-download-modal]
+    document.querySelectorAll('[data-download-modal]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openBroModal(el.getAttribute('data-download-modal') || el.textContent.trim());
+      });
+    });
+
+    // 6. Catch-all: any link with REPLACE_LINK placeholder href
+    document.querySelectorAll('a[href*="REPLACE_LINK"]').forEach(function(el) {
+      if (!el._broHooked) {
+        el._broHooked = true;
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          openBroModal(el.textContent.trim());
+        });
+      }
+    });
+
+    // Close button
+    var closeBtn = document.getElementById('broClose');
+    if (closeBtn) closeBtn.addEventListener('click', closeBroModal);
+
+    // Backdrop click
+    var overlay = document.getElementById('broOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeBroModal();
+      });
+    }
+
+    // ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeBroModal();
+    });
+
+    // Form submit
+    var form = document.getElementById('broForm');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateBroForm()) return;
+      var btn = document.getElementById('broSubmit');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+      setTimeout(function() {
+        form.style.display = 'none';
+        document.getElementById('broSuccess').classList.add('show');
+        setTimeout(closeBroModal, 3200);
+      }, 900);
+    });
+  });
+
+  function validateBroForm() {
+    var ok = true;
+    function chk(id, errId, testFn) {
+      var el = document.getElementById(id);
+      var err = document.getElementById(errId);
+      if (!el || !err) return;
+      var valid = testFn(el.value.trim());
+      el.classList.toggle('err', !valid);
+      err.classList.toggle('show', !valid);
+      if (!valid) ok = false;
+    }
+    chk('broFirst',    'broErrFirst',    function(v){ return v.length >= 2; });
+    chk('broLast',     'broErrLast',     function(v){ return v.length >= 2; });
+    chk('broEmail',    'broErrEmail',    function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
+    chk('broPhone',    'broErrPhone',    function(v){
+      var digits = v.replace(/[\s\-\(\)]/g, '');
+      if (!/^\d+$/.test(digits)) return false;
+      var dialEl = document.getElementById('broDialCode');
+      var dial = dialEl ? dialEl.value : '+91';
+      if (dial === '+91') return digits.length === 10;
+      return digits.length >= 6 && digits.length <= 15;
+    });
+    chk('broCountry',  'broErrCountry',  function(v){ return v !== ''; });
+    chk('broCompany',  'broErrCompany',  function(v){ return v.length >= 2; });
+    chk('broState',    'broErrState',    function(v){ return v.length >= 2; });
+    chk('broIndustry', 'broErrIndustry', function(v){ return v !== ''; });
+    return ok;
+  }
+})();
+</script>
+<script src="js/atl-docs.js"></script>
+</body>
+</html>
