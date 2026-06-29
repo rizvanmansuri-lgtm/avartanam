@@ -459,14 +459,14 @@ html,body{margin:0!important;}
       </span>
     </div>
     <div class="atl-util-bar__right">
-      <a href="tel:+917486031238" class="atl-util-link">
+      <!-- <a href="tel:+917486031238" class="atl-util-link">
         <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         +91 74860 31238
       </a>
       <a href="tel:+917567552981" class="atl-util-link">
         <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         +91 75675 52981
-      </a>
+      </a> -->
       <a href="tel:+916358365151" class="atl-util-link">
         <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.92 1.18 2 2 0 012.92 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         +91 63583 65151
@@ -1185,22 +1185,7 @@ html,body{margin:0!important;}
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     SECTION — OUR POTENTIAL CUSTOMERS (AUTO-SLIDING LOGOS)
-════════════════════════════════════════════════ -->
-<section class="atl-logo-strip-section" id="our-customers">
-  <div class="container">
-    <div class="text-center mb-4">
-      <span class="atl-eyebrow">Our Potential Customers</span>
-      <h3 class="atl-section-h3 mt-1">Industries We Serve</h3>
-    </div>
-  </div>
-  <div class="atl-logo-belt-wrap">
-    <div class="atl-logo-belt atl-logo-belt--customers" id="customerBelt">
-      <!-- Track duplicated in JS for infinite loop -->
-    </div>
-  </div>
-</section>
+
 
 <!-- ════════════════════════════════════════════════
      SECTION — TECHNOLOGIES WE USE (AUTO-SLIDING LOGOS, LEFT TO RIGHT)
@@ -1328,6 +1313,7 @@ html,body{margin:0!important;}
   font-size: .97rem; font-weight: 800;
   color: #ffffff;
   margin-bottom: .35rem; line-height: 1.25;
+  letter-spacing: 0.5px;
 }
 .atl-wcu-card__desc {
   font-size: .8rem; color: rgba(255,255,255,.7);
@@ -2532,15 +2518,7 @@ function closeCuModal() {
       });
     });
 
-    // 2. Certificate sub-menu items
-    document.querySelectorAll('.atl-brochure-subitem').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        var dd = document.getElementById('brochureDropdown');
-        if (dd) dd.classList.remove('open');
-        openBroModal(el.textContent.trim());
-      });
-    });
+
 
     // 3. Mobile nav download sub-links pointing to PDFs
     document.querySelectorAll('.atl-nav__msublink').forEach(function(el) {

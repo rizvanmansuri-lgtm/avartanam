@@ -889,8 +889,9 @@ img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box;
   font-family:var(--fcond);
   font-size:clamp(2rem,3.8vw,3rem);
   font-weight:800; color:var(--navy);
-  letter-spacing:-.02em; line-height:1.12;
+  line-height:1.12;
   margin:0 0 1.5rem;
+      
 }
 
 /* Orange left-border highlight paragraph — matching screenshot */
@@ -1054,8 +1055,9 @@ img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box;
   font-family:var(--fcond);
   font-size:clamp(2rem,4vw,3rem);
   font-weight:800; color:var(--navy);
-  letter-spacing:-.02em; line-height:1.1;
+ line-height:1.1;
   margin:0 0 1.5rem;
+   
 }
 .atl-rel-quote {
   border-left:4px solid var(--orange);
@@ -1770,7 +1772,7 @@ img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box;
   filter: none !important;
   background: #ffffff;
   padding: 7px 14px;
-  
+ 
   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
 

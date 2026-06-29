@@ -1,0 +1,810 @@
+/* ================================================================
+   responsive-fix.css — Avartanam Test Labs
+   Comprehensive responsive fixes: Mobile · Tablet · Desktop · XL
+   Breakpoints:
+     xs  : < 480px
+     sm  : 480px – 767px
+     md  : 768px – 991px  (tablet)
+     lg  : 992px – 1199px (laptop)
+     xl  : 1200px – 1399px
+     xxl : ≥ 1400px
+================================================================ */
+
+/* ================================================================
+   1. BASE / GLOBAL
+================================================================ */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+.container, .container-fluid {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ================================================================
+   2. NAVBAR — all breakpoints
+================================================================ */
+
+/* ── Desktop (≥ 992px): util-bar + nav stick cleanly ── */
+@media (min-width: 992px) {
+  .atl-nav__inner {
+    height: 82px;
+    padding: 0 1.5rem;
+  }
+  .atl-nav__logo-img {
+    max-height: 58px;
+    width: auto;
+  }
+  .atl-nav__list {
+    gap: .15rem;
+  }
+  .atl-nav__link {
+    font-size: .88rem;
+    padding: .4rem .65rem;
+  }
+}
+
+/* ── Large desktop (≥ 1400px): more breathing room ── */
+@media (min-width: 1400px) {
+  .atl-nav__inner,
+  .atl-util-bar__inner {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+  .atl-nav__link {
+    font-size: .92rem;
+    padding: .4rem .8rem;
+  }
+}
+
+/* ── Tablet (768 – 991px): show burger, hide desktop links ── */
+@media (max-width: 991.98px) {
+  .atl-nav__inner {
+    height: 58px;
+    padding: 0 1rem;
+  }
+  .atl-nav__logo-img {
+    max-height: 30px;
+  }
+  .atl-nav__links { display: none !important; }
+  .atl-nav__burger { display: flex !important; }
+  .atl-util-bar { display: none !important; }
+}
+
+/* ── Mobile (< 768px) ── */
+@media (max-width: 767.98px) {
+  .atl-nav__inner {
+    height: 54px;
+    padding: 0 .85rem;
+    gap: .3rem;
+  }
+  .atl-nav__logo-img {
+    max-height: 28px;
+    max-width: 110px;
+  }
+  .atl-nav__right {
+    gap: .35rem !important;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  /* Hide Contact Us CTA on very small screens — burger handles it */
+  .atl-nav__cta:not(.atl-btn-back-home-nav):not(.atl-brochure-btn) {
+    display: none !important;
+  }
+  .atl-nav__burger {
+    padding: 6px !important;
+    flex-shrink: 0;
+  }
+}
+
+/* ── Extra small (< 480px) ── */
+@media (max-width: 479px) {
+  .atl-nav__inner {
+    height: 50px;
+    padding: 0 .7rem;
+  }
+  .atl-nav__logo-img {
+    max-height: 24px;
+    max-width: 95px;
+  }
+}
+
+/* Mobile drawer */
+@media (max-width: 991.98px) {
+  .atl-nav__mobile {
+    padding: .75rem 1rem 1.25rem;
+  }
+  .atl-nav__mlink {
+    font-size: .92rem;
+    padding: .6rem .5rem;
+  }
+}
+
+/* ================================================================
+   3. HOME HERO
+================================================================ */
+@media (max-width: 1199px) {
+  .atl-home-hero {
+    padding: 4rem 0 3rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .atl-home-hero {
+    padding: 3rem 0 2.5rem;
+    min-height: auto;
+  }
+  .atl-home-hero .row {
+    flex-direction: column;
+  }
+  .atl-home-hero__title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+  }
+  .atl-home-hero__desc {
+    max-width: 100%;
+    font-size: .95rem;
+  }
+  .atl-hero-cards {
+    max-width: 540px;
+    margin: 2rem auto 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .atl-home-hero {
+    padding: 2.25rem 0 2rem;
+  }
+  .atl-home-hero__title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    line-height: 1.15;
+  }
+  .atl-home-hero__desc {
+    font-size: .88rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .atl-home-hero__btns {
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .atl-home-hero__btns .atl-btn-primary,
+  .atl-home-hero__btns .atl-btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: .72rem 1.25rem;
+    font-size: .88rem;
+  }
+  .atl-home-hero__stats-card {
+    padding: .75rem 1rem;
+  }
+  .atl-home-stat__num {
+    font-size: 1.5rem;
+  }
+  .atl-hero-cards__grid {
+    grid-template-columns: 1fr;
+  }
+  .atl-hero-svc-row {
+    gap: .35rem;
+  }
+  .atl-hero-svc-pill {
+    font-size: .68rem;
+    padding: .28rem .65rem;
+  }
+}
+@media (max-width: 479px) {
+  .atl-home-hero__title {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+  .atl-home-hero__stats {
+    gap: .4rem;
+  }
+  .atl-home-stat__div {
+    height: 28px;
+  }
+}
+
+/* ================================================================
+   4. ABOUT SECTION
+================================================================ */
+@media (max-width: 991.98px) {
+  .au-quality-card {
+    padding: 1.5rem;
+  }
+  .au-stat-card__num {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .au-quality-item {
+    font-size: .82rem;
+  }
+  .au-cert-badge {
+    padding: .6rem .5rem;
+  }
+  .au-cert-badge__abbr {
+    font-size: 1rem;
+  }
+  .atl-section-body {
+    padding: 2.25rem 0;
+  }
+}
+@media (max-width: 479px) {
+  .au-stat-card {
+    padding: 1rem .75rem;
+  }
+  .au-stat-card__num {
+    font-size: 1.6rem;
+  }
+}
+
+/* ================================================================
+   5. SERVICES SECTION (home + services page)
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-svc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767.98px) {
+  .atl-svc-grid {
+    grid-template-columns: 1fr;
+  }
+  .atl-page-hero {
+    padding: 2.5rem 0 2rem;
+  }
+  .atl-page-hero__title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .atl-page-hero__sub {
+    font-size: .88rem;
+    max-width: 100%;
+  }
+}
+
+/* ================================================================
+   6. PRODUCTS PAGE & PRODUCT CARDS
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-product-grid,
+  .sd-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767.98px) {
+  .sd-hero {
+    padding: 2rem 0 1.5rem;
+  }
+  .sd-hero__title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  .sd-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+  }
+  .sd-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .sd-specs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sd-support-grid {
+    grid-template-columns: 1fr;
+  }
+  .sd-breadcrumb {
+    font-size: .78rem;
+  }
+  .atl-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .atl-table {
+    min-width: 600px;
+  }
+}
+@media (max-width: 479px) {
+  .sd-specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .sd-hero__title {
+    font-size: 1.5rem;
+  }
+  .sd-hero__desc {
+    font-size: .83rem;
+  }
+}
+
+/* ================================================================
+   7. SERVICE DETAIL PAGES (sd-*)
+================================================================ */
+@media (max-width: 767.98px) {
+  .sd-topbar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .35rem;
+  }
+  .sd-card {
+    padding: 1.25rem;
+  }
+  .sd-card__title {
+    font-size: 1rem;
+  }
+  .gallery-main__display {
+    height: 220px !important;
+  }
+}
+@media (max-width: 479px) {
+  .sd-tab {
+    padding: .55rem .65rem;
+    font-size: .7rem;
+  }
+  .sd-tab-rail {
+    gap: .2rem;
+  }
+}
+
+/* ================================================================
+   8. CONTACT / QUOTE FORM
+================================================================ */
+@media (max-width: 767.98px) {
+  .qf-row {
+    grid-template-columns: 1fr;
+  }
+  .cu-quick-strip {
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .cu-quick-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ================================================================
+   9. FOOTER
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-footer {
+    padding: 3rem 0 1.5rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .atl-footer .row {
+    gap: 1.5rem;
+  }
+  .atl-footer__desc {
+    font-size: .82rem;
+  }
+  .atl-footer__list {
+    font-size: .82rem;
+  }
+  .atl-footer__bottom {
+    font-size: .75rem;
+    text-align: center;
+    padding-top: 1rem;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .atl-footer__logo-img {
+    max-height: 40px;
+  }
+}
+@media (max-width: 479px) {
+  .atl-footer {
+    padding: 2.25rem 0 1.25rem;
+  }
+  .atl-footer__heading {
+    font-size: .78rem;
+    margin-bottom: .5rem;
+  }
+}
+
+/* ================================================================
+   10. MEGA MENU (desktop only)
+================================================================ */
+@media (min-width: 992px) {
+  .atl-mega {
+    min-width: 720px;
+  }
+  .atl-mega__inner {
+    gap: 1.5rem;
+  }
+  .atl-mega__list li a {
+    font-size: .8rem;
+    padding: .3rem 0;
+  }
+}
+@media (min-width: 1200px) {
+  .atl-mega {
+    min-width: 820px;
+  }
+}
+
+/* ================================================================
+   11. TABLES — horizontal scroll on mobile
+================================================================ */
+@media (max-width: 767.98px) {
+  .atl-table-wrap,
+  .sd-tbl-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+  .atl-table,
+  .sd-tbl {
+    min-width: 560px;
+  }
+}
+
+/* ================================================================
+   12. TYPOGRAPHY SCALE
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-section-h3 {
+    font-size: clamp(1.35rem, 3.5vw, 1.8rem);
+  }
+}
+@media (max-width: 767.98px) {
+  .atl-section-h3 {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+  .atl-body-text {
+    font-size: .88rem;
+    line-height: 1.75;
+  }
+}
+
+/* ================================================================
+   13. COMING SOON PAGE — header & layout
+================================================================ */
+
+/* Fix: nav links in coming-soon show correctly without overflow */
+.coming-soon-page .atl-nav__links,
+.cs-page .atl-nav__links {
+  display: flex;
+}
+
+/* Coming soon nav — simple 5-link nav, no mega menu needed */
+@media (min-width: 992px) {
+  .cs-nav .atl-nav__list {
+    gap: 0;
+  }
+  .cs-nav .atl-nav__link {
+    font-size: .88rem;
+    padding: .4rem .7rem;
+    white-space: nowrap;
+  }
+}
+
+/* Tablet fix: prevent nav link overlap on coming-soon */
+@media (max-width: 991.98px) {
+  .cs-section {
+    min-height: calc(100vh - 58px);
+    padding: 3rem 1rem;
+  }
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 767.98px) {
+  .cs-section {
+    min-height: calc(100vh - 54px);
+    padding: 2.5rem 1rem 3rem;
+    align-items: flex-start;
+    padding-top: 3rem;
+  }
+  .cs-card {
+    max-width: 100%;
+  }
+  .cs-title {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    line-height: 1.15;
+  }
+  .cs-desc {
+    font-size: .88rem;
+    margin-bottom: 1.75rem;
+  }
+  .cs-countdown {
+    gap: .75rem;
+    margin-bottom: 2rem;
+  }
+  .cs-unit {
+    min-width: 64px;
+    padding: .75rem 1rem .65rem;
+  }
+  .cs-unit__num {
+    font-size: 1.6rem;
+  }
+  .cs-notify {
+    flex-direction: column;
+    gap: .5rem;
+    max-width: 100%;
+  }
+  .cs-notify__input,
+  .cs-notify__btn {
+    width: 100%;
+    text-align: center;
+  }
+  .cs-features {
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+  }
+  .cs-feature {
+    font-size: .74rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .cs-title {
+    font-size: clamp(1.5rem, 8.5vw, 1.9rem);
+  }
+  .cs-countdown {
+    gap: .5rem;
+  }
+  .cs-unit {
+    min-width: 56px;
+    padding: .6rem .7rem .55rem;
+  }
+  .cs-unit__num {
+    font-size: 1.35rem;
+  }
+  .cs-unit__lbl {
+    font-size: .6rem;
+  }
+  .cs-badge {
+    font-size: .65rem;
+    padding: .28rem .75rem;
+  }
+  .cs-features {
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+  }
+}
+
+/* ================================================================
+   14. SERVICES PAGE (services-page.html)
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-svc-cats {
+    flex-direction: column;
+  }
+  .atl-svc-cat-sidebar {
+    width: 100%;
+    position: static !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .atl-sp-grid {
+    grid-template-columns: 1fr;
+  }
+  .atl-sp-card {
+    padding: 1.25rem;
+  }
+}
+
+/* ================================================================
+   15. MODAL / OVERLAY
+================================================================ */
+@media (max-width: 767.98px) {
+  .atl-modal__body,
+  .atl-modal__head {
+    padding: 1rem;
+  }
+  .atl-modal__strip {
+    flex-direction: column;
+    gap: .65rem;
+  }
+  .atl-modal {
+    margin: .75rem;
+    max-width: calc(100vw - 1.5rem);
+    border-radius: 14px 14px 0 0;
+    margin-bottom: 0;
+    margin-top: auto;
+  }
+}
+
+/* ================================================================
+   16. UTILITY BAR — tablets hide, desktop show
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-util-bar {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .atl-util-bar {
+    display: block;
+  }
+  .atl-util-bar__inner {
+    height: 36px;
+  }
+  .atl-util-link {
+    font-size: .72rem;
+  }
+}
+
+/* ================================================================
+   17. LARGE SCREENS (≥ 1400px) — prevent content stretch
+================================================================ */
+@media (min-width: 1400px) {
+  .atl-home-hero .container,
+  .atl-section .container {
+    max-width: 1320px;
+  }
+  .atl-home-hero__title {
+    font-size: clamp(2.8rem, 3.5vw, 3.6rem);
+  }
+}
+
+/* ================================================================
+   18. PRINT — strip nav/animations for printing
+================================================================ */
+@media print {
+  .atl-header-sticky-wrap,
+  .atl-sticky-header,
+  .atl-nav,
+  .atl-util-bar,
+  .atl-footer,
+  .atl-nav__burger,
+  .atl-nav__mobile {
+    display: none !important;
+  }
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+}
+
+/* ================================================================
+/* ================================================================
+   STICKY HEADER — GLOBAL FIX
+   Rules for two possible header structures:
+   A) <div class="atl-sticky-header"> alone (most pages)
+   B) <div class="atl-header-sticky-wrap">
+        <div class="atl-sticky-header"> (product/service pages)
+================================================================ */
+
+/* ── FIXED HEADER — stays at top on scroll, all pages ── */
+.atl-sticky-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1100 !important;
+}
+
+/* atl-header-sticky-wrap (used on some pages) — also fixed */
+.atl-header-sticky-wrap {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1100 !important;
+}
+
+/* Inner elements must be relative, not fixed themselves */
+.atl-header-sticky-wrap .atl-sticky-header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+}
+
+/* util-bar and nav always flow inside the wrapper */
+.atl-sticky-header .atl-util-bar,
+.atl-header-sticky-wrap .atl-util-bar {
+  position: relative !important;
+  top: auto !important;
+}
+.atl-sticky-header .atl-nav,
+.atl-sticky-header nav.atl-nav,
+.atl-header-sticky-wrap .atl-nav,
+.atl-header-sticky-wrap nav.atl-nav {
+  position: relative !important;
+  top: auto !important;
+}
+
+/* ── Body offset: compensate for fixed header height (util-bar 36px + nav 64px = 100px) ── */
+body {
+  padding-top: 100px !important;
+}
+@media (max-width: 991.98px) {
+  /* util-bar hidden on tablet/mobile, only nav (58px) */
+  body { padding-top: 58px !important; }
+}
+@media (max-width: 767.98px) {
+  /* nav shrinks to 54px on mobile */
+  body { padding-top: 54px !important; }
+}
+@media (max-width: 479px) {
+  /* nav shrinks to 50px on xs */
+  body { padding-top: 50px !important; }
+}
+
+/* Tab rail (detail pages) sticks just below fixed nav */
+.atl-tab-rail,
+.sd-tab-rail {
+  position: sticky !important;
+  top: 100px !important;
+  z-index: 900 !important;
+}
+@media (max-width: 991.98px) {
+  .atl-tab-rail, .sd-tab-rail { top: 58px !important; }
+}
+@media (max-width: 767.98px) {
+  .atl-tab-rail, .sd-tab-rail { top: 54px !important; }
+}
+
+/* Hero sections need no extra top offset — body padding handles it */
+.atl-home-hero,
+.atl-page-hero,
+.page-hero,
+.sd-hero {
+  margin-top: 0 !important;
+}
+
+/* Coming soon full-height hero */
+.cs-section {
+  min-height: calc(100vh - 103px) !important;
+}
+@media (max-width: 991.98px) {
+  .cs-section { min-height: calc(100vh - 58px) !important; }
+}
+@media (max-width: 767.98px) {
+  .cs-section { min-height: calc(100vh - 54px) !important; }
+}
+
+/* ================================================================
+   MOBILE NAV — Hide "Back to Home" button on small screens
+   The burger/drawer menu already has all nav links.
+   The button stays visible on desktop (≥992px) only.
+================================================================ */
+@media (max-width: 991.98px) {
+  .atl-btn-back-home-nav,
+  a.atl-btn-back-home-nav,
+  .atl-nav__right a.atl-btn-back-home-nav,
+  .atl-nav__cta.atl-btn-back-home-nav {
+    display: none !important;
+  }
+}
+
+/* ================================================================
+   SERVICES-PAGE MOBILE — ensure service cards are clickable
+   and no parent overlay intercepts taps
+================================================================ */
+.svc-card {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+}
+.svc-btn--detail,
+.svc-btn--quote {
+  position: relative;
+  z-index: 2;
+  -webkit-tap-highlight-color: rgba(49,49,133,0.15);
+}
+/* Prevent any accidental full-card click zone */
+.svc-card__img,
+.svc-card__badges,
+.svc-card__body {
+  pointer-events: auto;
+}
+
+/* Mobile close button — only visible inside mobile drawer */
+.atl-nav__mobile-header {
+  display: flex !important;
+}
+@media (min-width: 992px) {
+  /* Hide header row on desktop (mobile drawer is hidden anyway) */
+  .atl-nav__mobile-header {
+    display: none !important;
+  }
+}
