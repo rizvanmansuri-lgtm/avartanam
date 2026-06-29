@@ -2512,7 +2512,7 @@ function closeCuModal() {
     document.querySelectorAll('.atl-brochure-item:not(.atl-brochure-item--has-sub)').forEach(function(el) {
       el.addEventListener('click', function(e) {
         e.preventDefault();
-        var dd = document.getElementById('brochureDropdown');
+        var dd = document.getElementById('brochureDropdown');                                                                       
         if (dd) dd.classList.remove('open');
         openBroModal(el.textContent.trim());
       });
