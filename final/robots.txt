@@ -1,0 +1,13 @@
+# ════════════════════════════════════════════════════════
+# robots.txt — Avartanam Test Labs
+# ════════════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+
+# Utility / placeholder pages — not meant for indexing
+Disallow: /coming-soon.html
+Disallow: /assets/
+Disallow: /js/
+
+Sitemap: https://REPLACE_DOMAIN/sitemap.xml
