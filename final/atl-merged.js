@@ -303,6 +303,24 @@
     ].join("");
   }
 
+  function renderGrid() {
+    var grid = document.getElementById("productGrid");
+    if (!grid) return; /* page has no dynamic grid (e.g. products.html is static) */
+
+    var all = window.ATL_PRODUCTS || [];
+    var filtered = activeFilter === "all"
+      ? all
+      : all.filter(function (p) { return p.category === activeFilter; });
+
+    var toShow = filtered.slice(0, visibleCount);
+    grid.innerHTML = toShow.map(cardHTML).join("");
+
+    var loadMoreWrap = document.getElementById("loadMoreWrap");
+    if (loadMoreWrap) {
+      loadMoreWrap.style.display = (visibleCount < filtered.length) ? "" : "none";
+    }
+  }
+
   function bindFilters() {
     var pills = $$(".atl-filter-pill");
     pills.forEach(function(pill){
@@ -751,8 +769,60 @@
     /* Handled by inline script in index.html — no-op here */
   }
 
+  /* ════════════════════════════════════════════════
+     SCROLL-SPY
+     Highlights the matching nav link (.atl-nav__link--active)
+     as the user scrolls past in-page sections. Only acts on
+     sections/links that actually exist on the current page —
+     safe no-op everywhere else.
+  ════════════════════════════════════════════════ */
+  function initScrollSpy() {
+    var sectionIds = ["home", "reliable", "why-choose-us", "our-customers", "technologies-we-use", "chipset-expertise", "contact"];
+    var sections = sectionIds
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    if (!sections.length) return; /* nothing to spy on this page */
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('a.atl-nav__link[href^="#"], a.atl-nav__logo[href^="#"]'));
+    if (!links.length) return;
+
+    function linkFor(id) {
+      return links.filter(function (a) {
+        return a.getAttribute("href") === "#" + id;
+      });
+    }
+
+    function setActive(id) {
+      links.forEach(function (a) { a.classList.remove("atl-nav__link--active"); });
+      linkFor(id).forEach(function (a) { a.classList.add("atl-nav__link--active"); });
+    }
+
+    function onScroll() {
+      var scrollPos = window.scrollY + (document.querySelector(".atl-sticky-header")?.offsetHeight || 80) + 4;
+      var current = sections[0].id;
+      sections.forEach(function (sec) {
+        if (sec.offsetTop <= scrollPos) current = sec.id;
+      });
+      setActive(current);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ── helpers ─────────────────────────────────── */
   function findById(id) { return (window.ATL_PRODUCTS || []).find(function(p){ return p.id === id; }) || null; }
+
+  /* ════════════════════════════════════════════════
+     REVEAL-ON-SCROLL / COUNTERS
+     index.html implements its own scroll-reveal and stat
+     counter animation inline (see observeAll/observeCounters
+     in index.html). These remain as safe no-ops here so the
+     init() call sequence below doesn't throw on any page.
+  ════════════════════════════════════════════════ */
+  function initReveal() {}
+  function initCounters() {}
 
   /* ════════════════════════════════════════════════
      INIT

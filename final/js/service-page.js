@@ -183,6 +183,15 @@
     stopAutoScroll();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    /* Set service name pill from page heading or window var */
+    var pill = document.getElementById('quoteServiceName');
+    if (pill) {
+      var name = window.__PAGE_SERVICE_NAME
+        || (document.querySelector('.sd-hero__title') && document.querySelector('.sd-hero__title').textContent.trim())
+        || document.title.split('|')[0].trim();
+      pill.textContent = name;
+    }
     var form = document.getElementById('quoteForm');
     if (form) {
       form.reset(); form.style.display = '';

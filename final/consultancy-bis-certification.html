@@ -33,16 +33,6 @@
   <link rel="stylesheet" href="css/service-shared.css">
   <link rel="stylesheet" href="atl-merged.css">
   <link rel="stylesheet" href="css/responsive-fix.css">
-  <script>
-    window.__PAGE_IMAGE_SLIDES = [
-      { src: "images/services/consultancy/consultancy-1.jpg", alt: "BIS Certification" }
-    ];
-    window.__PAGE_VIDEO_EMBED = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
-  </script>
-<style></style>
-<style>/* ── Profile Brochure Dropdown ── */.atl-brochure-btn::before { content: ""; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.28) 50%, transparent 80%); transition: left .45s cubic-bezier(.4,0,.2,1); pointer-events: none; }.atl-brochure-menu { display: block; position: fixed; top: 100px; right: auto; background: #fff; border-radius: 0 0 16px 16px; box-shadow: 0 8px 32px -4px rgba(3,24,133,.18), 0 24px 64px -8px rgba(3,24,133,.14), 0 0 0 1px rgba(3,24,133,.06); min-width: 260px; padding: .5rem 0; z-index: 2000; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-110%); transform-origin: top right; transition: transform 0.40s cubic-bezier(0.4, 0, 1, 1), opacity 0.30s ease, visibility 0s linear 0.40s; }.atl-brochure-dropdown.open .atl-brochure-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: transform 0.52s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.38s ease, visibility 0s linear 0s; }</style>
-  <style></style>
-  <style></style>
 
   <!-- ═══ Structured Data (JSON-LD) ════════════════════════ -->
   <script type="application/ld+json">
@@ -88,6 +78,10 @@
 }
   </script>
   <!-- ═══════════════════════════════════════════════════════ -->
+
+  <!-- ── Page CSS ─────────────────────────────────────────── -->
+  <link rel="stylesheet" href="css/atl-common.css">
+  <!-- ──────────────────────────────────────────────────────── -->
 </head>
 <body>
 
@@ -395,7 +389,6 @@
 </nav>
 </div><!-- /.atl-sticky-header -->
 
-
 <!-- ════ HERO ════ -->
 <div class="sd-hero">
   <div class="sd-hero__inner">
@@ -554,7 +547,7 @@
           </table>
         </div>
         <div class="sd-actions">
-          <a href="index.html#about" class="sd-btn sd-btn--primary">About the Lab</a>
+          <a href="about.html" class="sd-btn sd-btn--primary">About the Lab</a>
           <a href="contact.html" class="sd-btn sd-btn--outline">Schedule Visit</a>
         </div>
       </div>
@@ -697,13 +690,12 @@
   </div>
 </div>
 
-
 <footer class="atl-footer">
   <div class="container">
     <div class="row g-4 align-items-start">
       <div class="col-12 col-md-4">
         <div class="d-flex align-items-center gap-2 mb-3">
-          <img src="images/avartanam-logo.webp" onerror="this.onerror=null;this.src='images/avartanam-logo.png';" alt="Avartanam Test Labs" class="atl-footer__logo-img atl-footer__logo-color">
+          <img src="images/avartanam-logo.webp" onerror="this.onerror=null;this.src='images/avartanam-logo.png';" alt="Avartanam Test Labs" class="atl-footer__logo-img atl-footer__logo-color" loading="lazy">
         </div>
         <p class="atl-footer__desc">NABL-accredited RF, EMI-EMC, Electrical Safety and Environmental testing laboratory in Anand, Gujarat, India.</p>
       </div>
@@ -711,7 +703,7 @@
         <h6 class="atl-footer__heading">Navigate</h6>
         <ul class="atl-footer__list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="services-page.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -838,7 +830,6 @@
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="atl-merged.js"></script>
 <script src="js/service-page.js"></script>
-
 
 <!-- ══ Brochure Request Modal ══ -->
 <div class="bro-overlay" id="broOverlay" role="dialog" aria-modal="true" aria-labelledby="broModalTitle">
@@ -1024,222 +1015,12 @@
   </div>
 </div>
 <!-- ══ End Brochure Modal ══ -->
-
-<script>
-/* ── Brochure Request Modal (unified download gate) v29 ── */
-(function () {
-  function openBroModal(docLabel) {
-    var overlay = document.getElementById('broOverlay');
-    var title = document.getElementById('broModalTitle');
-    var form = document.getElementById('broForm');
-    var success = document.getElementById('broSuccess');
-    var btn = document.getElementById('broSubmit');
-    if (!overlay) return;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (form) form.style.display = '';
-    if (success) success.classList.remove('show');
-    if (btn) {
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="10" y1="15" x2="14" y2="15"/></svg> Get My Document';
-    }
-    if (title) title.textContent = docLabel ? 'Download \u2014 ' + docLabel : 'Download Document';
-  }
-  function closeBroModal() {
-    var overlay = document.getElementById('broOverlay');
-    if (overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
-  }
-  window.openBroModal = openBroModal;
-  window.closeBroModal = closeBroModal;
-
-  document.addEventListener('DOMContentLoaded', function () {
-    // 1. Nav dropdown brochure items
-    document.querySelectorAll('.atl-brochure-item:not(.atl-brochure-item--has-sub)').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        var dd = document.getElementById('brochureDropdown');
-        if (dd) dd.classList.remove('open');
-        openBroModal(el.textContent.trim());
-      });
-    });
-
-    // 2. Certificate sub-menu items
-    document.querySelectorAll('.atl-brochure-subitem').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        var dd = document.getElementById('brochureDropdown');
-        if (dd) dd.classList.remove('open');
-        openBroModal(el.textContent.trim());
-      });
-    });
-
-    // 3. Mobile nav download sub-links pointing to PDFs
-    document.querySelectorAll('.atl-nav__msublink').forEach(function(el) {
-      var href = el.getAttribute('href') || '';
-      if (/\.pdf|REPLACE_LINK/i.test(href)) {
-        el.addEventListener('click', function(e) {
-          e.preventDefault();
-          var navMobile = document.getElementById('navMobile');
-          if (navMobile) navMobile.classList.remove('open');
-          openBroModal(el.textContent.trim());
-        });
-      }
-    });
-
-    // 4. Spec-card brochure/download button
-    document.querySelectorAll('.sd-card-brochure').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        openBroModal(el.getAttribute('title') || el.textContent.trim());
-      });
-    });
-
-    // 5. Any element with [data-download-modal]
-    document.querySelectorAll('[data-download-modal]').forEach(function(el) {
-      el.addEventListener('click', function(e) {
-        e.preventDefault();
-        openBroModal(el.getAttribute('data-download-modal') || el.textContent.trim());
-      });
-    });
-
-    // 6. Catch-all: any link with REPLACE_LINK placeholder href
-    document.querySelectorAll('a[href*="REPLACE_LINK"]').forEach(function(el) {
-      if (!el._broHooked) {
-        el._broHooked = true;
-        el.addEventListener('click', function(e) {
-          e.preventDefault();
-          openBroModal(el.textContent.trim());
-        });
-      }
-    });
-
-    // Close button
-    var closeBtn = document.getElementById('broClose');
-    if (closeBtn) closeBtn.addEventListener('click', closeBroModal);
-
-    // Backdrop click
-    var overlay = document.getElementById('broOverlay');
-    if (overlay) {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeBroModal();
-      });
-    }
-
-    // ESC key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeBroModal();
-    });
-
-    // Form submit
-    var form = document.getElementById('broForm');
-    if (!form) return;
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!validateBroForm()) return;
-      var btn = document.getElementById('broSubmit');
-      btn.disabled = true;
-      btn.textContent = 'Sending\u2026';
-      setTimeout(function() {
-        form.style.display = 'none';
-        document.getElementById('broSuccess').classList.add('show');
-        setTimeout(closeBroModal, 3200);
-      }, 900);
-    });
-  });
-
-  function validateBroForm() {
-    var ok = true;
-    function chk(id, errId, testFn) {
-      var el = document.getElementById(id);
-      var err = document.getElementById(errId);
-      if (!el || !err) return;
-      var valid = testFn(el.value.trim());
-      el.classList.toggle('err', !valid);
-      err.classList.toggle('show', !valid);
-      if (!valid) ok = false;
-    }
-    chk('broFirst',    'broErrFirst',    function(v){ return v.length >= 2; });
-    chk('broLast',     'broErrLast',     function(v){ return v.length >= 2; });
-    chk('broEmail',    'broErrEmail',    function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
-    chk('broPhone',    'broErrPhone',    function(v){
-      var digits = v.replace(/[\s\-\(\)]/g, '');
-      if (!/^\d+$/.test(digits)) return false;
-      var dialEl = document.getElementById('broDialCode');
-      var dial = dialEl ? dialEl.value : '+91';
-      if (dial === '+91') return digits.length === 10;
-      return digits.length >= 6 && digits.length <= 15;
-    });
-    chk('broCountry',  'broErrCountry',  function(v){ return v !== ''; });
-    chk('broCompany',  'broErrCompany',  function(v){ return v.length >= 2; });
-    chk('broState',    'broErrState',    function(v){ return v.length >= 2; });
-    chk('broIndustry', 'broErrIndustry', function(v){ return v !== ''; });
-    return ok;
-  }
-})();
-</script>
 <script src="js/atl-docs.js"></script>
 <script src="assets/js/emailjs.min.js"></script>
 <script src="js/atl-emailjs.js"></script>
 
-<script>
-/* ═══ Additional Event & Functionality Fixes ══════════════
-   - quoteOverlay closes on outside click
-   - broOverlay closes on outside click
-   - Prevent double-submit on all forms
-   - Fix counter animation trigger on scroll
-══════════════════════════════════════════════════════════ */
-(function() {
-  function onReady(fn) {
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
-    else fn();
-  }
-
-  onReady(function() {
-    // ── Overlay outside-click close ──────────────────────
-    ['quoteOverlay', 'broOverlay'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      el.addEventListener('click', function(e) {
-        if (e.target === el) {
-          el.classList.remove('open');
-          el.style.display = '';
-          // Also try calling specific close functions if available
-          if (id === 'quoteOverlay' && typeof closeQuoteModal === 'function') closeQuoteModal();
-          if (id === 'broOverlay'   && typeof closeBroModal   === 'function') closeBroModal();
-        }
-      });
-    });
-
-    // ── Prevent double-submit ────────────────────────────
-    document.querySelectorAll('form').forEach(function(form) {
-      form.addEventListener('submit', function() {
-        var btn = form.querySelector('[type="submit"]');
-        if (btn) {
-          setTimeout(function() {
-            btn.disabled = true;
-            btn.style.opacity = '0.6';
-          }, 10);
-          // Re-enable after 6s in case of error
-          setTimeout(function() {
-            btn.disabled = false;
-            btn.style.opacity = '';
-          }, 6000);
-        }
-      });
-    });
-
-    // ── Tab keyboard accessibility ───────────────────────
-    document.querySelectorAll('.sd-tab, .atl-tab').forEach(function(tab) {
-      if (!tab.hasAttribute('tabindex')) tab.setAttribute('tabindex', '0');
-      tab.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          tab.click();
-        }
-      });
-    });
-  });
-})();
-</script>
+  <!-- ── Page JS ──────────────────────────────────────────── -->
+  <script src="js/atl-common.js"></script>
+  <!-- ──────────────────────────────────────────────────────── -->
 </body>
 </html>

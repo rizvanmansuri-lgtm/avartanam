@@ -1537,6 +1537,7 @@ a.atl-prod-detail-btn:hover { background: #dce8f7; color: var(--navy); }
 .sd-nav__back { font-size: .75rem; padding: .32rem .7rem; }
 .sd-nav__cta  { font-size: .75rem; padding: .42rem .9rem; }
 .sd-tab-rail  { top: 58px; }
+.atl-nav__macc-body.open { max-height:fit-content; }
 }
 @media (max-width: 480px) {
 .quote-overlay { padding: 0; align-items: flex-end; }
