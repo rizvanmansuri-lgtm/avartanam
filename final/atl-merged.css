@@ -1044,7 +1044,7 @@ img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box;
 .atl-footer__list { list-style:none; margin:0; padding:0; }
 .atl-footer__list li, .atl-footer__list a { font-size:.84rem; color:rgba(255,255,255,.65); line-height:1.9; transition:color .2s; }
 .atl-footer__list a:hover { color:#fff; }
-.atl-footer__bottom { border-top:1px solid rgba(255,255,255,.12); padding:1.25rem 0; margin-top:3rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:.75rem; }
+.atl-footer__bottom { border-top:1px solid rgba(255,255,255,.12); padding:1.25rem 0; margin-top:3rem; display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; }
 .atl-footer__bottom span { font-size:.76rem; color:rgba(255,255,255,.4); }
 .atl-pd-wrap {
   background:#F5F7FA; border-top:1px solid var(--border);
@@ -1352,7 +1352,7 @@ img { max-width:100%; padding:5px; border:5px solid #fff; box-sizing:border-box;
   filter: none !important;
   background: #ffffff;
   padding: 7px 14px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
 .atl-toast-overlay {
