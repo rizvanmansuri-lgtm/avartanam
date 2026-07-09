@@ -103,6 +103,12 @@
 
     function closeAll() {
       $$(".atl-nav__item--mega").forEach(function (i) { closeItem(i); });
+      /* Also close brochure dropdown if open */
+      var bdd = document.getElementById('brochureDropdown');
+      if (bdd) bdd.classList.remove('open');
+      /* Also close any open sub-menus */
+      var bsub = document.querySelector('.atl-brochure-sub.sub-open');
+      if (bsub) bsub.classList.remove('sub-open');
     }
 
     /* ── Grace period for smooth close ──────────────────────────────

@@ -1,0 +1,298 @@
+/* ================================================================
+   css/pages/coming-soon.css — Avartanam Test Labs
+   Purpose: Styles for coming-soon.html. Full page layout: countdown timer, hero section, email signup, responsive layout.
+            Page-specific styles only — do not include elsewhere.
+================================================================ */
+
+html, body { margin: 0 !important; padding: 0 !important; }
+
+  /* ── Ensure nav links are hidden on mobile (override any cascade issues) ── */
+  @media (max-width: 991.98px) {
+    .atl-nav__links { display: none !important; }
+    .atl-nav__burger { display: flex !important; }
+    .atl-util-bar { display: none !important; }
+  }
+  /* ── Desktop: full nav visible, no burger ── */
+  @media (min-width: 992px) {
+    .atl-nav__burger { display: none !important; }
+    .atl-nav__links { display: flex !important; }
+  }
+  /* ── Nav layout fix for coming-soon ── */
+  .atl-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .atl-nav__links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .atl-nav__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: .1rem;
+  }
+  .atl-nav__right {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    flex-shrink: 0;
+  }
+  /* ── Burger: hide on desktop ── */
+  @media (min-width: 992px) {
+    .atl-nav__burger { display: none; }
+  }
+
+    /* ── Coming Soon Hero ── */
+    .cs-section {
+      min-height: calc(100vh - 100px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0a2e 0%, #13133a 40%, #1a0a0a 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1.5rem;
+    }
+
+    /* Animated background grid */
+    .cs-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(49,49,133,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49,49,133,.12) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridPulse 6s ease-in-out infinite;
+    }
+    @keyframes gridPulse {
+      0%, 100% { opacity: .5; }
+      50%       { opacity: 1; }
+    }
+
+    /* Glowing orbs */
+    .cs-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .cs-orb--blue {
+      width: 500px; height: 500px;
+      background: rgba(49,49,133,.25);
+      top: -120px; left: -100px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+    .cs-orb--red {
+      width: 380px; height: 380px;
+      background: rgba(176,0,0,.18);
+      bottom: -80px; right: -80px;
+      animation: orbFloat 10s ease-in-out infinite reverse;
+    }
+    .cs-orb--teal {
+      width: 260px; height: 260px;
+      background: rgba(6,182,212,.12);
+      top: 50%; right: 15%;
+      animation: orbFloat 7s ease-in-out infinite 2s;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-30px) scale(1.08); }
+    }
+
+    /* Content card */
+    .cs-card {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 640px;
+      width: 100%;
+    }
+
+    /* Badge */
+    .cs-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(176,0,0,.18);
+      border: 1px solid rgba(176,0,0,.35);
+      border-radius: 24px;
+      padding: .35rem 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .7rem; font-weight: 500;
+      color: #fca5a5;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+    .cs-badge__dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #f87171;
+      animation: badgePulse 1.8s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .5; transform: scale(.75); }
+    }
+
+    /* Main heading */
+    .cs-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      letter-spacing: -.01em;
+    }
+    .cs-title span {
+      background: linear-gradient(135deg, #B00000, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cs-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.62);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Countdown timer */
+    .cs-countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-bottom: 2.75rem;
+      flex-wrap: wrap;
+    }
+    .cs-unit {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 1rem 1.4rem .8rem;
+      min-width: 80px;
+      backdrop-filter: blur(8px);
+    }
+    .cs-unit__num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .cs-unit__lbl {
+      font-family: 'Outfit', sans-serif;
+      font-size: .65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.4);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: .3rem;
+    }
+
+    /* Divider */
+    .cs-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, #B00000, #313185);
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Notify form */
+    .cs-notify {
+      display: flex;
+      gap: .6rem;
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+    }
+    .cs-notify__input {
+      flex: 1;
+      background: rgba(255,255,255,.08);
+      border: 1.5px solid rgba(255,255,255,.18);
+      border-radius: 10px;
+      padding: .72rem 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: .88rem;
+      color: #fff;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .cs-notify__input::placeholder { color: rgba(255,255,255,.35); }
+    .cs-notify__input:focus {
+      border-color: rgba(176,0,0,.7);
+      background: rgba(255,255,255,.12);
+    }
+    .cs-notify__btn {
+      background: #B00000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: .72rem 1.4rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .cs-notify__btn:hover {
+      background: #8a0000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(176,0,0,.35);
+    }
+    .cs-notify__success {
+      display: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: .88rem;
+      color: #4ade80;
+      margin-top: .5rem;
+    }
+
+    /* Back link */
+    .cs-back {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: .88rem; font-weight: 600;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      transition: color .2s, transform .2s;
+    }
+    .cs-back:hover { color: #fff; transform: translateX(-3px); }
+
+    /* Features strip */
+    .cs-features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .cs-feature {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+    }
+    .cs-feature__icon {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,.06);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.5);
+      flex-shrink: 0;
+    }

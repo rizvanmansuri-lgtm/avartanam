@@ -258,6 +258,10 @@
     positionMenu();
     dd.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
+    /* Close any open mega menu when brochure opens */
+    document.querySelectorAll('.atl-nav__item--mega.mega-open').forEach(function(el) {
+      el.classList.remove('mega-open');
+    });
   }
 
   function scheduleClose() {
