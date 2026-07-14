@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Avartanam — Document Link Reference Sheet</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1.5rem; color: #1e293b; }
+  h1 { color: #313185; border-bottom: 3px solid #313185; padding-bottom: .5rem; }
+  h2 { color: #1e40af; margin-top: 2.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: .05em; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: .88rem; }
+  th { background: #1e3a8a; color: #fff; padding: .6rem .75rem; text-align: left; }
+  tr:nth-child(even) { background: #f8fafc; }
+  td { padding: .55rem .75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  code { background: #f1f5f9; border-radius: 4px; padding: .15rem .4rem; font-size: .82rem; color: #b91c1c; font-family: monospace; }
+  .tag { display: inline-block; padding: .15rem .5rem; border-radius: 4px; font-size: .75rem; font-weight: 700; }
+  .tag-shared  { background: #dbeafe; color: #1e40af; }
+  .tag-svc     { background: #dcfce7; color: #166534; }
+  .tag-prod    { background: #fef3c7; color: #92400e; }
+  .tag-cs      { background: #ede9fe; color: #5b21b6; }
+  .tag-rd      { background: #fce7f3; color: #9d174d; }
+  .instr { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; }
+  .instr b { color: #92400e; }
+</style>
+</head>
+<body>
+<h1>📄 Avartanam Test Labs — Document Link Reference Sheet</h1>
+
+<div class="instr">
+  <b>How to use:</b> Find the constant name in the table below. Do a find-and-replace in the HTML files:
+  replace <code>https://CONSTANT_NAME.pdf</code> with your actual hosted PDF URL.
+  Each constant appears across all relevant pages automatically.
+</div>
+
+<h2>🔵 Shared Documents — Appear in Nav Brochure Dropdown &amp; Downloads Menu (All Pages)</h2>
+<table>
+  <tr><th>Constant (find &amp; replace this)</th><th>Document</th><th>Used In</th></tr>
+  <tr><td><code>LINK_BROCHURE_COMPANY_PROFILE</code></td><td>Company Profile Brochure</td><td>Nav dropdown — all pages</td></tr>
+  <tr><td><code>LINK_BROCHURE_RF_TESTING</code></td><td>RF Testing Services Brochure</td><td>Nav dropdown — all pages</td></tr>
+  <tr><td><code>LINK_BROCHURE_EMI_EMC</code></td><td>EMI/EMC Services Brochure</td><td>Nav dropdown — all pages</td></tr>
+  <tr><td><code>LINK_CATALOG_AFL_PRODUCTS</code></td><td>Product Catalog (AFL Series)</td><td>Nav dropdown — all pages</td></tr>
+  <tr><td><code>LINK_CERT_NABL</code></td><td>NABL Accreditation Certificate</td><td>Nav certificates — all pages</td></tr>
+  <tr><td><code>LINK_CERT_BIS</code></td><td>BIS Recognition Certificate</td><td>Nav certificates — all pages</td></tr>
+  <tr><td><code>LINK_CERT_WPC</code></td><td>WPC Recognition Certificate</td><td>Nav certificates — all pages</td></tr>
+  <tr><td><code>LINK_CERT_ISO17025</code></td><td>ISO 17025 Certificate</td><td>Nav certificates — all pages</td></tr>
+  <tr><td><code>LINK_CERT_SCOPE_ACCREDITATION</code></td><td>Scope of Accreditation</td><td>Nav certificates — all pages</td></tr>
+</table>
+
+<h2>🟢 Service Brochures — "Brochure" Button on Each Service Page</h2>
+<table>
+  <tr><th>Constant</th><th>Service Page</th></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_ANTENNA_TUNING</code></td><td>antenna-tuning.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_ANTENNA_RADIATION</code></td><td>antenna-radiation-pattern.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_BASIC_RF_TESTING</code></td><td>basic-rf-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_OUTDOOR_RANGE</code></td><td>outdoor-range-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_TRP_MEASUREMENT</code></td><td>trp-measurement.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_TIS_MEASUREMENT</code></td><td>tis-measurement.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_VSWR_RETURN_LOSS</code></td><td>vswr-return-loss.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_SPURIOUS_OPTIMIZATION</code></td><td>spurious-optimization.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_PRE_COMPLIANCE</code></td><td>pre-compliance-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_CONDUCTED_EMISSION</code></td><td>conducted-emission-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_ESD_TESTING</code></td><td>esd-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_SURGE_TESTING</code></td><td>surge-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_ENVIRONMENTAL</code></td><td>environmental-testing.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_WPC_TYPE_APPROVAL</code></td><td>wpc-type-approval.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_WPC_CERTIFICATION</code></td><td>wpc-certification-service.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_BIS_CRS</code></td><td>bis-crs-certification.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_CONSULTANCY</code></td><td>consultancy.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_CONSULTANCY_ANTENNA_DESIGN</code></td><td>consultancy-customize-antenna-design.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_CONSULTANCY_BOARD_REVIEW</code></td><td>consultancy-product-board-design-review.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_SVC_CONSULTANCY_QC_JIG</code></td><td>consultancy-qc-jig-rf-calibration.html</td></tr>
+</table>
+
+<h2>🟡 Product Brochures — "Brochure" Button on Each Product Page</h2>
+<table>
+  <tr><th>Constant</th><th>Product Page</th></tr>
+  <tr><td><code>LINK_BROCHURE_PRODUCT_AFL001</code></td><td>products/afl001.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_PRODUCT_AFL003</code></td><td>products/afl003.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_PRODUCT_COIL_ANTENNA</code></td><td>products/coil-antenna.html</td></tr>
+  <tr><td><code>LINK_BROCHURE_PRODUCT_FLEXIBLE_ANTENNA</code></td><td>products/flexible-antenna.html</td></tr>
+</table>
+
+<h2>🟣 Case Study PDFs — "Case Study" Tab on Each Service / Product Page</h2>
+<table>
+  <tr><th>Constant</th><th>Page</th></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_ANTENNA_TUNING</code></td><td>antenna-tuning.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_ANTENNA_RADIATION</code></td><td>antenna-radiation-pattern.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_BASIC_RF_TESTING</code></td><td>basic-rf-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_OUTDOOR_RANGE</code></td><td>outdoor-range-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_TRP_MEASUREMENT</code></td><td>trp-measurement.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_TIS_MEASUREMENT</code></td><td>tis-measurement.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_VSWR_RETURN_LOSS</code></td><td>vswr-return-loss.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_SPURIOUS_OPTIMIZATION</code></td><td>spurious-optimization.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_PRE_COMPLIANCE</code></td><td>pre-compliance-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_CONDUCTED_EMISSION</code></td><td>conducted-emission-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_ESD_TESTING</code></td><td>esd-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_SURGE_TESTING</code></td><td>surge-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_ENVIRONMENTAL</code></td><td>environmental-testing.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_WPC_TYPE_APPROVAL</code></td><td>wpc-type-approval.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_WPC_CERTIFICATION</code></td><td>wpc-certification-service.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_BIS_CRS</code></td><td>bis-crs-certification.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_CONSULTANCY</code></td><td>consultancy.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_CONSULTANCY_ANTENNA_DESIGN</code></td><td>consultancy-customize-antenna-design.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_CONSULTANCY_BOARD_REVIEW</code></td><td>consultancy-product-board-design-review.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_SVC_CONSULTANCY_QC_JIG</code></td><td>consultancy-qc-jig-rf-calibration.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_PRODUCT_AFL001</code></td><td>products/afl001.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_PRODUCT_AFL003</code></td><td>products/afl003.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_PRODUCT_COIL_ANTENNA</code></td><td>products/coil-antenna.html</td></tr>
+  <tr><td><code>LINK_CASESTUDY_PRODUCT_FLEXIBLE_ANTENNA</code></td><td>products/flexible-antenna.html</td></tr>
+</table>
+
+<h2>🩷 Reference Documents — "Reference Documents" Tab on Each Service / Product Page</h2>
+<table>
+  <tr><th>Constant</th><th>Page</th></tr>
+  <tr><td><code>LINK_REFDOC_SVC_ANTENNA_TUNING</code></td><td>antenna-tuning.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_ANTENNA_RADIATION</code></td><td>antenna-radiation-pattern.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_BASIC_RF_TESTING</code></td><td>basic-rf-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_OUTDOOR_RANGE</code></td><td>outdoor-range-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_TRP_MEASUREMENT</code></td><td>trp-measurement.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_TIS_MEASUREMENT</code></td><td>tis-measurement.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_VSWR_RETURN_LOSS</code></td><td>vswr-return-loss.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_SPURIOUS_OPTIMIZATION</code></td><td>spurious-optimization.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_PRE_COMPLIANCE</code></td><td>pre-compliance-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_CONDUCTED_EMISSION</code></td><td>conducted-emission-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_ESD_TESTING</code></td><td>esd-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_SURGE_TESTING</code></td><td>surge-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_ENVIRONMENTAL</code></td><td>environmental-testing.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_WPC_TYPE_APPROVAL</code></td><td>wpc-type-approval.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_WPC_CERTIFICATION</code></td><td>wpc-certification-service.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_BIS_CRS</code></td><td>bis-crs-certification.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_CONSULTANCY</code></td><td>consultancy.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_CONSULTANCY_ANTENNA_DESIGN</code></td><td>consultancy-customize-antenna-design.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_CONSULTANCY_BOARD_REVIEW</code></td><td>consultancy-product-board-design-review.html</td></tr>
+  <tr><td><code>LINK_REFDOC_SVC_CONSULTANCY_QC_JIG</code></td><td>consultancy-qc-jig-rf-calibration.html</td></tr>
+  <tr><td><code>LINK_REFDOC_PRODUCT_AFL001</code></td><td>products/afl001.html</td></tr>
+  <tr><td><code>LINK_REFDOC_PRODUCT_AFL003</code></td><td>products/afl003.html</td></tr>
+  <tr><td><code>LINK_REFDOC_PRODUCT_COIL_ANTENNA</code></td><td>products/coil-antenna.html</td></tr>
+  <tr><td><code>LINK_REFDOC_PRODUCT_FLEXIBLE_ANTENNA</code></td><td>products/flexible-antenna.html</td></tr>
+</table>
+
+<hr style="margin-top:3rem; border-color:#e2e8f0;">
+<p style="color:#94a3b8; font-size:.8rem;">Generated for Avartanam Test Labs website — avartanam_v29</p>
+</body>
+</html>
