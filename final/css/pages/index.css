@@ -223,7 +223,7 @@
   pointer-events: none;
 }
 .atl-wcu-lead {
-  color: rgba(255,255,255,.75);
+  color: rgba(0,0,0);
   font-size: .92rem;
   max-width: 520px;
   margin: .4rem auto 0;
@@ -556,4 +556,85 @@
 #atlContactForm.sa-fade-up {
   opacity: 1 !important;
   animation: saFadeUp 0.65s cubic-bezier(0.22, 0.68, 0, 1.2) both !important;
+}
+
+
+
+
+/* ── Certifications & Accreditations — stamp showcase ─────────── */
+.atl-stamps-section {
+  padding: 5.5rem 0;
+  background-color: #EEF0FA;
+  background-image:
+    linear-gradient(rgba(49,49,133,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49,49,133,.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-top: 1px solid #E1E5F5;
+  border-bottom: 1px solid #E1E5F5;
+}
+.atl-stamps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem 2rem;
+  padding-top: 1rem;
+}
+.atl-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 168px;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform .3s ease;
+}
+.atl-stamp:hover { transform: rotate(0deg) scale(1.06); }
+.atl-stamp__face {
+  width: 148px; height: 148px;
+  border-radius: 50%;
+  border: 3px double var(--red);
+  background: var(--white);
+  color: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(17,24,39,.08);
+}
+.atl-stamp__face--navy { border-color: var(--navy); color: var(--navy); }
+.atl-stamp__ring {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px dashed currentColor;
+  opacity: .45;
+  /* text hidden visually, kept for authenticity/accessibility flavor */
+  font-size: 0;
+}
+.atl-stamp__abbr {
+  font-family: var(--fcond);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.atl-stamp__lbl {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: .25rem;
+  color: var(--inkm);
+}
+.atl-stamp__scope {
+  margin-top: .85rem;
+  font-size: .74rem;
+  color: var(--inks);
+  text-align: center;
+  line-height: 1.4;
+}
+@media (max-width: 575px) {
+  .atl-stamp { width: 140px; }
+  .atl-stamp__face { width: 120px; height: 120px; }
+  .atl-stamp__abbr { font-size: 1.25rem; }
 }

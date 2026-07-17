@@ -233,3 +233,21 @@ function closeCuModal() {
     initProductsPopup();
   }
 })();
+
+
+const badges = document.querySelectorAll('.au-cert-badge');
+
+// Set first badge active by default
+badges[0]?.classList.add('au-cert-badge--red');
+
+badges.forEach((badge) => {
+    badge.addEventListener('mouseenter', () => {
+        badges.forEach(b => b.classList.remove('au-cert-badge--red'));
+        badge.classList.add('au-cert-badge--red');
+    });
+
+    badge.addEventListener('mouseleave', () => {
+        badges.forEach(b => b.classList.remove('au-cert-badge--red'));
+        badges[0]?.classList.add('au-cert-badge--red');
+    });
+});
