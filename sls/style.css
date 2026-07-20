@@ -877,3 +877,13 @@ button{ font-family: inherit; cursor:pointer; }
   .hero-content{ padding: 60px 20px; }
   .process-step{ flex: 0 1 100%; }
 }
+
+.git-map {
+  min-height: 450px;
+  border-radius: 12px; /* match your existing form's border-radius if any */
+  overflow: hidden;
+}
+
+.git-map iframe {
+  display: block;
+}
