@@ -340,3 +340,9 @@ html,body{margin:0!important;}
   }
   .atl-wa-btn__label { display: none; }
 }
+
+#brochureDropdown{
+  display: none !important;
+}
+
+ 
