@@ -281,7 +281,7 @@
 }
 .atl-wcu-icon svg { width: 22px; height: 22px; }
 .atl-wcu-card:hover .atl-wcu-icon {
-  transform: scale(1.08) rotate(-4deg);
+  transform: scale(1.08)  ;
   box-shadow: 0 5px 16px rgba(0,0,0,.24);
 }
 .atl-wcu-icon--blue   { color: #1d4ed8; }
