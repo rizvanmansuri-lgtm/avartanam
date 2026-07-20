@@ -557,7 +557,7 @@
    editing each HTML file. Number: +91 74860 31238 (sales).
    To change number: update the WA_NUMBER constant below.       */
 (function () {
-  var WA_NUMBER  = '917486031238';   /* country code + number, no + or spaces */
+  var WA_NUMBER  = '+916358365151';   /* country code + number, no + or spaces */
   var WA_MESSAGE = encodeURIComponent('Hi Avartanam Test Labs, I would like to know more about your testing services.');
 
   function injectWAButton() {
