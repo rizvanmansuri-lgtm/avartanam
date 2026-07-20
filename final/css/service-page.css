@@ -1501,3 +1501,13 @@ a.atl-btn-back-home-nav:active,
     height: 44px !important;
   }
 }
+
+ 
+.sd-tab[data-panel="refdocs"],
+#panel-refdocs {
+  display: none;
+}
+
+#panel-equipment .sd-actions{
+  display: none;
+}
