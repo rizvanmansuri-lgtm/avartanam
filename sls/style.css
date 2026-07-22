@@ -201,7 +201,7 @@ button{ font-family: inherit; cursor:pointer; }
    ========================================================= */
 .hero{
   position:relative;
-  min-height: 560px;
+  min-height: 600px;
   display:flex;
   align-items:center;
   overflow:hidden;
@@ -305,7 +305,7 @@ button{ font-family: inherit; cursor:pointer; }
 /* =========================================================
    BENEFITS
    ========================================================= */
-/* .benefits{ padding: 80px 0; }
+ .benefits{ padding: 80px 0; }
 .benefits-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -339,8 +339,8 @@ button{ font-family: inherit; cursor:pointer; }
 .benefit-card p{
   font-size: .9rem;
   color: var(--color-text-light);
-} */
-
+} 
+/*
 .benefits{ padding: 80px 0; }
 .benefits-grid{
   display:grid;
@@ -405,7 +405,7 @@ button{ font-family: inherit; cursor:pointer; }
   font-size: .9rem;
   color: var(--color-text-light);
 }
-
+*/
 
 /* =========================================================
    STATS
