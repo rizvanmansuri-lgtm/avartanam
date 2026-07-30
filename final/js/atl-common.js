@@ -554,7 +554,7 @@
 
 /* ── WhatsApp Floating Button ───────────────────────────────── */
 /* Injected dynamically so it appears on every page without
-   editing each HTML file. Number: +91 74860 31238 (sales).
+   editing each HTML file. Number:  +91 6358365151 (sales).
    To change number: update the WA_NUMBER constant below.       */
 (function () {
   var WA_NUMBER  = '+916358365151';   /* country code + number, no + or spaces */

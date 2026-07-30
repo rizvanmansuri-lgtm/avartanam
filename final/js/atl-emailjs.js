@@ -35,12 +35,12 @@
   'use strict';
 
   /* ── ① CONFIGURE THESE THREE VALUES ───────────────────── */
-  var EMAILJS_PUBLIC_KEY    = 'YOUR_PUBLIC_KEY';       // e.g. 'abc123XYZ'
-  var EMAILJS_SERVICE_ID    = 'YOUR_SERVICE_ID';       // e.g. 'service_avartanam'
-  var EMAILJS_TEMPLATE_CONTACT  = 'YOUR_TEMPLATE_ID_CONTACT';   // Contact form template
-  var EMAILJS_TEMPLATE_QUOTE    = 'YOUR_TEMPLATE_ID_QUOTE';     // Quote/request form template
-  var EMAILJS_TEMPLATE_BROCHURE = 'YOUR_TEMPLATE_ID_BROCHURE';  // Brochure download template
-  var EMAILJS_TEMPLATE_BUY      = 'YOUR_TEMPLATE_ID_BUY';       // Buy/product inquiry template
+  var EMAILJS_PUBLIC_KEY    = 'aNA95KuGQLa0gK375';       // e.g. 'abc123XYZ'
+  var EMAILJS_SERVICE_ID    = 'service_5evtjim';       // e.g. 'service_avartanam'
+  var EMAILJS_TEMPLATE_CONTACT  = 'template_tdcdtb8';   // Contact form template
+  var EMAILJS_TEMPLATE_QUOTE    = 'template_tdcdtb8';     // Quote/request form template
+  var EMAILJS_TEMPLATE_BROCHURE = 'template_tdcdtb8';  // Brochure download template
+  var EMAILJS_TEMPLATE_BUY      = 'template_tdcdtb8';       // Buy/product inquiry template
   /* ─────────────────────────────────────────────────────── */
 
   /* ── INIT ─────────────────────────────────────────────── */
