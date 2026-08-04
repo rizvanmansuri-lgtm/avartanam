@@ -1,0 +1,51 @@
+ Volume in drive E is DATA
+ Volume Serial Number is 0E9F-0E2E
+
+ Directory of E:\avartanam_v29\final\fonts
+
+04-08-2026  14:38    <DIR>          .
+04-08-2026  14:30    <DIR>          ..
+04-08-2026  14:38                 0 a.txt
+04-08-2026  14:24           136,008 IBMPlexMono-Bold.ttf
+04-08-2026  14:24           142,712 IBMPlexMono-BoldItalic.ttf
+04-08-2026  14:24           134,236 IBMPlexMono-ExtraLight.ttf
+04-08-2026  14:24           142,856 IBMPlexMono-ExtraLightItalic.ttf
+04-08-2026  14:24           142,108 IBMPlexMono-Italic.ttf
+04-08-2026  14:24           133,468 IBMPlexMono-Light.ttf
+04-08-2026  14:24           141,596 IBMPlexMono-LightItalic.ttf
+04-08-2026  14:24           134,956 IBMPlexMono-Medium.ttf
+04-08-2026  14:24           142,204 IBMPlexMono-MediumItalic.ttf
+04-08-2026  14:24           133,796 IBMPlexMono-Regular.ttf
+04-08-2026  14:24           138,448 IBMPlexMono-SemiBold.ttf
+04-08-2026  14:24           145,528 IBMPlexMono-SemiBoldItalic.ttf
+04-08-2026  14:24           136,152 IBMPlexMono-Thin.ttf
+04-08-2026  14:24           144,316 IBMPlexMono-ThinItalic.ttf
+04-08-2026  14:24            55,372 Outfit-Black.ttf
+04-08-2026  14:24            55,392 Outfit-Bold.ttf
+04-08-2026  14:24            55,308 Outfit-ExtraBold.ttf
+04-08-2026  14:24            54,936 Outfit-ExtraLight.ttf
+04-08-2026  14:24            54,856 Outfit-Light.ttf
+04-08-2026  14:24            54,820 Outfit-Medium.ttf
+04-08-2026  14:24            54,912 Outfit-Regular.ttf
+04-08-2026  14:24            55,492 Outfit-SemiBold.ttf
+04-08-2026  14:24            54,580 Outfit-Thin.ttf
+04-08-2026  14:24           151,396 Poppins-Black.ttf
+04-08-2026  14:24           171,604 Poppins-BlackItalic.ttf
+04-08-2026  14:24           153,944 Poppins-Bold.ttf
+04-08-2026  14:24           176,588 Poppins-BoldItalic.ttf
+04-08-2026  14:24           152,764 Poppins-ExtraBold.ttf
+04-08-2026  14:24           173,916 Poppins-ExtraBoldItalic.ttf
+04-08-2026  14:24           161,456 Poppins-ExtraLight.ttf
+04-08-2026  14:24           186,168 Poppins-ExtraLightItalic.ttf
+04-08-2026  14:24           182,012 Poppins-Italic.ttf
+04-08-2026  14:24           159,892 Poppins-Light.ttf
+04-08-2026  14:24           184,460 Poppins-LightItalic.ttf
+04-08-2026  14:24           156,520 Poppins-Medium.ttf
+04-08-2026  14:24           180,444 Poppins-MediumItalic.ttf
+04-08-2026  14:24           158,240 Poppins-Regular.ttf
+04-08-2026  14:24           155,232 Poppins-SemiBold.ttf
+04-08-2026  14:24           178,584 Poppins-SemiBoldItalic.ttf
+04-08-2026  14:24           161,652 Poppins-Thin.ttf
+04-08-2026  14:24           187,044 Poppins-ThinItalic.ttf
+              42 File(s)      5,475,968 bytes
+               2 Dir(s)  520,202,223,616 bytes free
