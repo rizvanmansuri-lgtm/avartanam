@@ -2611,9 +2611,8 @@ body { padding-top: 64px !important; }
 }
 
 .info-img{
-  border: 1px solid ;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
 
 .atl-mega__feature-link{
   background-color: var(--navy);
