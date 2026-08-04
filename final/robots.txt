@@ -10,4 +10,4 @@ Disallow: /coming-soon.html
 Disallow: /assets/
 Disallow: /js/
 
-Sitemap: https://REPLACE_DOMAIN/sitemap.xml
+Sitemap: https://avartanamlabs.com/sitemap.xml
