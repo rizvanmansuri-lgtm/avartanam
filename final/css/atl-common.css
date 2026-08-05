@@ -299,6 +299,7 @@ html,body{margin:0!important;}
   padding: .65rem 1.2rem .65rem .85rem;
   color: #fff;
   text-decoration: none;
+  transition: delay 0.4 ease-in-out;
 }
 .atl-wa-btn svg {
   flex-shrink: 0;
