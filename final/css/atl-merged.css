@@ -2916,3 +2916,10 @@ body { padding-top: 64px !important; }
   border-radius: 8px;
   padding: 10px;
 }
+
+.sd-card-brochure[title="Download Brochure"] {
+  display: none !important;
+}
+
+
+ 
