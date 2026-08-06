@@ -6,41 +6,58 @@
      3. Brochure Form       (#broForm)          — all pages
      4. Buy/Product Modal   (#buyForm)          — index.html
 
+   ⚠ FREE-PLAN SETUP (2 templates total, shared by all 4 forms):
+   ─────────────────────────────────────────────────────────────
+   Every form now sends TWO emails per submission, using the SAME
+   two templates every time:
+     · EMAILJS_TEMPLATE_ADMIN → notifies YOU  (fixed "To Email")
+     · EMAILJS_TEMPLATE_USER  → auto-replies to the VISITOR
+                                 ("To Email" = {{from_email}})
+
+   Because one template now has to work for 4 different forms with
+   different fields, all form-specific fields (service, quantity,
+   brochure name, product name, etc.) are collapsed into a single
+   {{details}} text block. Both templates only ever need these
+   variables:
+
+       {{form_type}}   {{from_name}}   {{from_email}}
+       {{phone}}       {{details}}     {{page_url}}
+
    HOW TO CONFIGURE:
    ─────────────────
-   Fill in the 3 placeholder values below with your EmailJS details.
-   Everything else is wired and ready.
+   1. Fill in the 4 placeholder values below (public key, service id,
+      and the 2 template IDs).
+   2. In the EmailJS dashboard, build exactly 2 templates:
 
-   Where to find them → https://dashboard.emailjs.com
-     · Public Key  : Account → API Keys → Public Key
-     · Service ID  : Email Services → your service → Service ID
-     · Template IDs: Email Templates → each template → Template ID
+      Template "Admin Notification" (EMAILJS_TEMPLATE_ADMIN)
+        · To Email   : your fixed inbox, e.g. info@avartanamlabs.com
+        · Reply To   : {{from_email}}
+        · Subject    : New {{form_type}} — {{from_name}}
+        · Body       : {{from_name}} / {{from_email}} / {{phone}}
+                        {{details}}
+                        Page: {{page_url}}
 
-   TEMPLATE VARIABLES (use these in your EmailJS templates):
-   ──────────────────────────────────────────────────────────
-   Contact Form:   {{from_name}} {{from_email}} {{phone}} {{service}}
-                   {{company}} {{message}} {{form_type}} {{page_url}}
-   Quote Form:     {{from_name}} {{from_email}} {{phone}} {{company}}
-                   {{request_type}} {{quantity}} {{message}}
-                   {{service_name}} {{form_type}} {{page_url}}
-   Brochure Form:  {{from_name}} {{from_email}} {{phone}} {{country}}
-                   {{company}} {{industry}} {{job_title}}
-                   {{document_name}} {{form_type}} {{page_url}}
-   Buy Form:       {{from_name}} {{from_email}} {{phone}} {{company}}
-                   {{request_type}} {{message}} {{product_name}}
-                   {{form_type}} {{page_url}}
+      Template "User Auto-Reply" (EMAILJS_TEMPLATE_USER)
+        · To Email   : {{from_email}}
+        · Reply To   : your fixed inbox (so replies land with you)
+        · Subject    : Thanks for contacting Avartanam Test Labs
+        · Body       : Hi {{from_name}}, thanks for your {{form_type}}.
+                        We received the following details:
+                        {{details}}
+                        We'll be in touch shortly.
+
+   That's it — no matter which of the 4 forms fires, both templates
+   just render whatever text is in {{details}}.
 ================================================================ */
 
 (function () {
   'use strict';
 
-  /* ── ① CONFIGURE THESE THREE VALUES ───────────────────── */
-  var EMAILJS_PUBLIC_KEY    = 'aNA95KuGQLa0gK375';       // e.g. 'abc123XYZ'
-  var EMAILJS_SERVICE_ID    = 'service_5evtjim';       // e.g. 'service_avartanam'
-  var EMAILJS_TEMPLATE_CONTACT  = 'template_tdcdtb8';   // Contact form template
-  var EMAILJS_TEMPLATE_QUOTE    = 'template_tdcdtb8';     // Quote/request form template
-  var EMAILJS_TEMPLATE_BROCHURE = 'template_tdcdtb8';  // Brochure download template
-  var EMAILJS_TEMPLATE_BUY      = 'template_tdcdtb8';       // Buy/product inquiry template
+  /* ── ① CONFIGURE THESE VALUES ─────────────────────────── */
+  var EMAILJS_PUBLIC_KEY   = 'aNA95KuGQLa0gK375';   // Account → API Keys → Public Key
+  var EMAILJS_SERVICE_ID   = 'service_5evtjim';     // Email Services → Service ID
+  var EMAILJS_TEMPLATE_ADMIN = 'template_tdcdtb8';  // "Admin Notification" template ID
+  var EMAILJS_TEMPLATE_USER  = 'template_dabo1ob'; // "User Auto-Reply" template ID
   /* ─────────────────────────────────────────────────────── */
 
   /* ── INIT ─────────────────────────────────────────────── */
@@ -85,6 +102,25 @@
       return;
     }
     alert('Could not send message. Please try again or email info@avartanamlabs.com');
+  }
+
+  /* ── HELPER: collapse form-specific fields into one text block ──
+     pairs = [ ['Label', value], ['Label', value], ... ]
+     Blank/undefined values are skipped so the template stays clean. */
+  function buildDetails(pairs) {
+    return pairs
+      .filter(function (p) { return p[1] !== undefined && p[1] !== null && String(p[1]).trim() !== ''; })
+      .map(function (p) { return p[0] + ': ' + p[1]; })
+      .join('\n');
+  }
+
+  /* ── HELPER: fire BOTH shared templates (admin + user) for one submit ──
+     Resolves only when both sends succeed; rejects if either fails. */
+  function sendDual(templateParams) {
+    return Promise.all([
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ADMIN, templateParams),
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, templateParams)
+    ]);
   }
 
   /* ================================================================
@@ -146,17 +182,19 @@
       setBtnState(btn, 'loading');
 
       var templateParams = {
-        form_type:    'Contact Form',
-        from_name:    val('cuFirst') + ' ' + val('cuLast'),
-        from_email:   val('cuEmail'),
-        phone:        val('cuPhone'),
-        service:      val('cuService'),
-        company:      val('cuCompany'),
-        message:      val('cuDetails') || '(no additional details)',
-        page_url:     window.location.href,
+        form_type:  'Contact Form',
+        from_name:  val('cuFirst') + ' ' + val('cuLast'),
+        from_email: val('cuEmail'),
+        phone:      val('cuPhone'),
+        page_url:   window.location.href,
+        details: buildDetails([
+          ['Service',  val('cuService')],
+          ['Company',  val('cuCompany')],
+          ['Message',  val('cuDetails') || '(no additional details)']
+        ])
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONTACT, templateParams)
+      sendDual(templateParams)
         .then(function () {
           form.reset();
           FIELDS.forEach(function (f) {
@@ -236,19 +274,21 @@
       var serviceName = serviceNameEl ? serviceNameEl.textContent.trim() : window.__PAGE_SERVICE_NAME || document.title;
 
       var templateParams = {
-        form_type:    'Quote Request',
-        from_name:    val('qfFirst') + ' ' + val('qfLast'),
-        from_email:   val('qfEmail'),
-        phone:        val('qfPhone'),
-        company:      val('qfCompany'),
-        request_type: val('qfType') || 'Not specified',
-        quantity:     val('qfQty')  || 'Not specified',
-        message:      val('qfDetails') || '(no additional details)',
-        service_name: serviceName,
-        page_url:     window.location.href,
+        form_type:  'Quote Request',
+        from_name:  val('qfFirst') + ' ' + val('qfLast'),
+        from_email: val('qfEmail'),
+        phone:      val('qfPhone'),
+        page_url:   window.location.href,
+        details: buildDetails([
+          ['Company',       val('qfCompany')],
+          ['Service',       serviceName],
+          ['Request Type',  val('qfType') || 'Not specified'],
+          ['Quantity',      val('qfQty')  || 'Not specified'],
+          ['Message',       val('qfDetails') || '(no additional details)']
+        ])
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_QUOTE, templateParams)
+      sendDual(templateParams)
         .then(function () {
           /* Show existing success state — untouched */
           form.style.display = 'none';
@@ -289,25 +329,29 @@
       var broDialEl = document.getElementById('broDialCode');
       var dialCode  = broDialEl ? broDialEl.value : '+91';
 
+      var documentName = (function () {
+        /* Try to get the brochure name from the button/dropdown context */
+        var pill = document.querySelector('.bro-modal__title');
+        return pill ? pill.textContent.trim() : 'Brochure';
+      }());
+
       var templateParams = {
-        form_type:     'Brochure Download',
-        from_name:     val('broFirst') + ' ' + val('broLast'),
-        from_email:    val('broEmail'),
-        phone:         dialCode + ' ' + val('broPhone'),
-        country:       val('broCountry'),
-        company:       val('broCompany'),
-        industry:      val('broIndustry'),
-        job_title:     val('broJobTitle'),
-        document_name: (function () {
-          /* Try to get the brochure name from the button/dropdown context */
-          var pill = document.querySelector('.bro-modal__title');
-          return pill ? pill.textContent.trim() : 'Brochure';
-        }()),
-        page_url:      window.location.href,
+        form_type:  'Brochure Download',
+        from_name:  val('broFirst') + ' ' + val('broLast'),
+        from_email: val('broEmail'),
+        phone:      dialCode + ' ' + val('broPhone'),
+        page_url:   window.location.href,
+        details: buildDetails([
+          ['Document',    documentName],
+          ['Country',     val('broCountry')],
+          ['Company',     val('broCompany')],
+          ['Industry',    val('broIndustry')],
+          ['Job Title',   val('broJobTitle')]
+        ])
       };
 
       /* Fire-and-forget — UX handled by existing code */
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_BROCHURE, templateParams)
+      sendDual(templateParams)
         .catch(function (err) {
           console.error('[ATL EmailJS] Brochure form error:', err);
           /* Silent fail — user already sees success state from existing handler */
@@ -318,7 +362,7 @@
   /* ================================================================
      4. BUY / PRODUCT INQUIRY MODAL — #buyForm (index.html)
         Replaces the fake setTimeout with real EmailJS send.
-        Success state (#buySuccess) and modal auto-close are preserved.
+        Success state (#buyThankYou) and modal auto-close are preserved.
   ================================================================ */
   function wireBuyForm() {
     var form = document.getElementById('buyForm');
@@ -343,14 +387,19 @@
         bad = !v;
       }
       el.classList.toggle('is-invalid', bad);
-      var errEl = el.parentElement ? el.parentElement.querySelector('.cu-err') : null;
+      /* Error note sits in a sibling .rq-err, e.g. #errEmail / #errPhone */
+      var errEl = el.parentElement ? el.parentElement.querySelector('.rq-err') : null;
       if (errEl) errEl.style.display = bad ? 'block' : 'none';
       return !bad;
     }
 
     /* Re-wire live clear */
     form.querySelectorAll('input,select,textarea').forEach(function (el) {
-      el.addEventListener('input', function () { el.classList.remove('is-invalid'); });
+      el.addEventListener('input', function () {
+        el.classList.remove('is-invalid');
+        var errEl = el.parentElement ? el.parentElement.querySelector('.rq-err') : null;
+        if (errEl) errEl.style.display = 'none';
+      });
     });
 
     form.addEventListener('submit', function (e) {
@@ -361,35 +410,43 @@
       if (!ok) return;
 
       var sub = document.getElementById('buySubmit');
-      var suc = document.getElementById('buySuccess');
       setBtnState(sub, 'loading');
 
-      /* Get product name from modal heading if available */
-      var productNameEl = document.querySelector('#buyModal .atl-modal__title, #buyModal h5, #buyModal h4');
+      /* Real product name lives in the modal chip, not a heading */
+      var productNameEl = document.getElementById('mProductName');
       var productName = productNameEl ? productNameEl.textContent.trim() : 'Product Inquiry';
 
       var templateParams = {
-        form_type:    'Product Buy Inquiry',
-        from_name:    val('fFirst') + ' ' + val('fLast'),
-        from_email:   val('fEmail'),
-        phone:        val('fPhone'),
-        company:      val('fCompany'),
-        request_type: val('fType') || 'Not specified',
-        message:      val('fDetails') || '(no additional details)',
-        product_name: productName,
-        page_url:     window.location.href,
+        form_type:  'Product Buy Inquiry',
+        from_name:  val('fFirst') + ' ' + val('fLast'),
+        from_email: val('fEmail'),
+        phone:      val('fPhone'),
+        page_url:   window.location.href,
+        details: buildDetails([
+          ['Product',       productName],
+          ['Company',       val('fCompany')],
+          ['Request Type',  val('fRequestType') || 'Not specified'],
+          ['Quantity',      val('fQty') || 'Not specified'],
+          ['Message',       val('fDetails') || '(no additional details)']
+        ])
       };
 
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_BUY, templateParams)
+      sendDual(templateParams)
         .then(function () {
           form.reset();
           reqs.forEach(function (el) { el.classList.remove('is-invalid'); });
           setBtnState(sub, 'reset', 'Submit Request');
 
-          /* Show existing success state + auto-close — untouched */
-          if (suc) suc.classList.add('show');
+          /* Swap the form panel for the existing thank-you panel */
+          var panel = document.getElementById('buyFormPanel');
+          var thanks = document.getElementById('buyThankYou');
+          if (panel) panel.style.display = 'none';
+          if (thanks) thanks.style.display = 'block';
+
           setTimeout(function () {
-            if (suc) suc.classList.remove('show');
+            /* Reset panels back for next time the modal opens */
+            if (panel) panel.style.display = '';
+            if (thanks) thanks.style.display = 'none';
             /* Close Bootstrap modal */
             var modalEl = document.getElementById('buyModal');
             if (modalEl && window.bootstrap) {
@@ -414,5 +471,3 @@
   }
 
 })();
-
- 

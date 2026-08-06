@@ -2917,9 +2917,7 @@ body { padding-top: 64px !important; }
   padding: 10px;
 }
 
-.sd-card-brochure[title="Download Brochure"] {
+.sd-card-brochure[title="Download Brochure"],.sd-card-brochure[title="Request Brochure"] {
   display: none !important;
 }
 
-
- 
