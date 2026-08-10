@@ -692,37 +692,45 @@
   <div class="container">
     <div class="row g-4 align-items-start">
       <div class="col-12 col-md-4">
-        <img src="images/avartanam-logo.webp" onerror="this.onerror=null;this.src='images/avartanam-logo.png';" alt="Avartanam Test Labs" class="atl-footer__logo-img atl-footer__logo-color" style="margin-bottom:.75rem;" loading="lazy">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <img src="images/avartanam-logo.webp" onerror="this.onerror=null;this.src='images/avartanam-logo.png';" alt="Avartanam Test Labs" class="atl-footer__logo-img atl-footer__logo-color" loading="lazy">
+        </div>
         <p class="atl-footer__desc">NABL-accredited RF, EMI-EMC, Electrical Safety and Environmental testing laboratory in Anand, Gujarat, India.</p>
       </div>
       <div class="col-6 col-md-2">
         <h6 class="atl-footer__heading">Navigate</h6>
         <ul class="atl-footer__list">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#home"     onclick="return navClick('home')">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services-page.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="col-6 col-md-3">
-        <h6 class="atl-footer__heading">Products</h6>
+        <h6 class="atl-footer__heading">Services</h6>
+        <ul class="atl-footer__list">
+          <li><a href="antenna-radiation-pattern.html">Radio Frequency Testing</a></li>
+          <li><a href="conducted-emission-testing.html">EMI / EMC Testing</a></li>
+          <li><a href="environmental-testing.html">Environmental Testing</a></li>
+          <li><a href="consultancy.html">Consultancy</a></li>
+        </ul>
+        <h6 class="atl-footer__heading mt-3">Products</h6>
         <ul class="atl-footer__list">
           <li><a href="products/afl001.html">RF Filter AFL0001</a></li>
           <li><a href="products/afl003.html">RF Filter AFL0003</a></li>
           <li><a href="products/coil-antenna.html">Coil Antenna</a></li>
-          <li><a href="products/flexible-antenna.html">Flexible Antenna</a></li>
         </ul>
       </div>
       <div class="col-12 col-md-3">
         <h6 class="atl-footer__heading">Contact</h6>
         <ul class="atl-footer__list">
           <li> <a href="tel:+916358365151">+91 63583 65151</a></li>
-          <li><a href="mailto:sales@avartanamlabs.com">sales@avartanamlabs.com</a></li>
+          <li><a href="mailto:sales@avartanamlabs.com">sales@avartanamlabs.com</a></li> 
           <li>Plot#32, Zone-D/4, Phase-1 GIDC Estate, V.U.Nagar, Anand, 388 121, Gujarat, India.</li>
         </ul>
         <div class="atl-footer__social" style="margin-top:1.25rem;display:flex;gap:8px;flex-wrap:wrap;">
-          <a href="https://www.facebook.com/avartanamlabs" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+          <a href="https://www.facebook.com/profile.php?id=61591104005955" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
           </a>
          <a href="https://www.instagram.com/avartanamtestlabs/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
@@ -742,6 +750,7 @@
     </div>
   </div>
 </footer>
+
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="products-data.js"></script>
