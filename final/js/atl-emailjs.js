@@ -54,10 +54,10 @@
   'use strict';
 
   /* ── ① CONFIGURE THESE VALUES ─────────────────────────── */
-  var EMAILJS_PUBLIC_KEY   = 'aNA95KuGQLa0gK375';   // Account → API Keys → Public Key
-  var EMAILJS_SERVICE_ID   = 'service_5evtjim';     // Email Services → Service ID
-  var EMAILJS_TEMPLATE_ADMIN = 'template_tdcdtb8';  // "Admin Notification" template ID
-  var EMAILJS_TEMPLATE_USER  = 'template_dabo1ob'; // "User Auto-Reply" template ID
+  var EMAILJS_PUBLIC_KEY   = 'KMVN3y1GgWGZ1f-k-';   // Account → API Keys → Public Key
+  var EMAILJS_SERVICE_ID   = 'service_jxnr95d';     // Email Services → Service ID
+  var EMAILJS_TEMPLATE_ADMIN = 'template_l8remxm';  // "Admin Notification" template ID
+  var EMAILJS_TEMPLATE_USER  = 'template_bwi3tbj'; // "User Auto-Reply" template ID
   /* ─────────────────────────────────────────────────────── */
 
   /* ── INIT ─────────────────────────────────────────────── */
