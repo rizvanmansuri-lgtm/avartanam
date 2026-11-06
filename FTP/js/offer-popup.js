@@ -2,9 +2,9 @@
    Edit CONFIG below to change image, link, delay or expiry. */
 (function () {
   var CONFIG = {
-    image: 'images/diwali-offer-202611051017.jpg',
-    link: 'https://wa.me/916358365151?text=' + encodeURIComponent('Hi, I want to book Antenna Gain & Measurement service with the Diwali 30% offer.'),
-    alt: 'Diwali Special Offer – 30% off Antenna Gain & Measurement Service',
+    image: 'images/diwali-offer.jpg',
+    link: 'https://wa.me/916358365151?text=' + encodeURIComponent('Hi, I want to book Antenna Gain & Measurement service with the Diwali offer.'),
+    alt: 'Diwali Special Offer –  Antenna Gain & Measurement Service',
     delay: 1000,                 // ms after page load
     expires: '2026-11-30T23:59:59+05:30', // offer stops showing after this
     storageKey: 'atlOfferPopupSeen'
