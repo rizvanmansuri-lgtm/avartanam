@@ -1,0 +1,192 @@
+<!-- ═══════════════════════════════════════════════════════
+     atl-forms.html — Avartanam Test Labs
+     Shared modal forms: Quote Request + Brochure Download
+     Loaded by atl-forms-loader.js into all pages
+════════════════════════════════════════════════════════ -->
+
+<!-- ══ Quote / Request Modal ═══════════════════════════ -->
+<div class="quote-overlay" id="quoteOverlay" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+  <div class="quote-modal" id="quoteModal">
+    <div class="quote-modal__head">
+      <h2 class="quote-modal__title" id="quoteModalTitle">Request a Quote</h2>
+      <div class="quote-modal__service-pill" id="quoteServicePill"><span>&#9679;</span> <span id="quoteServiceName">Testing Service</span></div>
+      <button class="quote-close" onclick="closeQuoteModal()" aria-label="Close">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="quote-modal__body">
+      <div class="quote-success" id="quoteSuccess" role="alert">
+        <div class="quote-success__icon">
+          <svg width="28" height="28" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="quote-success__title">Thank You!</div>
+        <div class="quote-success__sub">Our engineering team will connect with you soon.</div>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="qfFirst" type="text" placeholder="First Name *" required autocomplete="given-name">
+            <span class="qf-err" id="errFirst">Please enter your first name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="qfLast" type="text" placeholder="Last Name *" required autocomplete="family-name">
+            <span class="qf-err" id="errLast">Please enter your last name.</span>
+          </div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="qfEmail" type="email" placeholder="Email *" required autocomplete="email">
+            <span class="qf-err" id="errEmail">Please enter a valid email address.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="qfPhone" type="tel" placeholder="Phone * e.g. +91 98765 43210" autocomplete="tel" required>
+            <span class="qf-err" id="errPhone">Please enter a valid phone number.</span>
+          </div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <input class="qf-input" id="qfCompany" type="text" placeholder="Company / Organisation *" required autocomplete="organization">
+            <span class="qf-err" id="errCompany">Please enter your company name.</span>
+          </div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group">
+            <select class="qf-select" id="qfType">
+              <option value="" disabled selected>Request Type</option>
+              <option value="quote">Request Quote</option>
+              <option value="sample">Sample Testing</option>
+              <option value="schedule">Schedule Lab Visit</option>
+              <option value="precomp">Pre-compliance Consultation</option>
+              <option value="urgent">Urgent Testing</option>
+            </select>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="qfQty" type="text" placeholder="e.g. 1 Sample">
+          </div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <textarea class="qf-textarea" id="qfDetails" placeholder="Describe your product, testing urgency, and any special requirements..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="quote-submit" id="quoteSubmit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Brochure Download Modal ══════════════════════════ -->
+<div class="bro-overlay" id="broOverlay" role="dialog" aria-modal="true" aria-labelledby="broModalTitle">
+  <div class="bro-modal" id="broModal">
+    <div class="bro-modal__head">
+      <div class="bro-modal__badge">FREE DOWNLOAD</div>
+      <h2 class="bro-modal__title" id="broModalTitle">Download Document</h2>
+      <p class="bro-modal__sub">Fill in your details and we'll send the document instantly.</p>
+      <button class="bro-close" id="broClose" aria-label="Close modal">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="bro-modal__body">
+      <div class="bro-success" id="broSuccess" role="alert">
+        <div class="bro-success__icon">
+          <svg width="32" height="32" fill="none" stroke="#166534" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="bro-success__title">Thank You!</div>
+        <div class="bro-success__sub">Your document is on its way. Our team will contact you shortly.</div>
+      </div>
+      <form id="broForm" novalidate autocomplete="on">
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broFirst" type="text" placeholder="First Name *" required autocomplete="given-name">
+            <span class="qf-err" id="broErrFirst">Please enter your first name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broLast" type="text" placeholder="Last Name *" required autocomplete="family-name">
+            <span class="qf-err" id="broErrLast">Please enter your last name.</span>
+          </div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broEmail" type="email" placeholder="Business Email *" required autocomplete="email">
+            <span class="qf-err" id="broErrEmail">Please enter a valid business email.</span>
+          </div>
+          <div class="qf-group">
+            <div class="bro-phone-wrap">
+              <select class="bro-dial-select" id="broDialCode" aria-label="Country dial code">
+                <option value="+91" data-flag="&#127470;&#127475;">&#127470;&#127475; +91</option>
+                <option value="+1">&#127482;&#127480; +1</option>
+                <option value="+44">&#127468;&#127463; +44</option>
+                <option value="+971">&#127462;&#127466; +971</option>
+                <option value="+65">&#127480;&#127468; +65</option>
+                <option value="+49">&#127465;&#127466; +49</option>
+                <option value="+33">&#127467;&#127479; +33</option>
+                <option value="+81">&#127471;&#127477; +81</option>
+                <option value="+86">&#127464;&#127475; +86</option>
+                <option value="+61">&#127462;&#127482; +61</option>
+              </select>
+              <input class="bro-phone-input qf-input" id="broPhone" type="tel" placeholder="Phone Number *" required autocomplete="tel" maxlength="15" oninput="this.value=this.value.replace(/[^0-9\s\-\(\)]/g,'')">
+            </div>
+            <span class="qf-err" id="broErrPhone">Please enter a valid phone number.</span>
+          </div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broCountry" required>
+              <option value="" disabled selected>&#127760; Select Country *</option>
+              <option value="IN">&#127470;&#127475; India</option>
+              <option value="US">&#127482;&#127480; United States</option>
+              <option value="GB">&#127468;&#127463; United Kingdom</option>
+              <option value="AE">&#127462;&#127466; UAE</option>
+              <option value="SG">&#127480;&#127468; Singapore</option>
+              <option value="DE">&#127465;&#127466; Germany</option>
+              <option value="FR">&#127467;&#127479; France</option>
+              <option value="JP">&#127471;&#127477; Japan</option>
+              <option value="AU">&#127462;&#127482; Australia</option>
+              <option value="OTHER">&#127760; Other</option>
+            </select>
+            <span class="qf-err" id="broErrCountry">Please select your country.</span>
+          </div>
+        </div>
+        <div class="qf-row">
+          <div class="qf-group">
+            <input class="qf-input" id="broCompany" type="text" placeholder="Company / Organisation *" required autocomplete="organization">
+            <span class="qf-err" id="broErrCompany">Please enter your company name.</span>
+          </div>
+          <div class="qf-group">
+            <input class="qf-input" id="broState" type="text" placeholder="State / Province *" required autocomplete="address-level1">
+            <span class="qf-err" id="broErrState">Please enter your state.</span>
+          </div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <select class="qf-select" id="broIndustry" required>
+              <option value="" disabled selected>Select Industry *</option>
+              <option value="iot">IoT &amp; Smart Devices</option>
+              <option value="medical">Medical Devices &amp; Healthcare</option>
+              <option value="automotive">Automotive &amp; Telematics</option>
+              <option value="industrial">Industrial &amp; IIoT</option>
+              <option value="telecom">Telecom &amp; Networking OEM</option>
+              <option value="consumer">Consumer Electronics</option>
+              <option value="smart-metering">Smart Metering &amp; Energy</option>
+              <option value="defense">Defence &amp; Aerospace</option>
+              <option value="agriculture">Agriculture &amp; Rural IoT</option>
+              <option value="wearable">Wearables &amp; Hearables</option>
+              <option value="semiconductor">Semiconductor &amp; Chipset</option>
+              <option value="contract-mfg">Contract Manufacturing</option>
+              <option value="research">R&amp;D / Research Institution</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="qf-err" id="broErrIndustry">Please select your industry.</span>
+          </div>
+        </div>
+        <div class="qf-row qf-row--full">
+          <div class="qf-group">
+            <input class="qf-input" id="broJobTitle" type="text" placeholder="Job Title *" required>
+            <span class="qf-err" id="broErrJobTitle">Please enter your job title.</span>
+          </div>
+        </div>
+        <button type="submit" class="quote-submit" id="broSubmit" style="width:100%;margin-top:.5rem;">Download Document</button>
+      </form>
+    </div>
+  </div>
+</div>

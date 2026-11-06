@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+   <link rel="icon" type="image/svg+xml" href="favicon.jpg">
+   <link rel="apple-touch-icon" href="favicon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — Avartanam Test Labs.">
+  <meta name="robots" content="noindex, follow">
+  <title>Page Not Found | Avartanam Test Labs</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/atl-fonts.css">
+
+  <!-- ── Page CSS ─────────────────────────────────────────── -->
+  <link rel="stylesheet" href="css/atl-common.css">
+  <!-- ──────────────────────────────────────────────────────── -->
+</head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4C7F28GGSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4C7F28GGSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy2:#0A1F44;
+    --navy:#123B7A;
+    --navy3:#1B50A0;
+    --bg-0:#0A1F44;
+    --bg-1:#123B7A;
+    --panel:#0F2E5C;
+    --grid-line: rgba(255,255,255,0.08);
+    --grid-line-strong: rgba(255,255,255,0.14);
+    --trace: #ffb454;
+    --trace-glow: rgba(255,180,84,0.55);
+    --cyan: #6fd8ff;
+    --text-hi:#f4f8ff;
+    --text-mid:#b7c6e0;
+    --text-lo:#7c8fb5;
+    --hairline: rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+        background: #313185;
+    /* background: linear-gradient(135deg, var(--navy2) 0%, var(--navy) 60%, var(--navy3) 100%); */
+    color:var(--text-hi);
+    font-family: "Outfit", sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:24px;
+    overflow-x:hidden;
+  }
+  .wrap{
+    width:100%;
+    max-width:760px;
+  }
+  .card{
+    position:relative;
+        background: #313185;
+    /* background:linear-gradient(180deg, rgba(15,46,92,0.85), rgba(10,31,68,0.85)); */
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events:none;
+  }
+  .card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+    background-size: 140px 140px;
+    pointer-events:none;
+  }
+
+  .readout-bar{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 20px;
+    border-bottom:1px solid var(--hairline);
+    
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--text-lo);
+  }
+  .readout-bar span{color:var(--text-mid);}
+  .status-dot{
+    display:inline-block;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:#ff5d5d;
+    margin-right:6px;
+    box-shadow:0 0 8px #ff5d5d;
+    animation: blink 1.6s ease-in-out infinite;
+  }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+
+  .scope{
+    position:relative;
+    padding:36px 20px 8px;
+  }
+  .scope svg{ display:block; width:100%; height:auto; }
+
+  .trace-line{
+    fill:none;
+    stroke:var(--trace);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    filter: drop-shadow(0 0 6px var(--trace-glow));
+  }
+  .trace-line.dim{
+    stroke:var(--cyan);
+    stroke-width:1.4;
+    opacity:0.35;
+    filter:none;
+  }
+  .scanner{
+    fill:var(--trace);
+    filter: drop-shadow(0 0 6px var(--trace-glow));
+  }
+  .center-line{
+    stroke: var(--grid-line-strong);
+    stroke-width:1;
+    stroke-dasharray:2 4;
+  }
+
+  .code-row{
+    text-align:center;
+    margin-top:4px;
+  }
+  .code-404{
+     
+    font-weight:700;
+    font-size:clamp(52px, 12vw, 84px);
+    letter-spacing:0.02em;
+    line-height:1;
+    background:linear-gradient(180deg, var(--text-hi), var(--cyan));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin:0;
+  }
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:14px;
+    padding:5px 12px;
+    border:1px solid var(--hairline);
+    border-radius:999px;
+   
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--trace);
+    text-transform:uppercase;
+  }
+  .tag::before{
+    content:"";
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--trace);
+    box-shadow:0 0 8px var(--trace-glow);
+  }
+
+  .msg{
+    text-align:center;
+    padding: 22px 32px 6px;
+  }
+  .msg h1{
+    font-size:20px;
+    font-weight:600;
+    margin:0 0 10px;
+    color:var(--text-hi);
+  }
+  .msg p{
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--text-mid);
+    margin:0 auto;
+    max-width:440px;
+  }
+  .msg code{
+    
+    background:rgba(255,255,255,0.1);
+    padding:2px 6px;
+    border-radius:4px;
+    color:var(--cyan);
+    font-size:13px;
+  }
+
+  .actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding: 26px 24px 32px;
+  }
+  .btn{
+    
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:4px;
+    transition:all .15s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary{
+    background:var(--trace);
+    color:#1a1002;
+    font-weight:600;
+    box-shadow:0 0 0 1px rgba(255,180,84,0.4), 0 12px 24px -10px rgba(255,180,84,0.45);
+  }
+  .btn-primary:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+  .btn-secondary{
+    border:1px solid var(--hairline);
+    color:var(--text-mid);
+    background:transparent;
+  }
+  .btn-secondary:hover{ color:var(--text-hi); border-color:var(--cyan); }
+
+  .footer-strip{
+    border-top:1px solid var(--hairline);
+    padding:14px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    color:var(--text-lo);
+  }
+  .footer-strip a{ color:var(--text-lo); text-decoration:none; }
+  .footer-strip a:hover{ color:var(--cyan); }
+
+  @media (max-width: 480px){
+    .readout-bar{ font-size:9.5px; padding:12px 14px; }
+    .msg{ padding:18px 18px 4px; }
+    .footer-strip{ font-size:9px; text-align:center; justify-content:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .status-dot{ animation:none; }
+    #scanDot, #tracePath, #tracePathDim{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+    
+
+    <div class="scope">
+      <svg viewBox="0 0 640 160" preserveAspectRatio="none" aria-hidden="true">
+        <line class="center-line" x1="0" y1="80" x2="640" y2="80"></line>
+        <line class="center-line" x1="160" y1="0" x2="160" y2="160" opacity="0.5"></line>
+        <line class="center-line" x1="320" y1="0" x2="320" y2="160" opacity="0.5"></line>
+        <line class="center-line" x1="480" y1="0" x2="480" y2="160" opacity="0.5"></line>
+
+        <path class="trace-line dim" d="M0,80 L640,80" />
+
+        <path id="tracePath" class="trace-line"
+          d="M0,80 L60,80 L72,40 L80,120 L92,80 L160,80 L172,55 L180,105 L188,80 L320,80 L332,30 L340,130 L348,80 L480,80 L492,60 L500,100 L508,80 L640,80" />
+
+        <circle id="scanDot" class="scanner" r="3.5" cy="80" cx="0"></circle>
+      </svg>
+    </div>
+
+    <div class="code-row">
+      <p class="code-404">404</p>
+      <div class="tag">Signal Not Found</div>
+    </div>
+
+    <div class="msg">
+      <h1>This page didn't pass inspection.</h1>
+      <p>
+        The page you're looking for has moved, been renamed, or never
+        existed on this frequency. Check the URL, or head back to a
+        known-good reference point.
+      </p>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Return to Home</a>
+      <a class="btn btn-secondary" href="/services-page.html">Browse Services</a>
+      <a class="btn btn-secondary" href="/contact.html">Contact Us</a>
+    </div>
+
+    <div class="footer-strip">
+      <span>AVARTANAM TEST LABS</span>
+      <a href="/">avartanamlabs.com</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion) return;
+
+    var dot = document.getElementById('scanDot');
+    var path = document.getElementById('tracePath');
+    if(!dot || !path || !path.getTotalLength) return;
+
+    var len = path.getTotalLength();
+    var duration = 3200; // ms per pass
+    var start = null;
+
+    function frame(ts){
+      if(!start) start = ts;
+      var elapsed = (ts - start) % duration;
+      var progress = elapsed / duration;
+      var point = path.getPointAtLength(progress * len);
+      dot.setAttribute('cx', point.x);
+      dot.setAttribute('cy', point.y);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
+
+  <!-- ── Page JS ──────────────────────────────────────────── -->
+  <script src="js/atl-common.js"></script>
+  <!-- ──────────────────────────────────────────────────────── -->
+</body>
+</html>
